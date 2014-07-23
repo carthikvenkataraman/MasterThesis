@@ -348,7 +348,8 @@ void Combination::AssignTractiveForceAmongUnits() {
 			//std::cout<<"Tractive Force To Be Divided "<<tractiveForceToBeDivided<<" less than max. traction "<<maximumTractionAtGivenSpeed<<" N"<<std::endl;
 
 			// What is the traction produced by the tractor unit if the engine runs at its best efficiency point?
-			double tractorTractionAtEngineOptimumSpeed = GetTractorTractionAtEngineOptimumOperatingPoint();
+			auto engine = unitsInCombination[0]->axlesInUnit[1]->machineForAxle; // Rear axle
+			double tractorTractionAtEngineOptimumSpeed = GetTractorTraction(engine->bestOperatingRPM, engine->bestOperatingTorque);
 
 			// What is the remaining traction that the trailing units will have to deliver?
 			double tractionRequestedFromTrailingUnits, tractionRequestedFromTractor;
@@ -411,7 +412,21 @@ void Combination::AssignTractiveForceAmongUnits() {
 					if(unitsInCombination[i]->bufferInUnit!=nullptr) {
 						unitsInCombination[i]->RunUnit(0);
 					}
-				}
+				}//*/
+				//--------------------------------------------------------------------------------------	
+				// ALTERNATE WAY OF HANDLING POWER REQUIREMENTS LOWER THAN OPTIMUM ENGINE POWER	
+				//--------------------------------------------------------------------------------------	
+				/*double tractorTractionAtEngineIdlingSpeed = GetTractorTractionAtEngineIdlingSpeed();
+				unitsInCombination[0]->RunUnit(tractionRequestedFromTractor); 
+				//std::cout<<'\n'<<"Find distribution ratios for splitting remaining traction among trailing units"<<std::endl;
+				SetTractionDistributionRatios();
+				for(int i=1;i<unitsInCombination.size();i++) {
+					if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+						double assignedUnitTraction = 
+									unitsInCombination[i]->tractionDistributionRatio*tractionFromTrailingUnits;
+						unitsInCombination[i]->RunUnit(assignedUnitTraction);
+					}
+				}//*/
 				operatingModeOverMission.push_back(3);
 			}
 
@@ -548,7 +563,7 @@ void Combination::SetRegenerationDistributionRatios() {
 	}
 }
 
-double Combination::GetTractorTractionAtEngineOptimumOperatingPoint() {
+double Combination::GetTractorTraction(double engineRPM, double engineTorque) {
 	//std::cout<<std::endl<<"Calculating tractor traction if engine is run at its optimum operating point"<<std::endl;
 	std::shared_ptr<Axle> currentAxle = unitsInCombination[0]->axlesInUnit[1]; // Rear axle
 	auto engine = currentAxle->machineForAxle;
@@ -556,14 +571,14 @@ double Combination::GetTractorTractionAtEngineOptimumOperatingPoint() {
 
 	double requiredTransmissionRatio;
 	//std::cout<<"RPM at Differential is "<<currentAxle->RPMToAxleDifferential<<" RPM"<<std::endl;
-	// IMPORTANT CHECK BELOW!!!
+	// IMPORTANT CHECK BELOW!!!c
 	if(currentAxle->RPMToAxleDifferential!=0) { 
 	// This makes sense if the combination already has a speed. Then compared to the engine optimum speed,
 	// we can calculate the transmission ratio that will yield the right rpm at the axle differential.
 	// But, if the combination speed is zero, no specific gear ratio is required. We can thus say that, at standstill,
 	// while the engine may operate at its optimum point, the transmission ratio is set to the highest possible 
 	// to get the highest traction.		
-		requiredTransmissionRatio = engine->bestOperatingRPM/currentAxle->RPMToAxleDifferential;
+		requiredTransmissionRatio = engineRPM/currentAxle->RPMToAxleDifferential;
 		// What if the required transmission ratio is too high or too low? Beyond the range of the gearbox?
 
 	} else{ // If at standstill, find the traction got at lowest gear and engine optimum operating point
@@ -571,19 +586,19 @@ double Combination::GetTractorTractionAtEngineOptimumOperatingPoint() {
 		requiredTransmissionRatio =transmission->gearRatios[0];
 	}
 	//std::cout<<"Transmission ratio required "<<requiredTransmissionRatio<<std::endl;
-	engine->gearIndexForOptimumBSFC=0;
-	while(engine->gearIndexForOptimumBSFC<transmission->gearRatios.size() && 
-				requiredTransmissionRatio<=transmission->gearRatios[engine->gearIndexForOptimumBSFC]){
+	engine->gearIndexAtGivenSpeed=0;
+	while(engine->gearIndexAtGivenSpeed<transmission->gearRatios.size() && 
+				requiredTransmissionRatio<=transmission->gearRatios[engine->gearIndexAtGivenSpeed]){
 		// If required ratio is permanently lower than the lowest, it will enter an infinite loop - OVERDRIVE!!!
-		engine->gearIndexForOptimumBSFC++;
+		engine->gearIndexAtGivenSpeed++;
 	}
 	// If the required trans. ratio is too high, gearIndexForOptBSFC will remain at 0 since the while loop won't be entered.
-	if(engine->gearIndexForOptimumBSFC!=0) { 
-		engine->gearIndexForOptimumBSFC--;
+	if(engine->gearIndexAtGivenSpeed!=0) { 
+		engine->gearIndexAtGivenSpeed--;
 	}
-	/*std::cout<<"Gear index at optimum BSFC "<<engine->gearIndexForOptimumBSFC<<std::endl;
+	/*std::cout<<"Gear index at optimum BSFC "<<engine->gearIndexAtGivenSpeed<<std::endl;
 	std::cout<<"Best engine operating torque "<<engine->bestOperatingTorque<<" Nm"<<std::endl;//*/
-	double torqueAtEachAxleDifferential = transmission->GetOutputTorque(engine->bestOperatingTorque, engine->gearIndexForOptimumBSFC)/2;
+	double torqueAtEachAxleDifferential = transmission->GetOutputTorque(engineTorque, engine->gearIndexAtGivenSpeed)/2;
 	//std::cout<<"Optimum torque at each axle differential "<<torqueAtEachAxleDifferential<<std::endl;
 	// Note: The actual engine rpm is NOT best operating rpm since gear ratio is not exactly what is required.
 	// Hence, the output torque at this altered rpm is NOT the engine's optimum operating torque.

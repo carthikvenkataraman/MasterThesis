@@ -50,10 +50,10 @@ class Machine {
     double maximumInstantaneousRegenerationPowertrainTorque; // After transmission
     int gearNumberAtMaximumTorque, gearNumberAtMaximumRegenerativeTorque;
 
-    double bestOperatingTorque;
-    double bestOperatingRPM;
+    double bestOperatingTorque, idlingTorque;
+    double bestOperatingRPM, idlingRPM;
     double bestOperatingBSFC;
-    int gearIndexForOptimumBSFC;
+    int gearIndexAtGivenSpeed;
 
     double machineRPM, machineTorque, machineOperatingEfficiency;
     std::vector<double> machineRPMOverMission, machineTorqueOverMission, machineEfficiencyOverMission, gearIndexOverMission;

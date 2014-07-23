@@ -107,7 +107,7 @@ class Combination { // Access control pending
 
 	void GetEquivalentMassDueToInertia();
 	void GetMaximumGripLimitedTraction();
-	double GetTractorTractionAtEngineOptimumOperatingPoint();
+	double GetTractorTraction(double , double );
 	void SetTractionDistributionRatios();
 	void SetRegenerationDistributionRatios();
 	void AssignAxleTractionDistributionRatios();

@@ -7,7 +7,7 @@ clc
 % Constant combination - 011-010-01-010, D13, GCW 70t
 % Buffer SoC limits affects fuel consumption and charge consumption
 
-fileNumber = [175,176,177,178];
+fileNumber = [175,176,177];
 bufferSize=['SoC limit 1', 'SoC limit 2', 'SoC limit 3'];
 
 %% Load simulation output files
