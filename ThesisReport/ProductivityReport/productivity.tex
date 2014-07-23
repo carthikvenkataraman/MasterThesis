@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\usepackage{eurosym}
+
+\begin{document}
+
+\centerline{\sc \large Highway to Ghent}
+\centerline{Mr.Newton}
+
+\section{Problem Formulation}
+
+Length of Highway, L = 300 km\\
+No. of passengers, P = 1000\\
+No. of bike lanes = $N_{bike}$\\
+No. of car lanes = $N_{car}$\\
+Speed of cars = $V_{car}$\\
+Speed of bikes = $V_{bike}$\\
+Distance between 2 vehicles = $D_{Delay, car/bike} = V_{car/bike} \times T_{Delay, car/bike}$\\
+where $T_{Delay, car/bike}$ = Delay time between two vehicles on any lane\\
+
+Therefore the optimisation problem is formulated as:\\
+
+Minimise
+\begin{equation}
+PP+T
+\end{equation}
+where,
+\begin{equation}
+PP = 5000L_C + 2000L_B + 300V_C + 90V_B + 1000(50-D_C) + 800(50-D_B)
+\end{equation}
+and
+\begin{equation}
+T = 300000(\frac{N_C}{V_C}+\frac{N_B}{V_B})+\frac{D_C.N_C}{V_C.L_C}+\frac{D_B.N_B}{V_B.L_B}
+
+subject to\\
+\begin{equation}
+5N_C + N_B = 1000
+\end{equation}
+\begin{equation}
+V_C, D_C, N_C, L_C, V_B, D_B, N_B, L_B \in Z
+\end{equation}
+
+\section{Results}
+
+Car speed: 15 m/s\\
+Bike speed: NA\\
+Delay between cars: 147\\
+Delay between bikes: 1\\
+Number of car lanes: 1 ??\\
+Number of bike lanes: 0\\
+Number of cars: 200\\
+Number of bikes: 0\\
+
+\section{Quickly and safe}
+\begin{itemize}
+\item For safety, all the cars track the ones in front using LIDARs. They also communicate with a cloud manager to report crashes. 
+\item In case of accidents, parallel lanes should open up to divert traffic and allow ambulance traffic. 
+\item Model predictive control to allow traffic management to prevent clogs in vehicle density, smart traffic signals and traffic signal times based on load and kind of vehicle (truck / bike etc) will further streamline highway traffic. 
+\item Also, provision of wind deflectors to optimise fuel efficiency and easy movement for vehicles by reduction of vehicular drag will add optimal transport productivity.
+\item Common routes reported by travellers to same cities can be used to schedule caravans and commonise lanes to avoid accidents, lane changes etc that are common causes of delays and unsafe movement.
+
+\end{itemize}
+
+\end{document}
