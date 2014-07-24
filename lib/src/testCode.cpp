@@ -5,7 +5,7 @@ typedef std::vector<Genes> UnitGene;
 typedef std::vector<UnitGene> Individual;
 
 int main() {
-  Genes machineGenes0{0,0,1};
+  Genes machineGenes0{0,1,0};
   Genes bufferGenes0{0,0,1};
   Genes axleGenes0{0,1,1};
   UnitGene unitGenes0{machineGenes0, bufferGenes0, axleGenes0};
