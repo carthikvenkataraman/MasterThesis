@@ -361,17 +361,18 @@ void Combination::AssignTractiveForceAmongUnits() {
 			tractionRequestedFromTrailingUnits = tractiveForceToBeDivided-tractionRequestedFromTractor;
 			//std::cout<<"tractionRequestedFromTrailingUnits "<<tractionRequestedFromTrailingUnits<<std::endl;
 
+			// Can motors provide this?
+			maximumTractionFromTrailingUnits=0;
+			for(int i=1;i<unitsInCombination.size();i++){
+					//std::cout<<"Unit "<<i<<"'s max inst. traction"<<unitsInCombination[i]->maximumInstantaneousTractiveForce<<std::endl;
+					maximumTractionFromTrailingUnits+=unitsInCombination[i]->maximumInstantaneousTractiveForce;
+					//std::cout<<"Max traction from trailing units (intermediate)" <<maximumTractionFromTrailingUnits<<std::endl; 
+			}
+			//std::cout<<"maximumTractionFromTrailingUnits "<<maximumTractionFromTrailingUnits<<std::endl<<'\n';
+
 			if(tractionRequestedFromTrailingUnits>=0) { //tractiveForceToBeDivided > tractionRequestedFromTractor
 				//std::cout<<"TRACTION IS DEMANDED FROM TRAILING UNITS!!!"<<std::endl;
-				// Can motors provide this?
-				maximumTractionFromTrailingUnits=0;
-				for(int i=1;i<unitsInCombination.size();i++){
-						//std::cout<<"Unit "<<i<<"'s max inst. traction"<<unitsInCombination[i]->maximumInstantaneousTractiveForce<<std::endl;
-						maximumTractionFromTrailingUnits+=unitsInCombination[i]->maximumInstantaneousTractiveForce;
-						//std::cout<<"Max traction from trailing units (intermediate)" <<maximumTractionFromTrailingUnits<<std::endl; 
-				}
-				//std::cout<<"maximumTractionFromTrailingUnits "<<maximumTractionFromTrailingUnits<<std::endl<<'\n';
-
+				
 				if(tractionRequestedFromTrailingUnits <= maximumTractionFromTrailingUnits) {
 					//std::cout<<"Demanded traction from trailing units can be provided by motors!"<<std::endl<<'\n';
 					// Run engine at optimum speed & divide the required remaining power among the trailing Units
@@ -407,27 +408,52 @@ void Combination::AssignTractiveForceAmongUnits() {
 				}
 			} else { //tractiveForceToBeDivided < tractorTractionAtEngineOptimumSpeed 
 				//std::cout<<"POWER REQUIRED LESS THAN OPTIMUM ENGINE OPERATING POWER"<<std::endl;
-				unitsInCombination[0]->RunUnit(tractiveForceToBeDivided);
+				/*unitsInCombination[0]->RunUnit(tractiveForceToBeDivided);
 				for(int i=1;i<unitsInCombination.size();i++) {
 					if(unitsInCombination[i]->bufferInUnit!=nullptr) {
 						unitsInCombination[i]->RunUnit(0);
 					}
-				}//*/
+				}
+				operatingModeOverMission.push_back(3);//*/
 				//--------------------------------------------------------------------------------------	
 				// ALTERNATE WAY OF HANDLING POWER REQUIREMENTS LOWER THAN OPTIMUM ENGINE POWER	
 				//--------------------------------------------------------------------------------------	
-				/*double tractorTractionAtEngineIdlingSpeed = GetTractorTractionAtEngineIdlingSpeed();
-				unitsInCombination[0]->RunUnit(tractionRequestedFromTractor); 
-				//std::cout<<'\n'<<"Find distribution ratios for splitting remaining traction among trailing units"<<std::endl;
-				SetTractionDistributionRatios();
-				for(int i=1;i<unitsInCombination.size();i++) {
-					if(unitsInCombination[i]->bufferInUnit!=nullptr) {
-						double assignedUnitTraction = 
-									unitsInCombination[i]->tractionDistributionRatio*tractionFromTrailingUnits;
-						unitsInCombination[i]->RunUnit(assignedUnitTraction);
+				auto engine = unitsInCombination[0]->axlesInUnit[1]->machineForAxle; // Rear axle
+				double tractorTractionAtEngineIdlingSpeed = GetTractorTraction(engine->idlingRPM, engine->idlingTorque);
+				double tractionFromTrailingUnits;
+				tractionFromTrailingUnits=tractiveForceToBeDivided-tractorTractionAtEngineIdlingSpeed;
+				if(tractionFromTrailingUnits>0) {
+					if(tractionFromTrailingUnits <= maximumTractionFromTrailingUnits) {
+						unitsInCombination[0]->RunUnit(tractorTractionAtEngineIdlingSpeed); 
+						SetTractionDistributionRatios();
+						for(int i=1;i<unitsInCombination.size();i++) {
+							if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+								double assignedUnitTraction = 
+										unitsInCombination[i]->tractionDistributionRatio*tractionFromTrailingUnits;
+								unitsInCombination[i]->RunUnit(assignedUnitTraction);
+							}
+						}
+						operatingModeOverMission.push_back(3);
+					} else {
+						for(int i=1;i<unitsInCombination.size();i++) {
+							if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+								double assignedUnitTraction = unitsInCombination[i]->maximumInstantaneousTractiveForce;
+								unitsInCombination[i]->RunUnit(assignedUnitTraction);
+							}
+						}
+						double tractionToBeDeliveredByTractor = tractiveForceToBeDivided-maximumTractionFromTrailingUnits;
+						unitsInCombination[0]->RunUnit(tractionToBeDeliveredByTractor);
+						operatingModeOverMission.push_back(4);
 					}
+				} else {
+					unitsInCombination[0]->RunUnit(tractiveForceToBeDivided);
+					for(int i=1;i<unitsInCombination.size();i++) {
+						if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+						unitsInCombination[i]->RunUnit(0);
+						}
+					}
+					operatingModeOverMission.push_back(5);
 				}//*/
-				operatingModeOverMission.push_back(3);
 			}
 
 		} else {
@@ -441,6 +467,8 @@ void Combination::AssignTractiveForceAmongUnits() {
 				}
 			}
 			operatingModeOverMission.push_back(4);
+			// USE THE FOLLOWING ONE IF YOU USE THE ALTERNATIVE ENERGY MANAGEMENT STRATEGY
+			//operatingModeOverMission.push_back(6);
 		}
 
 		// Calculate actual acceleration achieved

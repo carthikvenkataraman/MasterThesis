@@ -6,8 +6,8 @@ CombustionEngine::CombustionEngine(int currentUnitIndex, Genes machineGenes, std
 					
 	transmissionForMachine.reset(new MechanicalGearbox(currentUnitIndex));
 	SetEngineOptimumOperatingPoint();
-	idlingRPM=rpmRangeForMaximumBrakeTorque[0];
-	idlingTorque=machineMaximumBrakeTorque[0];
+	idlingRPM=rpmRangeForMaximumBrakeTorque[2];
+	idlingTorque=machineMaximumBrakeTorque[2];
 	//std::cout<<"best operating Torque: "<<bestOperatingTorque<<std::endl<<"best Operating RPM: "<<bestOperatingRPM<<std::endl;
 	//std::cout<<"Idling Torque: "<<idlingTorque<<std::endl<<"Idling RPM: "<<idlingRPM<<std::endl;
 	//std::cout<<"Engine created"<<std::endl;
