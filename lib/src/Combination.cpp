@@ -466,9 +466,9 @@ void Combination::AssignTractiveForceAmongUnits() {
 					currentUnit->RunUnit(currentUnit->maximumInstantaneousTractiveForce);
 				}
 			}
-			operatingModeOverMission.push_back(4);
+			//operatingModeOverMission.push_back(4);
 			// USE THE FOLLOWING ONE IF YOU USE THE ALTERNATIVE ENERGY MANAGEMENT STRATEGY
-			//operatingModeOverMission.push_back(6);
+			operatingModeOverMission.push_back(6);
 		}
 
 		// Calculate actual acceleration achieved
