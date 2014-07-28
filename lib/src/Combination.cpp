@@ -142,7 +142,7 @@ void Combination::RunMission() {
 		aerodynamicDragForceOverMission.push_back(aerodynamicDragForce);
 		//std::cout<<"aerodynamicDragForce "<<aerodynamicDragForce<<" N"<<std::endl;
 		// Only GCW used for rolling resistance force
-		rollingResistanceForce = rollingResistanceCoefficient*grossCombinationWeight*gravitationalAcceleration;
+		rollingResistanceForce = rollingResistanceCoefficient*grossCombinationWeight*gravitationalAcceleration*cos(instantaneousGradient);
 		rollingResistanceForceOverMission.push_back(rollingResistanceForce);
 		//std::cout<<"rollingResistanceForce "<<rollingResistanceForce<<" N"<<std::endl;
 		gradientResistanceForce = effectiveGrossCombinationWeight*gravitationalAcceleration*sin(instantaneousGradient);
