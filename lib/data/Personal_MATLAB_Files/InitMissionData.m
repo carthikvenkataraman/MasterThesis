@@ -11,26 +11,26 @@ longitudinalPosition=missionRouteData(:,2)';     % #2 m
 % save('MissionData.mat', 'longitudinalPosition', '-append');
 roadGradientInRadians=missionRouteData(:,3)';    % #3 rad
 % save('MissionData.mat', 'roadGradientInRadians', '-append');
-altitude(1)=0;
+elevation(1)=0;
 for i=2:size(roadGradientInRadians,2)
-    altitude(i)=longitudinalPosition(i)*sin(roadGradientInRadians(i-1))+altitude(i-1);
+    elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1); % (m)
 end
 
-for i=1:size(roadGradientInRadians,2)
-    if(roadGradientInRadians(i)<0 && roadGradientInRadians(i)>0.013)
-        SoCReference(i) = 0.5;
-    elseif(roadGradientInRadians(i)>0 && roadGradientInRadians(i)<0.013)
-        SoCReference(i) = 0.5;
-    elseif(roadGradientInRadians(i)>0.013 && roadGradientInRadians(i)<0.026)
-        SoCReference(i) = 0.4;
-    elseif(roadGradientInRadians(i)>0.026 && roadGradientInRadians(i)<0.039)
-        SoCReference(i) = 0.3;
-    elseif(roadGradientInRadians(i)>0.039 && roadGradientInRadians(i)<0.052)
-        SoCReference(i) = 0.2;
-    else
-        SoCReference(i) = 0.1;
-    end
-end
+% for i=1:size(roadGradientInRadians,2)
+%     if(roadGradientInRadians(i)<0 && roadGradientInRadians(i)>0.013)
+%         SoCReference(i) = 0.5;
+%     elseif(roadGradientInRadians(i)>0 && roadGradientInRadians(i)<0.013)
+%         SoCReference(i) = 0.5;
+%     elseif(roadGradientInRadians(i)>0.013 && roadGradientInRadians(i)<0.026)
+%         SoCReference(i) = 0.4;
+%     elseif(roadGradientInRadians(i)>0.026 && roadGradientInRadians(i)<0.039)
+%         SoCReference(i) = 0.3;
+%     elseif(roadGradientInRadians(i)>0.039 && roadGradientInRadians(i)<0.052)
+%         SoCReference(i) = 0.2;
+%     else
+%         SoCReference(i) = 0.1;
+%     end
+% end
 
 
 % %% Mission payload data
