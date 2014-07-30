@@ -32,18 +32,14 @@ etaRegen = 0.9;
 %% Find crests and troughs of mission
 
 [peaks, peakIndices] = findpeaks(elevation);%, 'MINPEAKDISTANCE', 10);
-% plot(elevation);
-% hold on, plot(peakIndices, elevation(peakIndices), 'r*');
-
 invElevation = 1.01*max(elevation)-elevation;
 [troughs, troughIndices]=findpeaks(invElevation);
 troughIndices = [1 troughIndices size(elevation,2)];
-% hold on, plot(troughIndices, elevation(troughIndices), 'gO');
 clear invElevation;
 
 peakIndicesToRemove=[];
 troughIndicesToRemove=[];
-for i=1:size(troughIndices,2)-1
+for i=1:size(troughIndices,2)-2
     heightDescent = elevation(peakIndices(i))-elevation(troughIndices(i+1));
     if(heightDescent < 10)
         peakIndicesToRemove=[peakIndicesToRemove peakIndices(i)];
@@ -51,7 +47,9 @@ for i=1:size(troughIndices,2)-1
     end
 end
 
-% hold on, plot(peakIndicesToRemove, elevation(peakIndicesToRemove), 'k*',troughIndicesToRemove, elevation(troughIndicesToRemove), 'k*');
+plot(elevation);
+hold on, plot(peakIndices, elevation(peakIndices), 'r*',troughIndices, elevation(troughIndices), 'gO');
+hold on, plot(peakIndicesToRemove, elevation(peakIndicesToRemove), 'k*',troughIndicesToRemove, elevation(troughIndicesToRemove), 'k*');
 
 for i=1:size(peakIndicesToRemove,2)
     peakIndices(peakIndices==peakIndicesToRemove(i))=[];
@@ -60,11 +58,15 @@ for i=1:size(troughIndicesToRemove,2)
     troughIndices(troughIndices==troughIndicesToRemove(i))=[];
 end
 
-% figure;
-% plot(elevation);
-% sortedIndices = sort([peakIndices troughIndices]);
-% hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
-% 
+if(troughIndices(end)~=size(elevation,2))
+    troughIndices = [troughIndices size(elevation,2)];
+end
+
+figure;
+plot(elevation);
+sortedIndices = sort([peakIndices troughIndices]);
+hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
+
 % figure;
 % plot(longitudinalPosition, elevation);
 % hold on, plot(longitudinalPosition(sortedIndices), elevation(sortedIndices), 'r-*');
@@ -87,18 +89,18 @@ end
 
 %% Calculate zeta_k for all k (minimum allowed SoC at each point along the mission)
 
-% The portion of the road between two consecutive troughs is called one section. 
-% In each section, the lowest allowed SoC (at that point, as calculated above) is assigned to the 'crest / peak'. 
-% The amount of recuperation energy is calculated using the average speed and average gradient between the 'peak' and the 'trough'. 
+% The portion of the road between two consecutive troughs is called one section.
+% In each section, the lowest allowed SoC (at that point, as calculated above) is assigned to the 'crest / peak'.
+% The amount of recuperation energy is calculated using the average speed and average gradient between the 'peak' and the 'trough'.
 % This recuperation energy is converted to an equivalent change in battery SoC, based on TOTAL available charge of all buffers put together.
 % The maximum 'minimum-allowed SoC' at the trough is thus fixed to zeta_top + delta(zeta)
 % Based on this range of zeta, all the points in this section are assigned zeta_k values, which correspond to the lowest allowed SoC at each x.
 
 %% Vehicle data
 A = 9.7;  % m2
-Cd = 0.6;    
+Cd = 0.6;
 rho = 1.184; % kg/m3
-Cr = 0.005;        
+Cr = 0.005;
 g = 9.81;       % m/s^2
 M = 68000;  % kg
 
@@ -111,7 +113,7 @@ for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
     forceOnVehicle = 0.5*Cd*rho*A*meanSpeed^2+Cr*M*g*cos(meanGradient)+M*g*sin(meanGradient);
     maxForce = -Pmax/(meanSpeed*etaRegen);
     regenForce = max(forceOnVehicle, maxForce);
-    if(regenForce<0) 
+    if(regenForce<0)
         E_recup = regenForce*etaRegen*delta_d;    % J
     else
         E_recup = 0;
@@ -120,4 +122,32 @@ for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
     if(zeta_max(i)>zeta_max_max)
         zeta_max(i) = zeta_max_max;
     end
+    
+    for j=troughIndices(i):troughIndices(i+1)
+        if(j<peakIndices(i))
+            ratio = (elevation(peakIndices(i))-elevation(j))/(elevation(peakIndices(i))-elevation(troughIndices(i)));
+        else
+            ratio = (elevation(peakIndices(i))-elevation(j))/(elevation(peakIndices(i))-elevation(troughIndices(i+1)));
+        end
+        
+        if(ratio>1)
+            ratio=1;
+%             disp('blah');
+%             ratio
+%             i
+%             j
+%             troughIndices(i)
+%             peakIndices(i)
+%             troughIndices(i+1)
+%             elevation(troughIndices(i))
+%             elevation(peakIndices(i))
+%             elevation(troughIndices(i+1))
+%             elevation(j)
+%             keyboard;
+        end
+        zeta(j)=zeta_min(peakIndices(i))+ratio*(zeta_max(i)-zeta_min(peakIndices(i)));
+    end
 end
+
+figure;
+plot(zeta);

@@ -1,5 +1,5 @@
 clear all
-close all
+% close all
 clc
 
 %% Mission route data
@@ -43,7 +43,7 @@ clear invElevation;
 
 peakIndicesToRemove=[];
 troughIndicesToRemove=[];
-for i=1:size(troughIndices,2)-1
+for i=1:size(troughIndices,2)-2
     heightDescent = elevation(peakIndices(i))-elevation(troughIndices(i+1));
     if(heightDescent < 10)
         peakIndicesToRemove=[peakIndicesToRemove peakIndices(i)];
@@ -58,6 +58,10 @@ for i=1:size(peakIndicesToRemove,2)
 end
 for i=1:size(troughIndicesToRemove,2)
     troughIndices(troughIndices==troughIndicesToRemove(i))=[];
+end
+
+if(troughIndices(end)~=size(elevation,2))
+    troughIndices = [troughIndices size(elevation,2)];
 end
 
 figure;
@@ -116,9 +120,28 @@ for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
     else
         E_recup = 0;
     end
-    delta_zeta = E_recup/(totalBufferCapacity*OCV);
-    zeta_max(i) = zeta_min(peakIndices(i))+delta_zeta;
+    zeta_max(i) = zeta_min(peakIndices(i))+E_recup/(totalBufferCapacity*OCV);
     if(zeta_max(i)>zeta_max_max)
         zeta_max(i) = zeta_max_max;
     end
+    
+    for j=troughIndices(i):troughIndices(i+1)
+        ratio = (elevation(peakIndices(i))-elevation(j))/delta_h;
+        if(ratio>1)
+            disp('blah');
+            peakIndices(i)
+            j
+            elevation(peakIndices(i))
+            elevation(j)
+            delta_h
+            keyboard;
+        end
+        zeta(j)=zeta_min(peakIndices(i))+ratio*(zeta_max(i)-zeta_min(peakIndices(i)));
+    end
 end
+
+figure;
+plot(zeta);
+figure;
+plot(elevation);
+hold on, plot(zeta_max, 'r*')
