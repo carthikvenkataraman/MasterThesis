@@ -64,8 +64,10 @@ void Buffer::LoadBuffer() {
   //std::cout<<"Min. buffer level "<<minimumBufferLevel<<std::endl;
   maximumStateOfBuffer = bufferData[2];
   //std::cout<<"Max. state of buffer "<<maximumStateOfBuffer<<std::endl;
-  minimumAllowedStateOfBuffer = bufferData[3];
-  //std::cout<<"Min. allowed state of buffer "<<minimumAllowedStateOfBuffer<<std::endl;
+  referenceStateOfBuffer = bufferData[3];
+  // A dummy reference is given to all buffers, Fuel Tanks and Batteries. For batteries,
+  // this value is updated eat each step. It remains constant for fuel tanks.
+  //std::cout<<"Min. allowed state of buffer "<<referenceStateOfBuffer<<std::endl;
   openCircuitVoltage = bufferData[4];
   //std::cout<<"openCircuitVoltage "<<openCircuitVoltage<<std::endl;
 
@@ -81,6 +83,10 @@ std::string Buffer::ReturnBufferName() {
    return completeBufferName;
 }
 
+void Buffer::UpdateReferenceSoC(double referenceSOC){
+  referenceStateOfBuffer=referenceSOC;
+}
+
 double Buffer::GetBufferAvailabilityRatio() {
   //std::cout<<"Inside GetBufferAvailabilityRatio()"<<std::endl;
   //std::cout<<"Test print inside GetBufferAvailabilityRatio(): "<<minimumBufferLevel<<std::endl;
@@ -91,8 +97,8 @@ double Buffer::GetBufferAvailabilityRatio() {
 
 void Buffer::UpdateBufferAvailabilityRatio() {
    GetStateOfBuffer();
-   bufferAvailabilityRatio = (stateOfBuffer-minimumAllowedStateOfBuffer)/
-                                 (maximumStateOfBuffer-minimumAllowedStateOfBuffer);
+   bufferAvailabilityRatio = (stateOfBuffer-referenceStateOfBuffer)/
+                                 (maximumStateOfBuffer-referenceStateOfBuffer);
 }
 
 void Buffer::GetStateOfBuffer() {

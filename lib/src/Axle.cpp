@@ -48,6 +48,7 @@ void Axle::UpdateAxleWheelSpeed(double instantaneousSpeed) {
 }
 
 double Axle::GetTractiveForceAtWheels(double torqueAtDifferential) {
+	//std::cout<<"axleFinalDriveRatio "<<axleFinalDriveRatio<<std::endl<<"axleTireRadius "<<axleTireRadius<<" m"<<std::endl;
 	tractiveForceAtWheels = torqueAtDifferential * axleFinalDriveRatio / axleTireRadius;
 	//std::cout<<"tractiveForceAtWheels corresponding to "<<torqueAtDifferential<<" Nm of torque at the differential is "<<tractiveForceAtWheels<<" N"<<std::endl;
 	return tractiveForceAtWheels;

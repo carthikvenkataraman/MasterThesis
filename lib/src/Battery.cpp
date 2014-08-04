@@ -11,8 +11,8 @@ void Battery::RunBuffer(double powerDemand, double operatingEfficiency) {
   instantaneousBufferDemand = powerDemand*timeInterval/(openCircuitVoltage*operatingEfficiency);
   //std::cout<<"instantaneousBufferDemand in Coulombs "<<instantaneousBufferDemand<<" Coulombs"<<std::endl; 
   instantaneousBufferLevel -= instantaneousBufferDemand;
-  if(instantaneousBufferLevel<minimumAllowedStateOfBuffer*maximumBufferLevel) { // While using energy, avoid going below min. charge
-  	instantaneousBufferLevel=minimumAllowedStateOfBuffer*maximumBufferLevel;
+  if(instantaneousBufferLevel<referenceStateOfBuffer*maximumBufferLevel) { // While using energy, avoid going below min. charge
+  	instantaneousBufferLevel=referenceStateOfBuffer*maximumBufferLevel;
   }
   if(instantaneousBufferLevel>maximumBufferLevel) { // Upon recharging, avoid exceeding max. charge
   	instantaneousBufferLevel=maximumBufferLevel;

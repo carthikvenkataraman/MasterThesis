@@ -130,7 +130,7 @@ void Machine::GetMaximumInstantaneousTorque() {
     double machineSpeed = possibleMachineSpeeds[i];
     //std::cout<<"machineSpeed "<<machineSpeed<<std::endl;
 
-    // IFF machine speed < max. possible machine RPM will it be 'possible'! Else, both the m/c speed & gear no. will be eliminated.
+    // IFF machine speed < max. possible machine RPM will it be 'permitted'! Else, both the m/c speed & gear no. will be eliminated.
     //std::cout<<"rpmRangeForMaximumBrakeTorque.back() "<<rpmRangeForMaximumBrakeTorque.back()<<" RPM"<<std::endl;
     if(machineSpeed<rpmRangeForMaximumBrakeTorque.back()) {
       maximumBrakeTorque = GetMaximumBrakeTorque(machineSpeed);  // Nm

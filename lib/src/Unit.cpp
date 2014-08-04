@@ -143,15 +143,18 @@ void Unit::GetMaximumTractivePower(double instantaneousSpeed) {
 
         //std::cout<<"permittedMachineSpeeds.size() "<<currentMachine->permittedMachineSpeeds.size()<<std::endl;
         if(bufferInUnit->GetBufferAvailabilityRatio()>0) { // IFF buffer is useable! Don't remove this. This is for calculating max. possible traction. Not for allocation.
+          //std::cout<<"Buffer is useable"<<std::endl;
           currentMachine->GetMaximumInstantaneousTorque();
         } else {
+          //std::cout<<"Buffer is not useable"<<std::endl;
           currentMachine->maximumInstantaneousMachinePower=0; // This is actually the power required to keep the m/c & trans. running without energy, inertial running. (-ve)
           currentMachine->maximumInstantaneousPowertrainTorque=0;
         }
 
         maximumInstantaneousPower += currentMachine->maximumInstantaneousMachinePower; // Max. power cumulative for all axles
         //std::cout<<"Machine "<<i<<"'s machineMaximumInstantaneousPower "<<currentMachine->maximumInstantaneousMachinePower<<std::endl;
-        double maximumTorqueAtAxleDifferential = currentMachine->maximumInstantaneousPowertrainTorque; 
+        double maximumTorqueAtAxleDifferential = currentMachine->maximumInstantaneousPowertrainTorque;
+        //std::cout<<"maximumTorqueAtAxleDifferential "<<maximumTorqueAtAxleDifferential<<" N"<<std::endl;
         double maximumTractionFromSingleAxle = currentAxle->GetTractiveForceAtWheels(maximumTorqueAtAxleDifferential);
         //std::cout<<"maximumTractionFromSingleAxle "<<maximumTractionFromSingleAxle<<std::endl;
         maximumInstantaneousTractiveForce += maximumTractionFromSingleAxle;

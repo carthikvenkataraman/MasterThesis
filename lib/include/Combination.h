@@ -25,7 +25,7 @@ class Combination { // Access control pending
 	std::vector<std::vector<double>> unitAxleLoads;
 	std::vector<double> targetSpeed, longitudinalPosition, roadGradientInRadians,
 		payloadDensity, ladenCGHeight, motorCost, powerElectronicsCost, bufferCost, mechanicalDriveCost,
-	    annuitPercentage, coefficientOfFriction, tireRadiusEachUnit;
+	    annuitPercentage, coefficientOfFriction, tireRadiusEachUnit, referenceSoC;
 
 	double gravitationalAcceleration, frontalArea, 
 				aerodynamicDragCoefficient, densityOfAir, grossCombinationWeight, rollingResistanceCoefficient;
@@ -56,6 +56,7 @@ class Combination { // Access control pending
 	double instantaneousLongitudinalPosition;
 	double instantaneousAltitude;
 	double instantaneousGradient;
+	double instantaneousReferenceSoC;
 	int currentPositionIndex;
 	double tractionLimitCount=0, powerLimitCount=0;
 	std::vector<double> operatingModeOverMission;

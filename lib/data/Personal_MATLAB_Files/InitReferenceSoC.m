@@ -1,5 +1,7 @@
-clear all
-close all
+function zeta = InitReferenceSoC()
+
+% clear all
+% close all
 clc
 
 %% Mission route data
@@ -87,6 +89,7 @@ for i=1:size(longitudinalPosition,2)
     zeta_min(i)=zeta_min_max-((zeta_min_max-zeta_min_min)*(longitudinalPosition(i)-x_min)/(x_max-x_min));
 end
 
+% clearvars x_max x_min zeta_min zeta_max zeta_max_max zeta_min_max zeta_min_min
 %% Calculate zeta_k for all k (minimum allowed SoC at each point along the mission)
 
 % The portion of the road between two consecutive troughs is called one section.
@@ -132,22 +135,31 @@ for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
         
         if(ratio>1)
             ratio=1;
-%             disp('blah');
-%             ratio
-%             i
-%             j
-%             troughIndices(i)
-%             peakIndices(i)
-%             troughIndices(i+1)
-%             elevation(troughIndices(i))
-%             elevation(peakIndices(i))
-%             elevation(troughIndices(i+1))
-%             elevation(j)
-%             keyboard;
+            %             disp('blah');
+            %             ratio
+            %             i
+            %             j
+            %             troughIndices(i)
+            %             peakIndices(i)
+            %             troughIndices(i+1)
+            %             elevation(troughIndices(i))
+            %             elevation(peakIndices(i))
+            %             elevation(troughIndices(i+1))
+            %             elevation(j)
+            %             keyboard;
         end
         zeta(j)=zeta_min(peakIndices(i))+ratio*(zeta_max(i)-zeta_min(peakIndices(i)));
     end
 end
 
+% clearvars rho delta_h meanSpeed meanGradient delta_d;
+% clearvars forceOnVehicle maxForce regenForce E_recup;
+% clearvars troughs troughIndices troughIndicesToRemove sortedIndices;
+
 figure;
 plot(zeta);
+
+clearvars -except zeta
+
+close all;
+clc

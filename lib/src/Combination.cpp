@@ -79,6 +79,8 @@ void Combination::AssignMissionData() {
 	axleInertia = missionData[32][0];
 	propShaftInertia = missionData[33][0];
 	clutchInertia = missionData[34][0];
+
+	referenceSoC = missionData[35];
 }
 
 void Combination::AssignUnitParameters() {
@@ -95,12 +97,12 @@ void Combination::AssignUnitParameters() {
 void Combination::CheckUnitParameters() {
 	for(int i=0;i<numberOfUnits;i++) {
 		std::shared_ptr<Unit> currentUnit = unitsInCombination[i];
-		std::cout<<currentUnit->unitTireRadius<<std::endl;
+		std::cout<<"Unit "<<i<<"'s tire radius "<<currentUnit->unitTireRadius<<std::endl;
 		for(int j=0;j<currentUnit->GetNumberOfAxles();j++) {
-			std::cout<<currentUnit->loadEachAxle[j]<<std::endl;
+			std::cout<<"Axle"<<j<<"'s  load"<<currentUnit->loadEachAxle[j]<<std::endl;
 		}
-		std::cout<<currentUnit->unitCoefficientOfFriction<<std::endl;
-		std::cout<<currentUnit->gravitationalAcceleration<<std::endl;
+		std::cout<<"Unit "<<i<<"'s friction coefficient "<<currentUnit->unitCoefficientOfFriction<<std::endl;
+		std::cout<<"G= "<<currentUnit->gravitationalAcceleration<<std::endl;
 	}
 }
 
@@ -131,8 +133,19 @@ void Combination::RunMission() {
 		instantaneousGradient = roadGradientInRadians[currentPositionIndex] ;
 		instantaneousTargetSpeed = targetSpeed[currentPositionIndex] + 
 						interpolationRatio*(targetSpeed[currentPositionIndex+1]-targetSpeed[currentPositionIndex]);
-		//std::cout<<"instantaneousTargetSpeed "<<instantaneousTargetSpeed<<" m/s"<<std::endl;
-		//std::cout<<"instantaneousSpeed "<<instantaneousSpeed<<" m/s"<<std::endl;
+		instantaneousReferenceSoC = referenceSoC[currentPositionIndex] + 
+						interpolationRatio*(referenceSoC[currentPositionIndex+1]-referenceSoC[currentPositionIndex]);
+		/*std::cout<<"instantaneousTargetSpeed "<<instantaneousTargetSpeed<<" m/s"<<std::endl;
+		std::cout<<"instantaneousSpeed "<<instantaneousSpeed<<" m/s"<<std::endl;
+		std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<" m"<<std::endl;
+		std::cout<<"instantaneousReferenceSoC "<<instantaneousReferenceSoC<<std::endl;//*/
+
+		// Assign Reference SoC to each buffer
+		for(int i=1;i<unitsInCombination.size();i++) {
+			if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+				unitsInCombination[i]->bufferInUnit->UpdateReferenceSoC(instantaneousReferenceSoC);
+			}
+		}
 
 		// Total Resistive Forces
 		GetEquivalentMassDueToInertia();
@@ -652,17 +665,17 @@ void Combination::GetInstantaneousTractiveForce() {
 void Combination::GetCombinationStartability() {
 	double startingSpeed = 0; // m/s
 	double startabilityTraction = GetMaximumTraction(startingSpeed);
-	std::cout<<"Max. combination traction "<<startabilityTraction<<" N"<<std::endl;
+	//std::cout<<"Max. combination traction "<<startabilityTraction<<" N"<<std::endl;
 	if(startabilityTraction>maximumGripLimitedTraction) {
-		std::cout<<"Max. combination traction "<<startabilityTraction
-									<<" N > maximumGripLimitedTraction"<<maximumGripLimitedTraction<<" N"<<std::endl;
+		//std::cout<<"Max. combination traction "<<startabilityTraction
+									//<<" N > maximumGripLimitedTraction"<<maximumGripLimitedTraction<<" N"<<std::endl;
 		startabilityTraction=maximumGripLimitedTraction;
 	}
 	GetEquivalentMassDueToInertia();
 	effectiveGrossCombinationWeight = grossCombinationWeight+equivalentMassDueToInertia;
 	double combinationStartabilityInRadians = asin(startabilityTraction/(effectiveGrossCombinationWeight*gravitationalAcceleration));
 	combinationStartability = combinationStartabilityInRadians*180/M_PI;
-	std::cout<<"Combination startability "<<combinationStartability<<" degrees"<<std::endl;
+	//std::cout<<"Combination startability "<<combinationStartability<<" degrees"<<std::endl;
 
 	for(int i=0;i<unitsInCombination.size();i++) {
 		if(unitsInCombination[i]->bufferInUnit!=nullptr) {
@@ -680,6 +693,10 @@ void Combination::GetCombinationStartability() {
 	// Clear machine values
 	for(int i=0;i<unitsInCombination.size();i++) {
 		if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+			// Here, assign the minimumAllowedStateOfBuffer value to each battery
+			if(i!=0) {
+				unitsInCombination[i]->bufferInUnit->UpdateReferenceSoC(referenceSoC[0]);
+			}
 			auto currentUnit = unitsInCombination[i];
 			for(int j=0;j<currentUnit->axlesInUnit.size();j++) {
 				if(currentUnit->axlesInUnit[j]->machineForAxle!=nullptr) {

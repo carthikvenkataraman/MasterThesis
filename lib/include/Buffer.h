@@ -27,7 +27,7 @@ class Buffer {
 
    public:
       double maximumBufferLevel, minimumBufferLevel, instantaneousBufferLevel;//, bufferCapacity; 
-      double minimumAllowedStateOfBuffer, maximumStateOfBuffer;         
+      double referenceStateOfBuffer, maximumStateOfBuffer;         
       double stateOfBuffer;
       double openCircuitVoltage;
       double instantaneousBufferDemand;
@@ -43,6 +43,7 @@ class Buffer {
       Buffer(int , std::vector<int> );
       void GetStateOfBuffer();
       double GetBufferAvailabilityRatio();
+      void UpdateReferenceSoC(double );
       std::string ReturnBufferName();
       virtual void RunBuffer(double , double );
       ~Buffer();
