@@ -3,11 +3,12 @@ close all
 clc
 
 % Influence of axle number
-fileNumber=[19,55,91,103,139,179];
+fileNumber=[7,14,23,32,35,44,53,56];
 % fileNumber=[3,15,51,87,99,135,178;...
 %             7,19,55,91,103,139,179;...
 %             11,23,59,95,107,143,180];
-engineSize=[11,13,16];
+engineSize=13;
+% engineSize=[11,13,16];
 
 %% Load simulation output files
 for i=1:size(fileNumber,1)   % Engine size - D11, D13 or D16
@@ -29,39 +30,6 @@ for i=1:size(fileNumber,1)   % Engine size - D11, D13 or D16
         extension='.mat';
         fullPath=strcat(path, fileNameNumber,fileName, extension);
         B0(i,j) = load(fullPath);
-    end
-end
-
-for i=1:size(fileNumber,1)
-    for j=1:size(fileNumber,2)  % Buffer size
-        path='Output/';
-        fileNameNumber = int2str(fileNumber(i,j));
-        fileName='/U1B';
-        extension='.mat';
-        fullPath=strcat(path, fileNameNumber,fileName, extension);
-        B1(i,j) = load(fullPath);
-    end
-end
-
-for i=1:size(fileNumber,1)
-    for j=1:size(fileNumber,2)  % Buffer size
-        path='Output/';
-        fileNameNumber = int2str(fileNumber(i,j));
-        fileName='/U2B';
-        extension='.mat';
-        fullPath=strcat(path, fileNameNumber,fileName, extension);
-        B2(i,j) = load(fullPath);
-    end
-end
-
-for i=1:size(fileNumber,1)
-    for j=1:size(fileNumber,2)  % Buffer size
-        path='Output/';
-        fileNameNumber = int2str(fileNumber(i,j));
-        fileName='/U3B';
-        extension='.mat';
-        fullPath=strcat(path, fileNameNumber,fileName, extension);
-        B3(i,j) = load(fullPath);
     end
 end
 

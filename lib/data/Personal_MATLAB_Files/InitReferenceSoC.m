@@ -25,8 +25,6 @@ for i=2:size(roadGradientInRadians,2)
     elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1);    % (m)
 end
 
-
-
 %% Buffer data
 
 numberOfBuffers=3;
@@ -74,8 +72,13 @@ end
 
 figure;
 plot(elevation);
+saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission','.pdf'));
+
+figure;
+plot(elevation);
 sortedIndices = sort([peakIndices troughIndices]);
 hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
+saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
 
 % figure;
 % plot(longitudinalPosition, elevation);
@@ -168,6 +171,7 @@ end
 figure('name', 'Reference SoC vs Position Index');
 plot(zeta);
 title('Minimum allowed SoC at each longitudinal position index');
+saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Reference SoC vs Position Index','.pdf'));
 
 clearvars -except zeta
 
