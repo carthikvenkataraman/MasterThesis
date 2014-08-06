@@ -1,8 +1,16 @@
 function zeta = InitReferenceSoC()
 
-% clear all
-% close all
+clear all
+close all
 clc
+
+%% Vehicle data
+A = 9.7;  % m2
+Cd = 0.6;
+rho = 1.184; % kg/m3
+Cr = 0.005;
+g = 9.81;       % m/s^2
+M = 68000;  % kg
 
 %% Mission route data
 
@@ -73,7 +81,8 @@ hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
 % plot(longitudinalPosition, elevation);
 % hold on, plot(longitudinalPosition(sortedIndices), elevation(sortedIndices), 'r-*');
 
-%% zeta_min,k definition
+%% To make minimum zeta linearly decreasing
+% zeta_min,k definition
 % Minimum allowed SoC level linearly decreases over the mission to simulate
 % a plug-in hybrid. At the beginning of the mission, the minimum allowed
 % SoC is 0.3 and at the end, the minimum allowed SoC is 0.15 in this case.
@@ -90,6 +99,7 @@ for i=1:size(longitudinalPosition,2)
 end
 
 % clearvars x_max x_min zeta_min zeta_max zeta_max_max zeta_min_max zeta_min_min
+
 %% Calculate zeta_k for all k (minimum allowed SoC at each point along the mission)
 
 % The portion of the road between two consecutive troughs is called one section.
@@ -99,15 +109,13 @@ end
 % The maximum 'minimum-allowed SoC' at the trough is thus fixed to zeta_top + delta(zeta)
 % Based on this range of zeta, all the points in this section are assigned zeta_k values, which correspond to the lowest allowed SoC at each x.
 
-%% Vehicle data
-A = 9.7;  % m2
-Cd = 0.6;
-rho = 1.184; % kg/m3
-Cr = 0.005;
-g = 9.81;       % m/s^2
-M = 68000;  % kg
+% The starting reference SoC must be the absolute minimum, zeta_min_min (say 0.15). 
+% For following troughs, the minimum SoC must be minimum SoC at the peak + delta_SoC.
+% delta_SoC is the maximum possible change in SoC due to regeneration. 
+% Hence the minimum SoC that can occur at the following trough is min SoC @ peak + delta_Soc
 
-
+% zeta_max(1) is the maximum min Soc at the 1st trough    
+% zeta_max(1) = zeta_min_min; 
 for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
     delta_h = elevation(peakIndices(i))-elevation(troughIndices(i+1));
     meanSpeed = mean(targetSpeed(peakIndices(i):troughIndices(i+1)));
@@ -121,6 +129,7 @@ for i=1:size(troughIndices,2)-1     % Each i marks the beginning of a section
     else
         E_recup = 0;
     end
+    % zeta_max(k) is the maximum min Soc at the 'k'th trough
     zeta_max(i) = zeta_min(peakIndices(i))+E_recup/(totalBufferCapacity*OCV);
     if(zeta_max(i)>zeta_max_max)
         zeta_max(i) = zeta_max_max;
@@ -156,10 +165,11 @@ end
 % clearvars forceOnVehicle maxForce regenForce E_recup;
 % clearvars troughs troughIndices troughIndicesToRemove sortedIndices;
 
-figure;
+figure('name', 'Reference SoC vs Position Index');
 plot(zeta);
+title('Minimum allowed SoC at each longitudinal position index');
 
 clearvars -except zeta
 
-close all;
+% close all;
 clc

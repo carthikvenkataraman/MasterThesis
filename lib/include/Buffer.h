@@ -36,6 +36,7 @@ class Buffer {
       double endOfStepPowerDemand;
       std::vector<double> bufferLevelOverMission, bufferPowerDemandOverMission;
       std::vector<double> bufferAvailabilityRatioOverMission, stateOfBufferOverMission;
+      std::vector<double> referenceSoCOverMission;
 
       double unitBatteryCost;
       double unitBatteryMass;

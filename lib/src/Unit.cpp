@@ -141,7 +141,6 @@ void Unit::GetMaximumTractivePower(double instantaneousSpeed) {
         currentAxle->UpdateAxleWheelSpeed(unitInstantaneousSpeed); // GetRpmBeforeAxleDifferential()
         currentMachine->GetPossibleMachineSpeeds(currentAxle->RPMToAxleDifferential);
 
-        //std::cout<<"permittedMachineSpeeds.size() "<<currentMachine->permittedMachineSpeeds.size()<<std::endl;
         if(bufferInUnit->GetBufferAvailabilityRatio()>0) { // IFF buffer is useable! Don't remove this. This is for calculating max. possible traction. Not for allocation.
           //std::cout<<"Buffer is useable"<<std::endl;
           currentMachine->GetMaximumInstantaneousTorque();

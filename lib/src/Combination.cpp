@@ -116,6 +116,7 @@ void Combination::PrintMissionDataEntry(std::vector<double>& missionDataEntry) {
 void Combination::RunMission() {
 	while(instantaneousLongitudinalPosition < longitudinalPosition.back()-1) {
 		//std::cout<<std::endl<<"STEP "<<testCount<<"---------------------------------------------------------------------------------------------"<<std::endl;
+		//std::cout<<std::endl<<"STEP "<<testCount<<std::endl;
 		// Calculate exact instantaneous position and gradient
 		double interpolationRatio;
 		for(int i=currentPositionIndex+1;i<=longitudinalPosition.size();i++) {
@@ -250,6 +251,7 @@ void Combination::RunMission() {
 			  bufferInUnit->bufferPowerDemandOverMission.push_back(bufferInUnit->endOfStepPowerDemand);
 			  bufferInUnit->bufferAvailabilityRatioOverMission.push_back(bufferInUnit->bufferAvailabilityRatio);
 			  bufferInUnit->stateOfBufferOverMission.push_back(bufferInUnit->stateOfBuffer);
+			  bufferInUnit->referenceSoCOverMission.push_back(bufferInUnit->referenceStateOfBuffer);
 			}
 		}
 	}
@@ -401,6 +403,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 						}
 					}
 					operatingModeOverMission.push_back(1);
+					//std::cout<<"Operating Mode: 1"<<'\n';
 				} else {
 					// Else, assign max. possible torque to all trailing units and assign remaining torque to tractor
 					/*std::cout<<"Trailing units cannot provide requested traction."<<std::endl;
@@ -418,6 +421,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 					unitsInCombination[0]->RunUnit(tractionToBeDeliveredByTractor);
 					//std::cout<<"Checking inst. tractive force of unit 1 "<<unitsInCombination[1]->instantaneousTractiveForce<<std::endl;
 					operatingModeOverMission.push_back(2);
+					//std::cout<<"Operating Mode: 2"<<'\n';
 				}
 			} else { //tractiveForceToBeDivided < tractorTractionAtEngineOptimumSpeed 
 				//std::cout<<"POWER REQUIRED LESS THAN OPTIMUM ENGINE OPERATING POWER"<<std::endl;
@@ -447,6 +451,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 							}
 						}
 						operatingModeOverMission.push_back(3);
+						//std::cout<<"Operating Mode: 3"<<'\n';
 					} else {
 						for(int i=1;i<unitsInCombination.size();i++) {
 							if(unitsInCombination[i]->bufferInUnit!=nullptr) {
@@ -457,6 +462,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 						double tractionToBeDeliveredByTractor = tractiveForceToBeDivided-maximumTractionFromTrailingUnits;
 						unitsInCombination[0]->RunUnit(tractionToBeDeliveredByTractor);
 						operatingModeOverMission.push_back(4);
+						//std::cout<<"Operating Mode: 4"<<'\n';
 					}
 				} else {
 					unitsInCombination[0]->RunUnit(tractiveForceToBeDivided);
@@ -466,6 +472,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 						}
 					}
 					operatingModeOverMission.push_back(5);
+					//std::cout<<"Operating Mode: 5"<<'\n';
 				}//*/
 			}
 
@@ -482,6 +489,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 			//operatingModeOverMission.push_back(4);
 			// USE THE FOLLOWING ONE IF YOU USE THE ALTERNATIVE ENERGY MANAGEMENT STRATEGY
 			operatingModeOverMission.push_back(6);
+			//std::cout<<"Operating Mode: 6"<<'\n';
 		}
 
 		// Calculate actual acceleration achieved
@@ -505,6 +513,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 					}
 				}
 				operatingModeOverMission.push_back(-1);
+				//std::cout<<"Operating Mode: -1"<<'\n';
 			} else {
 				//std::cout<<"Regenerative Force To Be Divided MORE than max. traction!! All units will provide max. regen. traction!!"<<std::endl;
 				for(int i=1;i<unitsInCombination.size();i++) {
@@ -515,10 +524,12 @@ void Combination::AssignTractiveForceAmongUnits() {
 					}
 				}
 				operatingModeOverMission.push_back(-2);
+				//std::cout<<"Operating Mode: -2"<<'\n';
 			}
 		} else {
 			//std::cout<<"Regeneration not possible. Service braking employed."<<std::endl;
 			operatingModeOverMission.push_back(0);
+			//std::cout<<"Operating Mode: 0"<<'\n';
 		} 
 
 		// Manually set deceleration to required value
@@ -972,6 +983,11 @@ void Combination::WriteBufferOutput(int unitIndex, std::shared_ptr<Buffer> buffe
 	dataSet = mxCreateDoubleMatrix(1,buffer->stateOfBufferOverMission.size(),mxREAL);
 	memcpy(mxGetPr(dataSet), buffer->stateOfBufferOverMission.data(), buffer->stateOfBufferOverMission.size()*sizeof(double));
 	matPutVariable(pmat, "stateOfBufferOverMission", dataSet);
+	mxDestroyArray(dataSet);
+
+	dataSet = mxCreateDoubleMatrix(1,buffer->referenceSoCOverMission.size(),mxREAL);
+	memcpy(mxGetPr(dataSet), buffer->referenceSoCOverMission.data(), buffer->referenceSoCOverMission.size()*sizeof(double));
+	matPutVariable(pmat, "referenceSoCOverMission", dataSet);
 	mxDestroyArray(dataSet);
 
 	matClose(pmat);

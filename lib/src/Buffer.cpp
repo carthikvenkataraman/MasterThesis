@@ -97,8 +97,23 @@ double Buffer::GetBufferAvailabilityRatio() {
 
 void Buffer::UpdateBufferAvailabilityRatio() {
    GetStateOfBuffer();
-   bufferAvailabilityRatio = (stateOfBuffer-referenceStateOfBuffer)/
+   if(stateOfBuffer>referenceStateOfBuffer && maximumStateOfBuffer!=referenceStateOfBuffer) {
+     bufferAvailabilityRatio = (stateOfBuffer-referenceStateOfBuffer)/
                                  (maximumStateOfBuffer-referenceStateOfBuffer);
+   } else {
+     bufferAvailabilityRatio = 0;
+   }
+
+   double numerator = stateOfBuffer-referenceStateOfBuffer;
+   double denominator = maximumStateOfBuffer-referenceStateOfBuffer;
+   /*std::cout<<"Buffer on unit "<<unitIndex<<'\n';
+   std::cout<<"stateOfBuffer "<<stateOfBuffer<<'\n'<<"referenceStateOfBuffer "<<referenceStateOfBuffer<<'\n'
+                                                                    <<"maximumStateOfBuffer "<<maximumStateOfBuffer<<'\n';
+   std::cout<<"Numerator = "<<numerator<<'\n'<<"Denominator = "<<denominator<<'\n';
+   std::cout<<"bufferAvailabilityRatio "<<bufferAvailabilityRatio<<'\n';
+   if(numerator<0 || denominator<0) {
+    std::cout<<"BAR possible negative"<<'\n';
+   }//*/
 }
 
 void Buffer::GetStateOfBuffer() {
