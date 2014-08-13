@@ -14,7 +14,7 @@ M = 68000;  % kg
 
 %% Mission route data
 
-missionRouteData = csvread('/home/karthik/Documents/GitHubRepos/MasterThesis/lib/data/MissionData.csv');
+missionRouteData = csvread('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.csv');
 targetSpeed=missionRouteData(:,1)';              % m/s
 longitudinalPosition=missionRouteData(:,2)';     % m
 roadGradientInRadians=missionRouteData(:,3)';    % rad
@@ -28,9 +28,9 @@ end
 %% Buffer data
 
 numberOfBuffers=3;
-buffer(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis/lib/data/Battery00.mat');
-buffer(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis/lib/data/Battery01.mat');
-buffer(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis/lib/data/Battery02.mat');
+buffer(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/Battery00.mat');
+buffer(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/Battery01.mat');
+buffer(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/Battery02.mat');
 bufferCapacity = [buffer(1).bufferData(1) buffer(2).bufferData(1) buffer(3).bufferData(1)];
 totalBufferCapacity = sum(bufferCapacity);
 OCV = 2.81;  % V
@@ -72,13 +72,13 @@ end
 
 figure;
 plot(elevation);
-saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission','.pdf'));
+% saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission','.pdf'));
 
 figure;
 plot(elevation);
 sortedIndices = sort([peakIndices troughIndices]);
 hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
-saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
+% saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
 
 % figure;
 % plot(longitudinalPosition, elevation);
@@ -171,7 +171,7 @@ end
 figure('name', 'Reference SoC vs Position Index');
 plot(zeta);
 title('Minimum allowed SoC at each longitudinal position index');
-saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Reference SoC vs Position Index','.pdf'));
+% saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Reference SoC vs Position Index','.pdf'));
 
 clearvars -except zeta
 
