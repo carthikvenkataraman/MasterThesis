@@ -96,7 +96,7 @@ for i=1:size(fileNumber,1)
                     '011-010-01-001','011-011-01-001','011-011-11-001','011-111-11-111','Location','Southwest');
     xlabel('Position over mission (m)');
     ylabel('Speed over mission (m/s)');
-%     saveas(gcf,strcat('Plots/',figureName,'.pdf'));
+    % saveas(gcf,strcat('Plots/',figureName,'.pdf'));
 end
 
 figureName=strcat('Mission speed vs position (constant GCW = 70t)'); % = ', int2str(gcw(i)), 't)');
@@ -112,7 +112,7 @@ for i=1:size(fileNumber,1)
                     '011-010-01-001','011-011-01-001','011-011-11-001','011-111-11-111','Location','Southwest');
     xlabel('Position over mission (m)');
     ylabel('Speed over mission (m/s)');
-%     saveas(gcf,strcat('Plots/',figureName,'.pdf'));
+    % saveas(gcf,strcat('Plots/',figureName,'.pdf'));
 end
 
 %% Clear unnecessary variables from workspace

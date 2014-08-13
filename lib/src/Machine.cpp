@@ -395,8 +395,8 @@ double Machine::GetMachineEfficiency(double machineSpeed, double machineTorque) 
   if(torqueIndex!=0) {
     torqueIndex--;
   }
-  //std::cout<<"RPM index "<<rpmIndex<<std::endl;
-  //std::cout<<"Torque index "<<torqueIndex<<std::endl;
+  /*std::cout<<"RPM index "<<rpmIndex<<std::endl;
+  std::cout<<"Torque index "<<torqueIndex<<std::endl;//*/
 
   machineEfficiency=machineEfficiencyData[torqueIndex][rpmIndex];
   if(machineTorque>0){
