@@ -114,7 +114,7 @@ void Combination::PrintMissionDataEntry(std::vector<double>& missionDataEntry) {
 }
 
 void Combination::RunMission() {
-	while(instantaneousLongitudinalPosition < longitudinalPosition.back()-1) {
+	while(instantaneousLongitudinalPosition < longitudinalPosition.back()-1 && instantaneousSpeed>=0) {
 		//std::cout<<std::endl<<"STEP "<<testCount<<"---------------------------------------------------------------------------------------------"<<std::endl;
 		//std::cout<<std::endl<<"STEP "<<testCount<<std::endl;
 		// Calculate exact instantaneous position and gradient
@@ -136,10 +136,10 @@ void Combination::RunMission() {
 						interpolationRatio*(targetSpeed[currentPositionIndex+1]-targetSpeed[currentPositionIndex]);
 		instantaneousReferenceSoC = referenceSoC[currentPositionIndex] + 
 						interpolationRatio*(referenceSoC[currentPositionIndex+1]-referenceSoC[currentPositionIndex]);
-		/*std::cout<<"instantaneousTargetSpeed "<<instantaneousTargetSpeed<<" m/s"<<std::endl;
-		std::cout<<"instantaneousSpeed "<<instantaneousSpeed<<" m/s"<<std::endl;
-		std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<" m"<<std::endl;
-		std::cout<<"instantaneousReferenceSoC "<<instantaneousReferenceSoC<<std::endl;//*/
+		/*std::cout<<"instantaneousTargetSpeed "<<instantaneousTargetSpeed<<" m/s"<<std::endl;//*/
+		/*std::cout<<"instantaneousSpeed "<<instantaneousSpeed<<" m/s"<<std::endl;//*/
+		/*std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<" m"<<std::endl;
+		/*std::cout<<"instantaneousReferenceSoC "<<instantaneousReferenceSoC<<std::endl;//*/
 
 		// Assign Reference SoC to each buffer
 		for(int i=1;i<unitsInCombination.size();i++) {

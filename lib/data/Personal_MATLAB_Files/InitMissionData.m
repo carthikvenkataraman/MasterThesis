@@ -5,8 +5,8 @@ clc
 %% Mission route data
 
 missionRouteData = csvread('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.csv');
-missionRouteData(1:10,3)=0;
-missionRouteData(11:end,3)=0.01;
+% missionRouteData(1:10,3)=0;
+% missionRouteData(11:end,3)=0.025;
 
 targetSpeed=missionRouteData(:,1)';              % #1 m/s
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'targetSpeed', '-append');
@@ -101,9 +101,9 @@ propShaftInertia = 2; % 34 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'propShaftInertia', '-append');
 clutchInertia = 3.8; % 35 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'clutchInertia', '-append');
-clear missionRouteData;
+% clear missionRouteData;
 
-zeta = InitReferenceSoC();
+zeta = InitReferenceSoC(targetSpeed, longitudinalPosition, roadGradientInRadians);
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'zeta', '-append'); % 36
 
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat');
