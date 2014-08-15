@@ -101,7 +101,7 @@ propShaftInertia = 2; % 34 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'propShaftInertia', '-append');
 clutchInertia = 3.8; % 35 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'clutchInertia', '-append');
-% clear missionRouteData;
+clear missionRouteData;
 
 zeta = InitReferenceSoC(targetSpeed, longitudinalPosition, roadGradientInRadians);
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.mat', 'zeta', '-append'); % 36

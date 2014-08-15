@@ -95,6 +95,10 @@ void Combination::AssignUnitParameters() {
 }
 
 void Combination::CheckUnitParameters() {
+	/*for(int i=0;i<longitudinalPosition.size();i++) {
+		std::cout<<longitudinalPosition[i]<<"	";
+	}//*/
+	std::cout<<std::endl;
 	for(int i=0;i<numberOfUnits;i++) {
 		std::shared_ptr<Unit> currentUnit = unitsInCombination[i];
 		std::cout<<"Unit "<<i<<"'s tire radius "<<currentUnit->unitTireRadius<<std::endl;

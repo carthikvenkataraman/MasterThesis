@@ -11,18 +11,18 @@ int main() {
   UnitGene unitGenes0{machineGenes0, bufferGenes0, axleGenes0};
 
   Genes machineGenes1{0,1,0};
-  Genes bufferGenes1{1,0,0};
-  Genes axleGenes1{1,1,1};
+  Genes bufferGenes1{0,0,1};
+  Genes axleGenes1{0,1,0};
   UnitGene unitGenes1{machineGenes1, bufferGenes1, axleGenes1};
 
   Genes machineGenes2{0,1,0};
   Genes bufferGenes2{1,0,0};
-  Genes axleGenes2{1,1};
+  Genes axleGenes2{0,0};
   UnitGene unitGenes2{machineGenes2, bufferGenes2, axleGenes2};
 
   Genes machineGenes3{0,1,0};
   Genes bufferGenes3{1,0,0};
-  Genes axleGenes3{1,1,1};
+  Genes axleGenes3{0,0,0};
   UnitGene unitGenes3{machineGenes3, bufferGenes3, axleGenes3};
 
   Individual individual{unitGenes0, unitGenes1, unitGenes2, unitGenes3};
@@ -56,4 +56,6 @@ void LoadMission(std::vector<std::vector<double>>& missionData) {
     missionData.push_back(missionDataEntry);
   }
   std::cout<<"Mission data successfully loaded"<<std::endl<<std::endl;
+  std::vector<double> longitudinalPosition = missionData[1];
+  std::cout<<"longitudinalPosition "<<longitudinalPosition[longitudinalPosition.size()]<<std::endl;
 }
