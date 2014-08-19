@@ -1,7 +1,7 @@
 function zeta = InitReferenceSoC(targetSpeed, longitudinalPosition, roadGradientInRadians)
 
 % clear all
-close all
+% % close all
 clc
 
 %% Vehicle data
