@@ -2,18 +2,16 @@ close all
 clear all
 clc
 
-% Effect of buffer size on mission performance
+%% Effect of buffer size on mission performance
+% D13, GCW 70t, Buffer size affects fuel consumption and charge consumption
 
-% Constant combination - 011-010-01-010, D13, GCW 70t
-% Buffer size affects fuel consumption and charge consumption
+combinationType = ['011-010-00-000', '011-010-00-010', '011-010-01-010','011-111-11-111'];
+bufferSize=['Battery 1', 'Battery 2', 'Battery 3'];
 
 fileNumber = [58 59 60; % 011-010-00-000
     61 62 63; % 011-010-00-010
     64 65 66; % 011-010-01-010
     67 68 69]';% 011-111-11-111
-
-combinationType = int2str(['011-010-00-000', '011-010-00-010', '011-010-01-010','011-111-11-111']);
-bufferSize=['Battery 1', 'Battery 2', 'Battery 3'];
 
 batteryVoltage = 2.4;   % Volts
 
@@ -113,7 +111,7 @@ fileNumber = [58 59 60; % 011-010-00-000
               67 68 69];% 011-111-11-111
 
 for i=1:size(fileNumber,1)  % No of combinations
-    figureName='Mission speed vs position (D13, GCW 70t)';
+    figureName=strcat('Mission speed vs position (D13, GCW 70t) ',combinationType(i));
     figure('name', figureName);
     for j=1:size(fileNumber,2) % No. of battery sizes
         plot(C(j,i).positionOverMission, C(j,i).speedOverMission);

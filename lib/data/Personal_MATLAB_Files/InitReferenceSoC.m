@@ -178,6 +178,12 @@ end
 % clearvars forceOnVehicle maxForce regenForce E_recup;
 % clearvars troughs troughIndices troughIndicesToRemove sortedIndices;
 
+% zeta(1:375)=0.3;
+% zeta(376:875)=0.4;
+% zeta(876:1575)=0.5;
+% zeta(1576:2100)=0.6;
+% zeta(2101:end)=0.3;
+
 figure('name', 'Reference SoC vs Position Index');
 plot(zeta);
 title('Minimum allowed SoC at each longitudinal position index');
