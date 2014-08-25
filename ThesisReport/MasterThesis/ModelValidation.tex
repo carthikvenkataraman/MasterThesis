@@ -19,7 +19,7 @@
 \chapter{Model Validation}
 
 \section{Introduction}
-This document presents the findings from the analysis of the longitudinal modeling of the long vehicle combination structure with additional electric propulsion on specific axles. The design variables, or model parameters, in this analysis include the following:
+The vehicle model described in the preceeding chapter was tested extensively and trends in vehicle performance parameters corresponding to specific variable parameters were sought as a means of validating the model and certifying it worthy of use in the optimisation solver. The findings from the analysis of the longitudinal modeling of the long vehicle combination structure with additional electric propulsion on specific axles are presented here. The design variables, or model parameters, in this analysis include the following:
 
 \begin{itemize} 
 \item Gross Combination Weight (GCW)
@@ -29,8 +29,6 @@ This document presents the findings from the analysis of the longitudinal modeli
 \item Electric buffer capacity and operating range
 \item Buffer State of Charge (SoC) management
 \end{itemize}
-
-The influence of each of the above model parameters on the vehicle operating parameters and performance coefficients is analysed to serve as an adequate model validation. Reasonable trends in the output parameters will yield confidence in the physical modelling of the long vehicle combination and qualify the model to be used in optimising the axle propulsion configuration using a genetic algorithm.\\
 
 Broadly listed, the output signals / parameters are as follows:
 
@@ -95,7 +93,13 @@ The mission selected for validation and optimisation is G\"oteborg-Malm\"o, span
 
 The engines used for simulating the tractive machine in the tractor are the D11K450 EU6, D13C540 EU5 and D16G750 EU5 Volvo engines. The electric motors used are of ratings 120kW \& 230Nm, 173kW \& 411Nm and  180kW \& 420Nm. The electric buffers used on each unit are of capacities 4976640, 6272640 and 5987500 Coulombs.\\
 
-The simulation whose results are dealt with below involved a constant target speed of 80kmph throughout the mission. Also, individual buffers were assigned constant depths of discharge in this preliminary exercise.
+The simulation whose results are dealt with below involved a constant target speed of 80kmph throughout the mission. Three different energy management strategies were employed in the validation and the optimal strategy was chosen to be used in the optimisation. 
+
+\begin{itemize}
+\item Constant depth of discharge
+\item Non-predictive pre-set varying depths of discharge along the mission
+\item Fully predictive preset varying depths of discharge
+\end{itemize}
 
 \section{Results and discussion}
 Results are presented in subsections, each pertaining to a specific model parameter's role in the vehicle performance. For example, the effect of increasing gross combination weight keeping the axle propulsion configuration and engine size constant is discussed in a single subsection. All variations and ramifications of the single parameter in this context shall be covered in the same section.
