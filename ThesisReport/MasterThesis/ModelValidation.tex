@@ -1,20 +1,22 @@
-\documentclass{article}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage[margin=1.3in]{geometry}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
+\documentclass[ExampleMasters.tex]{subfiles}
+%\usepackage{amsmath}
+%\usepackage{graphicx}
+%\usepackage[margin=1.3in]{geometry}
+%\usepackage{float}
+%\usepackage{caption}
+%\usepackage{subcaption}
 
 
 \begin{document}
 
-\centerline{\sc \large Long combinations with additional electric propulsion}
-\vspace{.5pc}
-\centerline{\sc Model validation results}
-\centerline{Karthik Venkataraman, 880128-T539}
+%\centerline{\sc \large Long combinations with additional electric propulsion}
+%\vspace{.5pc}
+%\centerline{\sc Model validation results}
+%\centerline{Karthik Venkataraman, 880128-T539}
 
 %\listoffigures
+
+\chapter{Model Validation}
 
 \section{Introduction}
 This document presents the findings from the analysis of the longitudinal modeling of the long vehicle combination structure with additional electric propulsion on specific axles. The design variables, or model parameters, in this analysis include the following:
@@ -86,7 +88,7 @@ The mission selected for validation and optimisation is G\"oteborg-Malm\"o, span
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=80mm, clip=true, trim=45 185 65 208]{Figures/roadGradient.pdf}
+\includegraphics[width=80mm, clip=true, trim=45 185 65 208]{figures/ModelValidation/roadGradient.pdf}
 \caption{Road gradient vs longitudinal position}
 \label{roadGradient}
 \end{figure}
@@ -104,12 +106,12 @@ The combination propelled \textit{solely by the tractor combustion engine} was t
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf}
 	\caption{Fuel consumption over mission}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 210]{Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 210]{figures/ModelValidation/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf}
 	\caption{Mission time}
 \end{subfigure}
 \caption{Effect of engine size and GCW on fuel consumption and mission time}
@@ -118,7 +120,7 @@ The combination propelled \textit{solely by the tractor combustion engine} was t
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_size.pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_size.pdf}
 \caption{Effect of engine size and GCW on combination startability}
 \label{startabilityEngineGCW}
 \end{figure}
@@ -127,7 +129,7 @@ It should be noted here that the D13 engine shows higher fuel economy than the D
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{Figures/Engine_size_and_GCW/Mission_speed_vs_position.pdf}
+\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Engine_size_and_GCW/Mission_speed_vs_position.pdf}
 \caption{Effect of engine size and GCW on combination speed along the mission}
 \label{missionSpeedEngineSizeGCW}
 \end{figure}
@@ -135,12 +137,12 @@ It should be noted here that the D13 engine shows higher fuel economy than the D
 \begin{figure}[h!]
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Figures/Engine_size_and_GCW/MissionSpeed80tZoomed.png}
+		\includegraphics[width=\linewidth]{figures/ModelValidation/Engine_size_and_GCW/MissionSpeed80tZoomed.png}
 		\caption{D11 has significantly lower average speeds}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Figures/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png}
+		\includegraphics[width=\linewidth]{figures/ModelValidation/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png}
 		\caption{Speed at max altitude (Hallands\aa sen)}
 	\end{subfigure}
 	\caption{Effect of engine size and GCW on combination speed along the mission}
@@ -158,12 +160,12 @@ The conundrum of increasing the number of propelled axles correlates directly wi
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{Figures/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_engine_size.pdf}
 	\caption{Fuel consumption over mission}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 210]{Figures/Increasing_number_of_axles/Mission_time_vs_axle_number_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 210]{figures/ModelValidation/Increasing_number_of_axles/Mission_time_vs_axle_number_and_engine_size.pdf}
 	\caption{Mission time}
 \end{subfigure}
 \caption{Effect of number of propelled axles \& engine size on fuel consumption and mission time}
@@ -193,7 +195,7 @@ D16 & 2.19 & 3.1 & 3.34 & 2.84 & 2.89 \\
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Increasing_number_of_axles/Combination_startability_vs_axle_number_and_engine_size.pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Increasing_number_of_axles/Combination_startability_vs_axle_number_and_engine_size.pdf}
 \caption{Effect of engine size and number of propelled axles on combination startability}
 \label{startabilityEngineNumberOfAxles}
 \end{figure}
@@ -204,14 +206,14 @@ With a constant GCW of 70t, the effect of increasing electric propulsion on the 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Increasing_number_of_axles/Charge_consumption_vs_axle_number_and_engine_size.pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Increasing_number_of_axles/Charge_consumption_vs_axle_number_and_engine_size.pdf}
 \caption{Effect of engine size and number of propelled axles on charge consumption}
 \label{chargeEngineSizeNumberOfAxles}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\linewidth, clip=true, trim=45 185 65 200]{Figures/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GCW=70t).pdf}
+\includegraphics[width=\linewidth, clip=true, trim=45 185 65 200]{figures/ModelValidation/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GCW=70t).pdf}
 \caption{Increased propulsion and its influence on mission speed}
 \label{globalMissionSpeedIncreasedPropulsion}
 \end{figure}
@@ -219,12 +221,12 @@ With a constant GCW of 70t, the effect of increasing electric propulsion on the 
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth]{Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_begin_dec.png}
+	\includegraphics[width=\linewidth]{figures/ModelValidation/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_begin_dec.png}
 	\caption{Vehicle speed at the beginning of Hallands\aa sen}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth]{Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_peak.png}
+	\includegraphics[width=\linewidth]{figures/ModelValidation/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_peak.png}
 	\caption{Speed at the peak of Hallands\aa sen}
 \end{subfigure}
 \caption{Effect of number of propelled axles on mission speed}
@@ -240,12 +242,12 @@ The fuel consumption and mission time in each of the cases is depicted in Figure
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size.pdf}
 	\caption{Fuel consumption over mission}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.pdf}
 	\caption{Mission time}
 \end{subfigure}
 \caption{Effect of axle load on fuel consumption and mission time}
@@ -256,7 +258,7 @@ The seemingly curious unchanged fuel consumption and mission times across axle l
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_load.pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_load.pdf}
 \caption{Effect of engine size and axle load on charge consumption}
 \label{chargeEngineSizeAxleLoad}
 \end{figure}
@@ -301,7 +303,7 @@ The startability of the combinations can thus be analysed in a similar manner an
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Effect_of_axle_load/Combination_startability_vs_axle_load_and_engine_size.pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Effect_of_axle_load/Combination_startability_vs_axle_load_and_engine_size.pdf}
 \caption{Effect of engine size and axle load on combination startability}
 \label{startabilityEngineAxleLoad}
 \end{figure}
@@ -313,12 +315,12 @@ Combined with the axle load problem is one of choosing the right electric machin
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_power_rating.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_power_rating.pdf}
 	\caption{Fuel consumption over mission}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Effect_of_machine_power_rating/Mission_time_vs_machine_power_rating.pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Effect_of_machine_power_rating/Mission_time_vs_machine_power_rating.pdf}
 	\caption{Mission time}
 \end{subfigure}
 \caption{Effect of machine power rating on fuel consumption and mission time}
@@ -329,14 +331,14 @@ The reduction in fuel consumption arising from additionally available electric p
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{Figures/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-010-01-010,D13,GCW_70t).pdf}
+\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-010-01-010,D13,GCW_70t).pdf}
 \caption{Effect of machine power rating on charge consumption over mission}
 \label{chargeMissionMachineRating}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{Figures/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-010-01-010,D13,GCW_70t).pdf}
+\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-010-01-010,D13,GCW_70t).pdf}
 \caption{Effect of machine power rating on vehicle speed over mission}
 \label{speedMissionMachineRating}
 \end{figure}
@@ -350,12 +352,12 @@ The effect of downsizing the combustion engine on combinations with electrically
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Engine_downsizing/Fuel_consumption_vs_engine_size_(with_electric_propulsion).pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Engine_downsizing/Fuel_consumption_vs_engine_size_(with_electric_propulsion).pdf}
 	\caption{Fuel consumption over mission}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{Figures/Engine_downsizing/Mission_time_vs_engine_size_(with_electric_propulsion)(GCW=70t).pdf}
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 65 206]{figures/ModelValidation/Engine_downsizing/Mission_time_vs_engine_size_(with_electric_propulsion)(GCW=70t).pdf}
 	\caption{Mission time}
 \end{subfigure}
 \caption{Effect of engine downsizing on fuel consumption and mission time}
@@ -364,7 +366,7 @@ The effect of downsizing the combustion engine on combinations with electrically
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{Figures/Engine_downsizing/Combination_startability_vs_engine_size_(with_electric_propulsion).pdf}
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Engine_downsizing/Combination_startability_vs_engine_size_(with_electric_propulsion).pdf}
 \caption{Effect of engine downsizing on combination startability}
 \label{startabilityEngineDownsize}
 \end{figure}
@@ -377,7 +379,7 @@ As expected, the drop in vehicle speed at gradients is more significant in the c
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\linewidth, clip=true, trim=45 185 65 208]{Figures/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,GCW_70t).pdf}
+\includegraphics[width=0.8\linewidth, clip=true, trim=45 185 65 208]{figures/ModelValidation/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,GCW_70t).pdf}
 \caption{Effect of engine downsizing on vehicle speed over mission}
 \label{speedEngineDownsizing}
 \end{figure}

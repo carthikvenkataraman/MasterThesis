@@ -1,0 +1,814 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.8.24)  25 AUG 2014 13:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"Model validation report.tex"
+(./Model validation report.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count100
+\Gm@cntv=\count101
+\c@Gm@tempcnt=\count102
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@layoutwidth=\dimen118
+\Gm@layoutheight=\dimen119
+\Gm@layouthoffset=\dimen120
+\Gm@layoutvoffset=\dimen121
+\Gm@dimlist=\toks20
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks21
+\float@box=\box28
+\@float@everytoks=\toks22
+\@floatcapt=\box29
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@tempdima=\dimen125
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+)
+\c@ContinuedFloat=\count104
+Package caption Info: float package is loaded.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count105
+\c@subtable=\count106
+)
+(./Model validation report.aux
+
+LaTeX Warning: Label `fuelTimeEngineAxleLoad' multiply defined.
+
+)
+\openout1 = `"Model validation report.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+ (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count107
+\scratchdimen=\dimen129
+\scratchbox=\box30
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen130
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks24
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(93.95122pt, 426.39256pt, 93.95122pt)
+* v-part:(T,H,B)=(93.95122pt, 607.06755pt, 93.95122pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=426.39256pt
+* \textheight=607.06755pt
+* \oddsidemargin=21.68123pt
+* \evensidemargin=21.68123pt
+* \topmargin=-15.31877pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+<Figures/roadGradient.pdf, id=10, 614.295pt x 794.97pt>
+File: Figures/roadGradient.pdf Graphic file (type pdf)
+
+<use Figures/roadGradient.pdf>
+Package pdftex.def Info: Figures/roadGradient.pdf used on input line 89.
+(pdftex.def)             Requested size: 227.62204pt x 180.91788pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+[2 <./Figures/roadGradient.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+<Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf, id=20
+, 614.295pt x 794.97pt>
+File: Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf G
+raphic file (type pdf)
+
+<use Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_an
+d_engine_size.pdf used on input line 107.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+<Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf, id=22, 61
+4.295pt x 794.97pt>
+File: Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf Graph
+ic file (type pdf)
+
+<use Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_en
+gine_size.pdf used on input line 112.
+(pdftex.def)             Requested size: 213.19627pt x 168.60413pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 105--115
+[]$[]$ $[]$ 
+ []
+
+
+<Figures/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_size.pd
+f, id=24, 614.295pt x 794.97pt>
+File: Figures/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_si
+ze.pdf Graphic file (type pdf)
+
+<use Figures/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_siz
+e.pdf>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/Combination_startability_v
+s_GCW_and_engine_size.pdf used on input line 121.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+[3 <./Figures/Engine_size_and_GCW/Fuel_consumption_vs_GCW_and_engine_size.pdf> 
+<./Figures/Engine_size_and_GCW/Mission_time_vs_GCW_and_engine_size.pdf>]
+<Figures/Engine_size_and_GCW/Mission_speed_vs_position.pdf, id=39, 614.295pt x 
+794.97pt>
+File: Figures/Engine_size_and_GCW/Mission_speed_vs_position.pdf Graphic file (t
+ype pdf)
+ <use Figures/Engine_size_and_GCW/Mission_speed_vs_position.pdf>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/Mission_speed_vs_position.
+pdf used on input line 130.
+(pdftex.def)             Requested size: 426.39256pt x 338.90707pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Figures/Engine_size_and_GCW/MissionSpeed80tZoomed.png, id=41, 1296.845pt x 779
+.713pt>
+File: Figures/Engine_size_and_GCW/MissionSpeed80tZoomed.png Graphic file (type 
+png)
+ <use Figures/Engine_size_and_GCW/MissionSpeed80tZoomed.png>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/MissionSpeed80tZoomed.png 
+used on input line 138.
+(pdftex.def)             Requested size: 213.19627pt x 128.18309pt.
+
+<Figures/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png, id=42, 1296.
+845pt x 779.713pt>
+File: Figures/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png Graphic 
+file (type png)
+
+<use Figures/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png>
+Package pdftex.def Info: Figures/Engine_size_and_GCW/MissionSpeed80tZoomedMaxGr
+adient.png used on input line 143.
+(pdftex.def)             Requested size: 213.19627pt x 128.18309pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 136--146
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
+
+ []
+
+
+<Figures/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_engine_
+size.pdf, id=43, 614.295pt x 794.97pt>
+File: Figures/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_en
+gine_size.pdf Graphic file (type pdf)
+
+<use Figures/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_eng
+ine_size.pdf>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Fuel_consumption_vs
+_axle_number_and_engine_size.pdf used on input line 161.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+<Figures/Increasing_number_of_axles/Mission_time_vs_axle_number_and_engine_size
+.pdf, id=45, 614.295pt x 794.97pt>
+File: Figures/Increasing_number_of_axles/Mission_time_vs_axle_number_and_engine
+_size.pdf Graphic file (type pdf)
+
+<use Figures/Increasing_number_of_axles/Mission_time_vs_axle_number_and_engine_
+size.pdf>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Mission_time_vs_axl
+e_number_and_engine_size.pdf used on input line 166.
+(pdftex.def)             Requested size: 213.19627pt x 168.60413pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 159--169
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+[4 <./Figures/Engine_size_and_GCW/Combination_startability_vs_GCW_and_engine_si
+ze.pdf>] [5 <./Figures/Engine_size_and_GCW/Mission_speed_vs_position.pdf> <./Fi
+gures/Engine_size_and_GCW/MissionSpeed80tZoomed.png (PNG copy)> <./Figures/Engi
+ne_size_and_GCW/MissionSpeed80tZoomedMaxGradient.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+
+ []
+
+
+<Figures/Increasing_number_of_axles/Combination_startability_vs_axle_number_and
+_engine_size.pdf, id=62, 614.295pt x 794.97pt>
+File: Figures/Increasing_number_of_axles/Combination_startability_vs_axle_numbe
+r_and_engine_size.pdf Graphic file (type pdf)
+
+<use Figures/Increasing_number_of_axles/Combination_startability_vs_axle_number
+_and_engine_size.pdf>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Combination_startab
+ility_vs_axle_number_and_engine_size.pdf used on input line 196.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+[6 <./Figures/Increasing_number_of_axles/Fuel_consumption_vs_axle_number_and_en
+gine_size.pdf> <./Figures/Increasing_number_of_axles/Mission_time_vs_axle_numbe
+r_and_engine_size.pdf>]
+<Figures/Increasing_number_of_axles/Charge_consumption_vs_axle_number_and_engin
+e_size.pdf, id=77, 614.295pt x 794.97pt>
+File: Figures/Increasing_number_of_axles/Charge_consumption_vs_axle_number_and_
+engine_size.pdf Graphic file (type pdf)
+
+<use Figures/Increasing_number_of_axles/Charge_consumption_vs_axle_number_and_e
+ngine_size.pdf>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Charge_consumption_
+vs_axle_number_and_engine_size.pdf used on input line 207.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+<Figures/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GCW=70t
+).pdf, id=79, 614.295pt x 794.97pt>
+File: Figures/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GC
+W=70t).pdf Graphic file (type pdf)
+
+<use Figures/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GCW
+=70t).pdf>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Mission_speed_vs_po
+sition_(constant_GCW=70t).pdf used on input line 214.
+(pdftex.def)             Requested size: 426.39256pt x 345.70222pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_begin_
+dec.png, id=81, 1296.845pt x 779.713pt>
+File: Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_b
+egin_dec.png Graphic file (type png)
+
+<use Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_be
+gin_dec.png>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Speed_vs_position_z
+oomed_no_of_axles_begin_dec.png used on input line 222.
+(pdftex.def)             Requested size: 213.19627pt x 128.18309pt.
+
+<Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_peak.p
+ng, id=82, 1296.845pt x 779.713pt>
+File: Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_p
+eak.png Graphic file (type png)
+
+<use Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_of_axles_pe
+ak.png>
+Package pdftex.def Info: Figures/Increasing_number_of_axles/Speed_vs_position_z
+oomed_no_of_axles_peak.png used on input line 227.
+(pdftex.def)             Requested size: 213.19627pt x 128.18309pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 220--230
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+[7 <./Figures/Increasing_number_of_axles/Combination_startability_vs_axle_numbe
+r_and_engine_size.pdf> <./Figures/Increasing_number_of_axles/Charge_consumption
+_vs_axle_number_and_engine_size.pdf>]
+<Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size.pdf,
+ id=97, 614.295pt x 794.97pt>
+File: Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size
+.pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size.
+pdf>
+Package pdftex.def Info: Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_l
+oad_and_engine_size.pdf used on input line 243.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+<Figures/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.pdf, id=
+99, 614.295pt x 794.97pt>
+File: Figures/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.pdf
+ Graphic file (type pdf)
+
+<use Figures/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.pdf>
+Package pdftex.def Info: Figures/Effect_of_axle_load/Mission_time_vs_axle_load_
+and_engine_size.pdf used on input line 248.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 241--251
+[]$[]$ $[]$ 
+ []
+
+[8 <./Figures/Increasing_number_of_axles/Mission_speed_vs_position_(constant_GC
+W=70t).pdf> <./Figures/Increasing_number_of_axles/Speed_vs_position_zoomed_no_o
+f_axles_begin_dec.png (PNG copy)> <./Figures/Increasing_number_of_axles/Speed_v
+s_position_zoomed_no_of_axles_peak.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+
+ []
+
+
+<Figures/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_load.pd
+f, id=109, 614.295pt x 794.97pt>
+File: Figures/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_lo
+ad.pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_loa
+d.pdf>
+Package pdftex.def Info: Figures/Effect_of_axle_load/Charge_consumption_vs_axle
+_number_and_axle_load.pdf used on input line 259.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
+
+ []
+
+[9 <./Figures/Effect_of_axle_load/Fuel_consumption_vs_axle_load_and_engine_size
+.pdf> <./Figures/Effect_of_axle_load/Mission_time_vs_axle_load_and_engine_size.
+pdf> <./Figures/Effect_of_axle_load/Charge_consumption_vs_axle_number_and_axle_
+load.pdf>]
+<Figures/Effect_of_axle_load/Combination_startability_vs_axle_load_and_engine_s
+ize.pdf, id=127, 614.295pt x 794.97pt>
+File: Figures/Effect_of_axle_load/Combination_startability_vs_axle_load_and_eng
+ine_size.pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_axle_load/Combination_startability_vs_axle_load_and_engi
+ne_size.pdf>
+Package pdftex.def Info: Figures/Effect_of_axle_load/Combination_startability_v
+s_axle_load_and_engine_size.pdf used on input line 304.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+
+<Figures/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_power_ratin
+g.pdf, id=129, 614.295pt x 794.97pt>
+File: Figures/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_power_
+rating.pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_power_r
+ating.pdf>
+Package pdftex.def Info: Figures/Effect_of_machine_power_rating/Fuel_consumptio
+n_vs_machine_power_rating.pdf used on input line 316.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+<Figures/Effect_of_machine_power_rating/Mission_time_vs_machine_power_rating.pd
+f, id=131, 614.295pt x 794.97pt>
+File: Figures/Effect_of_machine_power_rating/Mission_time_vs_machine_power_rati
+ng.pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_machine_power_rating/Mission_time_vs_machine_power_ratin
+g.pdf>
+Package pdftex.def Info: Figures/Effect_of_machine_power_rating/Mission_time_vs
+_machine_power_rating.pdf used on input line 321.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 314--324
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
+
+ []
+
+
+<Figures/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-010-01
+-010,D13,GCW_70t).pdf, id=133, 614.295pt x 794.97pt>
+File: Figures/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-0
+10-01-010,D13,GCW_70t).pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-01
+0-01-010,D13,GCW_70t).pdf>
+Package pdftex.def Info: Figures/Effect_of_machine_power_rating/Charge_consumed
+_vs_position_(011-010-01-010,D13,GCW_70t).pdf used on input line 332.
+(pdftex.def)             Requested size: 426.39256pt x 338.90707pt.
+ [10 <./Figures/Effect_of_axle_load/Combination_startability_vs_axle_load_and_e
+ngine_size.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Figures/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-010-01-0
+10,D13,GCW_70t).pdf, id=142, 614.295pt x 794.97pt>
+File: Figures/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-010
+-01-010,D13,GCW_70t).pdf Graphic file (type pdf)
+
+<use Figures/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-010-
+01-010,D13,GCW_70t).pdf>
+Package pdftex.def Info: Figures/Effect_of_machine_power_rating/Mission_speed_v
+s_position_(011-010-01-010,D13,GCW_70t).pdf used on input line 339.
+(pdftex.def)             Requested size: 426.39256pt x 338.90707pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+
+<Figures/Engine_downsizing/Fuel_consumption_vs_engine_size_(with_electric_propu
+lsion).pdf, id=144, 614.295pt x 794.97pt>
+File: Figures/Engine_downsizing/Fuel_consumption_vs_engine_size_(with_electric_
+propulsion).pdf Graphic file (type pdf)
+
+<use Figures/Engine_downsizing/Fuel_consumption_vs_engine_size_(with_electric_p
+ropulsion).pdf>
+Package pdftex.def Info: Figures/Engine_downsizing/Fuel_consumption_vs_engine_s
+ize_(with_electric_propulsion).pdf used on input line 353.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+<Figures/Engine_downsizing/Mission_time_vs_engine_size_(with_electric_propulsio
+n)(GCW=70t).pdf, id=146, 614.295pt x 794.97pt>
+File: Figures/Engine_downsizing/Mission_time_vs_engine_size_(with_electric_prop
+ulsion)(GCW=70t).pdf Graphic file (type pdf)
+
+<use Figures/Engine_downsizing/Mission_time_vs_engine_size_(with_electric_propu
+lsion)(GCW=70t).pdf>
+Package pdftex.def Info: Figures/Engine_downsizing/Mission_time_vs_engine_size_
+(with_electric_propulsion)(GCW=70t).pdf used on input line 358.
+(pdftex.def)             Requested size: 213.19627pt x 170.30292pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 351--361
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Figures/Engine_downsizing/Combination_startability_vs_engine_size_(with_electr
+ic_propulsion).pdf, id=148, 614.295pt x 794.97pt>
+File: Figures/Engine_downsizing/Combination_startability_vs_engine_size_(with_e
+lectric_propulsion).pdf Graphic file (type pdf)
+
+<use Figures/Engine_downsizing/Combination_startability_vs_engine_size_(with_el
+ectric_propulsion).pdf>
+Package pdftex.def Info: Figures/Engine_downsizing/Combination_startability_vs_
+engine_size_(with_electric_propulsion).pdf used on input line 367.
+(pdftex.def)             Requested size: 213.19627pt x 169.45354pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+
+ []
+
+
+<Figures/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,GCW_70t).p
+df, id=150, 614.295pt x 794.97pt>
+File: Figures/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,GCW_7
+0t).pdf Graphic file (type pdf)
+
+<use Figures/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,GCW_70
+t).pdf>
+Package pdftex.def Info: Figures/Engine_downsizing/Mission_speed_vs_position_(0
+11-010-01-010,GCW_70t).pdf used on input line 380.
+(pdftex.def)             Requested size: 341.11534pt x 271.12321pt.
+ [11 <./Figures/Effect_of_machine_power_rating/Fuel_consumption_vs_machine_powe
+r_rating.pdf> <./Figures/Effect_of_machine_power_rating/Mission_time_vs_machine
+_power_rating.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./Figures/Effect_of_machine_power_rating/Charge_consumed_vs_position_(011-
+010-01-010,D13,GCW_70t).pdf>]
+
+LaTeX Warning: Text page 13 contains only floats.
+
+[13 <./Figures/Effect_of_machine_power_rating/Mission_speed_vs_position_(011-01
+0-01-010,D13,GCW_70t).pdf> <./Figures/Engine_downsizing/Fuel_consumption_vs_eng
+ine_size_(with_electric_propulsion).pdf> <./Figures/Engine_downsizing/Mission_t
+ime_vs_engine_size_(with_electric_propulsion)(GCW=70t).pdf>] [14 <./Figures/Eng
+ine_downsizing/Combination_startability_vs_engine_size_(with_electric_propulsio
+n).pdf> <./Figures/Engine_downsizing/Mission_speed_vs_position_(011-010-01-010,
+GCW_70t).pdf>] (./Model validation report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3875 strings out of 493108
+ 66766 string characters out of 6134853
+ 131004 words of memory out of 5000000
+ 7281 multiletter control sequences out of 15000+600000
+ 6551 words of font info for 24 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,8n,38p,1234b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Model validation report.pdf" (14 pages, 318591 bytes).
+PDF statistics:
+ 225 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+

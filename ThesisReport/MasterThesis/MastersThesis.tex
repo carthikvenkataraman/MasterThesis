@@ -37,7 +37,7 @@
 \usepackage[firstinits=true, style=alphabetic, backend=biber]{biblatex} % Modern bibliography facilities (you may change style to numeric)
 \usepackage{mathtools} % All your math related needs
 \usepackage{tikz} % Draw figures. Required for cover page
-\usepackage{subfig} % Subfloats
+%\usepackage{subfig} % Subfloats
 
 % Read the manuals for the respective package to see the usage;
 %\usepackage{pdfpages} % For included other pdf files (like articles).
@@ -50,17 +50,24 @@
 %\usepackage{contmech} % Custom package for typesetting in continuum mechanics for applied mechanics.
 %\usepackage{yourcustomcommands} % Put your custom commands in a file 'yourcustomcommands.sty' and load it like this.
 
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage[margin=1.3in]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \usepackage{lipsum}\setlipsumdefault{1-3} % Package used to put in placeholder text. Remove it.
 
 % User commands
-\title{The Title of Your Thesis which might be very long}
-\subtitle{And Perhaps a Subtitle} % Optional
-\author{Some Author\and Other Author}
-\thesisin{Solid and Structural Mechanics}
+\title{Optimisation of  Propulsion Configuration in Truck-Trailer Combinations - An Evolutionary Algorithm Approach}
+%\subtitle{Volvo Group Trucks Technology, Go\"teborg, Sweden} % Optional
+\author{Karthik Venkataraman}
+\thesisin{Automotive Engineering}
 \department{Department of Applied Mechanics}
 \division{Division of Solid Mechanics}
-\reportno{2011:01}
-\copyrightyear{2011}
+\reportno{2014:01}
+\copyrightyear{2014}
 
 % You should scale the figure according to textwidth and or paperheight.
 \coverfigure{\includegraphics[width=\textwidth,height=0.4\paperheight,keepaspectratio]{figures/ExampleCover}}
@@ -68,7 +75,7 @@
 
 \firstabstract{\lipsum}
 %\secondabstract{swedish}{\lipsum} % Optional
-\keywords{Some stuff, More stuff, Stuff}
+\keywords{Optimisation, Evolutionary algorithms, Long Vehicle Combinations, Propulsion}
 
 \preface{\lipsum} % You can use \input to put preface and acknowledgements in another document
 \acknowledgements{\lipsum}
@@ -95,7 +102,7 @@
   \newunit}
 % End of optional citation modifications.
 
-\addbibresource{ExampleBib.bib} % New command, use if available
+\addbibresource{Bibliography.bib} % New command, use if available
 %\bibliography{ExampleBib} % Legacy command
 
 \begin{document}
@@ -115,10 +122,11 @@
 
  % Sets up page numbering for the rest of the document.
 % Highly recommended to put contents into subfiles, or use \input.
-\subfile{ExampleIntroduction}
+\subfile{Introduction}
 %\subfile{Introduction}
 %\subfile{Theory}
 %\subfile{Method}
+\subfile{ModelValidation}
 %\subfile{Results}
 
 \nocite{*} % Cites everything from the bibliography
