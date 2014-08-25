@@ -96,12 +96,12 @@ for i=1:size(fileNumber,1)
     figureName=strcat('Charge Consumption Vs Position (70t,D13) Configuration  ',int2str(i));
     figure('name', figureName);
     for j=1:size(fileNumber,2)
-        plot(C(i,j).positionOverMission, C(i,j).chargeConsumptionOverMission);
+        plot(C(i,j).positionOverMission, C(i,j).chargeConsumptionOverMission*2.4/3.6e6);
         hold all
     end
     title(figureName);
     legend('Step-assigned charge control','Full predictive control','Location','Southwest');
     xlabel('Position over mission (m)');
-    ylabel('Speed over mission (m/s)');
+    ylabel('Electrical energy consumed over mission (kWh)');
     saveas(gcf,strcat('PlotsWithStepControl/',figureName,'.pdf'));
 end

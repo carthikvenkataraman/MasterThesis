@@ -431,13 +431,13 @@ The speed of the combination over the mission for each of the four chosen GCWs i
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\linewidth]{figures/ModelValidation/PlotsWithPredictiveControl/EngineSizeAndGCW/MissionSpeedZoomedInD13.jpg}
+\includegraphics[width=\linewidth]{figures/ModelValidation/PlotsWithPredictiveControl/EngineSizeAndGCW/MissionSpeedZoomedInD13.jpg}
 \caption{Vehicle speed over mission, zoomed in at Hallands\aa sen - 011-010-01-010, D13, 70t}
-\label{speedEngineDownsizingPredictiveSoC}
+\label{speedZoomedEngineDownsizingPredictiveSoC}
 \end{figure} 
 
 \subsection{Engine Size and Number of Axles Propelled}
-The anomalies in fuel consumption and mission time with increasing number of propelled axles when the non-predictive SoC management was used earlier (Figure \ref{timeFuelNumberOfAxlesEngine}) are seen to be decisively eliminated by the use of the predictive SoC strategy, as depicted in Figure \ref{timeFuelAxleEnginePredictiveSoC}.
+The anomalies in fuel consumption and mission time with increasing number of propelled axles when the non-predictive SoC management was used earlier (Figure \ref{timeFuelNumberOfAxlesEngine}) are seen to be decisively eliminated by the use of the predictive SoC strategy, as depicted in Figure \ref{timeFuelAxleEnginePredictiveSoC}.\\
 
 \begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
@@ -461,6 +461,76 @@ The anomalies in fuel consumption and mission time with increasing number of pro
 \label{fuelReductionAxleEnginePredictiveSoC}
 \end{figure}
 
-The percentage reduction in fuel consumption thus shows clear trends with engine size and axle configuration as seen in Figure \ref{fuelReductionAxleEnginePredictiveSoC}. 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\linewidth, clip=true, trim=45 185 55 210]{figures/ModelValidation/PlotsWithPredictiveControl/EngineSizeAndNoOFAxles/MissionSpeedVsPosition(constantGCW=70t,engine-D13).pdf}
+\caption{Mission speed for combinations with D13 engine, 70t GCW and varying levels of propulsion}
+\label{globalMissionSpeedIncreasedPropulsionPredictiveSoC}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\linewidth]{figures/ModelValidation/PlotsWithPredictiveControl/EngineSizeAndNoOFAxles/MissionSpeedZoomedIn.jpg}
+\caption{Mission speed at Hallands\aa sen, zoomed in - with fully predictive SoC management}
+\label{missionSpeedZoomedInIncreasedPropulsionPredictiveSoC}
+\end{figure} 
+
+The percentage reduction in fuel consumption thus shows clear trends with engine size and axle configuration as seen in Figure \ref{fuelReductionAxleEnginePredictiveSoC}. The effect of the predictive SoC management can be seen far more clearly in the mission speed trends with increasing number of propelled axles. Figure \ref{globalMissionSpeedIncreasedPropulsionPredictiveSoC} shows the variation in vehicle speed over the mission for combinations with the D13 engine, GCW of 70t and varying levels of propulsion. Figure \ref{missionSpeedZoomedInIncreasedPropulsionPredictiveSoC} shows clear gradation in the minimum speed reached at the peak of Hallands\aa sen.\\
+
+\subsection{Buffer Size}
+The choice of the buffer size, in unison with the SoC control strategy determines the amount of charge consumed along the mission, thereby influencing vehicle mission productivity. Thus, four different vehicle propulsion configurations are simulated with varying (discrete) buffer sizes and their electrical energy consumptions compared. It must be borne in mind that these comparisons cannot be directly extrapolated to trends in mission productivity. They nevertheless yield an insight into the mechanism of the buffer size influence on overall combination charge consumption. The fuel and electrical energy consumption characteristics are as shown in Figure \ref{fuelElectricalEnergyBufferSizePredictiveSoC}.\\
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 55 208]{figures/ModelValidation/PlotsWithPredictiveControl/BufferSize/FuelConsumptionVsBufferSize.pdf}
+	\caption{Fuel consumption over mission}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 55 210]{figures/ModelValidation/PlotsWithPredictiveControl/BufferSize/ElectricalEnergyConsumptionVsBufferSize.pdf}
+	\caption{Mission time}
+\end{subfigure}
+\caption{Effect of buffer size and axle propulsion configuration on fuel consumption and mission time with full predictive SoC control}
+\label{fuelElectricalEnergyBufferSizePredictiveSoC}
+\end{figure}
+
+
+\section{Non-predictive pre-set varying depths of discharge along the mission}
+
+As an intermediate approach to the non-predictive and fully predictive SoC management strategies, a pre-determined lower SoC limit profile was developed based roughly of gradients encountered in each section of the mission. The performance of four different vehicle combinations was compared with those with the fully predictive SoC control in order to establish the efficacy of the latter. The SoC profile developed can be seen in Figure \ref{stepSoC}.\\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\linewidth, clip=true, trim=45 185 55 210]{figures/ModelValidation/PlotsWithStepPredictiveControl/StepSoC.pdf}
+\caption{Buffer SoC Lower limit vs longitudinal position}
+\label{stepSoC}
+\end{figure} 
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 55 208]{figures/ModelValidation/PlotsWithStepPredictiveControl/FuelConsumption.pdf}
+	\caption{Fuel consumption over mission}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=\linewidth, clip=true, trim=45 185 55 210]{figures/ModelValidation/PlotsWithStepPredictiveControl/MissionTime.pdf}
+	\caption{Mission time}
+\end{subfigure}
+\caption{Effect of engine size and GCW on fuel consumption and mission time with full and partial predictive SoC control}
+\label{timeFuelAxleEngineStepSoC}
+\end{figure}
+
+The fully predictive SoC management favoured both fuel consumption and mission time as seen in Figure \ref{timeFuelAxleEngineStepSoC} as against the step-assigned SoC limits. Instantaneous electrical energy consumption was enhanced in the case of fully predictive control, as expected. The electrical energy consumption over the mission for the combination 011-010-00-000 with the D13 engine and 70t GCW is shown in Figure \ref{electricalEnergyConsumptionStepSoC}. The fully predictive SoC management controller is hence chosen to be used in all vehicle models utilised in the optimisation solver so as to obtain the ideal comparison between different vehicle propulsion configurations.\\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\linewidth, clip=true, trim=45 185 55 210]{figures/ModelValidation/PlotsWithStepPredictiveControl/ChargeConsumptionVsPosition1.pdf}
+\caption{Instantaneous electrical energy consumption vs longitudinal position}
+\label{electricalEnergyConsumptionStepSoC}
+\end{figure} 
+
+
 
 \end{document}
