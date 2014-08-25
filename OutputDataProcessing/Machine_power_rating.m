@@ -9,6 +9,7 @@ clc
 
 fileNumber = [169,170,171];
 machinePowerRating=['120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm'];
+openCircuitVoltage = 2.4;   % Volts
 
 %% Load simulation output files
 for i=1:size(fileNumber,1)
@@ -38,6 +39,16 @@ for i=1:size(fileNumber,1)
         missionTime(i,j) = size(C(i,j).positionOverMission,2);
         fuelConsumed(i,j) = 600-B(i,j).bufferLevelOverMission(end);
         combinationStartability(i,j) = C(i,j).combinationStartability;
+        mode1(i,j) = sum(C(i,j).operatingModeOverMission==1);
+        mode2(i,j) = sum(C(i,j).operatingModeOverMission==2);
+        mode3(i,j) = sum(C(i,j).operatingModeOverMission==3);
+        mode4(i,j) = sum(C(i,j).operatingModeOverMission==4);
+        modeM1(i,j) = sum(C(i,j).operatingModeOverMission==-1);
+        modeM2(i,j) = sum(C(i,j).operatingModeOverMission==-2);
+        mode0(i,j) = sum(C(i,j).operatingModeOverMission==0);
+        missionProductivity(i,j) = C(i,j).missionProductivity;
+        chargeConsumed = C(i,j).chargeConsumptionOverMission;
+        electricalEnergyConsumed(i,j) = sum(chargeConsumed)*2.4/3.6e6; % kWh
     end
 end
 
@@ -49,7 +60,7 @@ title('Mission time vs machine power rating (GCW=70t)');
 xlabel('Machine rating'), ylabel('Mission time (hours)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm'});
-saveas(gcf, 'Plots/Effect of machine power rating/Mission time vs machine power rating.pdf');
+% saveas(gcf, 'Plots/Effect of machine power rating/Mission time vs machine power rating.pdf');
 
 %% Plot fuel consumed
 
@@ -59,7 +70,17 @@ title('Fuel consumption vs machine power rating (GCW=70t)');
 xlabel('Machine rating'), ylabel('Fuel consumption (litres)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm'});
-saveas(gcf,'Plots/Effect of machine power rating/Fuel consumption vs machine power rating.pdf');
+% saveas(gcf,'Plots/Effect of machine power rating/Fuel consumption vs machine power rating.pdf');
+
+%% Plot electrical energy consumed
+
+figure('name', 'Electrical energy consumption vs machine power rating (GCW=70t)');
+plot(electricalEnergyConsumed, '-*')
+title('Electrical energy consumption vs machine power rating (GCW=70t)');
+xlabel('Machine rating'), ylabel('Electrical energy consumption (kWh)');
+set(gca,'XTick',[1 2 3]);
+set(gca,'XTickLabel',{'120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm'});
+saveas(gcf,'Plots/Effect of machine power rating/Electrical_energy_consumption_vs_machine_power_rating.pdf');
 
 %% Plot startability
 
@@ -69,7 +90,7 @@ title('Combination Startability vs machine power rating (GCW=70t)');
 xlabel('Machine rating'), ylabel('Combination Startability (degrees)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm'});
-saveas(gcf,'Plots/Effect of machine power rating/Combination startability vs machine power rating.pdf');
+% saveas(gcf,'Plots/Effect of machine power rating/Combination startability vs machine power rating.pdf');
 
 %% Plot mission speed
 
@@ -84,7 +105,7 @@ for i=1:size(fileNumber,1)
     legend('120kW, 230Nm', '173kW, 411Nm', '180kW, 420Nm','Location','Best');
     xlabel('Position over mission (m)');
     ylabel('Speed over mission (m/s)');
-    saveas(gcf,strcat('Plots/Effect of machine power rating/',figureName,'.pdf'));
+    % saveas(gcf,strcat('Plots/Effect of machine power rating/',figureName,'.pdf'));
 end
 
 %% Clear unnecessary variables from workspace

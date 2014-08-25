@@ -62,7 +62,7 @@ title('Mission time vs engine size & GCW (011-010-01-010)');
 xlabel('Engine size'), ylabel('Mission time (hours)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'D11','D13','D16'});
-saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/MissionTimeVsGCWAndEngineSize.pdf');
+% saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/MissionTimeVsGCWAndEngineSize.pdf');
 
 %% Plot fuel consumed
 
@@ -73,7 +73,7 @@ title('Fuel consumption vs engine size & GCW (011-010-01-010)');
 xlabel('Engine size'), ylabel('Fuel consumption (litres)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'D11','D13','D16'});
-saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/FuelConsumptionVsGCWAndEngineSize.pdf');
+% saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/FuelConsumptionVsGCWAndEngineSize.pdf');
 
 %% Plot startability
 
@@ -84,7 +84,7 @@ title('Combination Startability vs engine size & GCW (011-010-01-010)');
 xlabel('Engine size'), ylabel('Combination Startability (degrees)');
 set(gca,'XTick',[1 2 3]);
 set(gca,'XTickLabel',{'D11','D13','D16'});
-saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/CombinationStartabilityVsGCWAndEngineSize.pdf');
+% saveas(gcf,'PlotsWithPredictiveControl/EngineSizeAndGCW/CombinationStartabilityVsGCWAndEngineSize.pdf');
 
 %% Plot mission speed
 
@@ -99,7 +99,7 @@ for i=1:size(fileNumber,1)
     legend('50t','60t', '70t', '80t','Location','Southwest');
     xlabel('Position over mission (m)');
     ylabel('Speed over mission (m/s)');
-    saveas(gcf,strcat('PlotsWithPredictiveControl/EngineSizeAndGCW/',figureName,'.pdf'));
+    % saveas(gcf,strcat('PlotsWithPredictiveControl/EngineSizeAndGCW/',figureName,'.pdf'));
 end
 
 figureName=strcat('MissionSpeedVsPosition(constantGCW=70t)'); % = ', int2str(gcw(i)), 't)');
@@ -114,7 +114,7 @@ for i=1:size(fileNumber,1)
     legend('50t','60t', '70t', '80t','Location','Southwest');
     xlabel('Position over mission (m)');
     ylabel('Speed over mission (m/s)');
-    saveas(gcf,strcat('PlotsWithPredictiveControl/EngineSizeAndGCW/',figureName,'.pdf'));
+    % saveas(gcf,strcat('PlotsWithPredictiveControl/EngineSizeAndGCW/',figureName,'.pdf'));
 end
 
 % Clear unnecessary variables from workspace
