@@ -109,6 +109,23 @@
 
 		Since profit maximisation of transport customers is the object of prime focus while choosing freight transport configurations, it can be agreed that the corresponding productivity measure is a multi-factor one, depending on a number of input parameters as explained in the forthcoming section.\\
 
+	\section{Productivity measure - Choice and Definition}
+
+	The goals sought to be achieved by the European Modular Systems as set out by the EMS Internal Platform Group are as follows \cite{EMSleaflet}:
+	\begin{itemize}
+		\item Meeting growing freight transport demands
+		\item Reducing fuel consumption
+		\item Reducing emissions
+		\item Reducing operating costs for freight transporters
+	\end{itemize}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth, clip=true, trim=0 0 325 0]{figures/eea_leaflet.pdf}
+		\caption{Goals of the European Modular System \cite{EMSleaflet}}
+		\label{EMSleaflet}
+	\end{figure}
+
 	\section{Design variable definition}
 		The choice of design variables and design parameters must be made before the objective formulation is taken up. Design variables are here defined as those configuration features that will be evaluated and determined as a result of the optimisation runs. Design parameters are defined as those configuration features that closely influence the productivity function but remain constant for a chosen population. With this distinction set up, the design variables can be briefly as listed below. It must be noted that the list is not exhaustive at the time of writing this report.
 
@@ -140,71 +157,6 @@
 		\end{itemize}
 
 		It must be noted that the energy management algorithm may itself be set up as an individual sub-optimisation schedule with individual design variables and parameters.
-
-	\section{Process flow}
-		The goal, as discussed earlier, is to optimise the productivity function of the combination for the given mission subject to performance based characteristic constraints. As a short marker here, it must be noted that this renders the problem ideally suited for a model predictive control approach, given the mission and speed profiles.
-
-		The productivity function is derived from the vehicle in the manner described in the flowchart below:\\
-
-
-
-		\begin{tikzpicture}[node distance=1.5cm]
-
-		\node (prod) [wide] {Productivity};
-		\node (cost) [wide, below of= prod, xshift=-4cm] {Total Cost of Ownership};
-		\node (reve) [wide, below of= prod, xshift=2.5cm] {Mission revenues};
-		\node (base) [wide, below of= cost, xshift=-3.5cm] {Base costs};
-		\node (buff) [wide, right of= base, xshift=0.2cm] {Buffers};
-		\node (moto) [wide, right of= buff, xshift=-0.1cm] {Motors};
-		\node (fuel) [wide, right of= moto, xshift=-0.2cm] {Fuel};
-		\node (driv) [wide, right of= fuel, xshift=-0.3cm] {Driver};
-		%\node (elec) [wide] {Power electronics};
-		\node (othe) [wide, right of= driv, xshift=-0.2cm] {Others};
-		\node (revp) [wide, below of= reve, xshift=0cm] {Revenue/unit payload};
-		\node (time) [wide, right of= revp, xshift=1.75cm] {Time penalties};
-		%\node (othp) [wide, below of= time, xshift=1cm] {Others};
-		\node (mode) [wide, below of= prod, yshift=-4cm] {Vehicle model};
-		\node (dyna) [wide, below of= mode, xshift=-3.5cm] {Dynamics};
-		\node (powe) [wide, right of= dyna, xshift=1cm] {Powertrain};
-		\node (road) [wide, right of= powe, xshift=1cm] {Road input};
-		\node (payl) [wide, right of= road, xshift=1cm] {Payload};
-		\node (c1) [narrow, below of= powe, xshift=-0.5cm] {C1};
-		\node (c2) [narrow, right of= c1] {C2};
-		\node (c3) [narrow, right of= c2] {C3};
-		\node (c4) [narrow, right of= c3] {...};
-
-		\draw [arrow] (c1) -- (dyna);
-		\draw [arrow] (c2) -- (powe);
-		\draw [arrow] (c3) -- (road);
-		\draw [arrow] (c4) -- (payl);
-		\draw [arrow] (dyna) -- (mode);
-		\draw [arrow] (powe) -- (mode);
-		\draw [arrow] (road) -- (mode);
-		\draw [arrow] (payl) -- (mode);
-		\draw [arrow] (mode) -- (base);
-		\draw [arrow] (mode) -- (buff);
-		\draw [arrow] (mode) -- (moto);
-		\draw [arrow] (mode) -- (fuel);
-		\draw [arrow] (mode) -- (driv);
-		\draw [arrow] (mode) -- (othe);
-		\draw [arrow] (mode) -- (revp);
-		\draw [arrow] (mode) -- (time);
-		\draw [arrow] (base) -- (cost);
-		\draw [arrow] (buff) -- (cost);
-		\draw [arrow] (moto) -- (cost);
-		\draw [arrow] (fuel) -- (cost);
-		\draw [arrow] (driv) -- (cost);
-		\draw [arrow] (othe) -- (cost);
-		\draw [arrow] (revp) -- (reve);
-		\draw [arrow] (time) -- (reve);
-		\draw [arrow] (cost) -- (prod);
-		\draw [arrow] (reve) -- (prod);
-
-		\end{tikzpicture}\\
-
-		The optimisation schedule is similar: Each member of the population is evaluated for productivity through the vehicle model and the GA delivers the fittest individual with the maximum productivity.\\
-
-		\pagebreak
 
 	\section{Productivity definition}
 
