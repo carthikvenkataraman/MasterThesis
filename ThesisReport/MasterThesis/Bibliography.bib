@@ -1,21 +1,10 @@
-See biblatex manual 
-http://mirror.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf
-for detailed descriptions on every possible entry type and field.
-
-Put in the full names. Abbreviations are controlled by the bibstyle.
-skipbib option can be used to exclude entry from the bibliography.
-Journal titles must be abbreviated manually using shortjournal.
-
-% By simply not giving a shortjournal input, the full journal will be written.
 @techreport{TruckProdAus,
     title     = "Truck productivity: sources, trends and future prospects, Report 123, Canberra, ACT",
     institution = "Bureau of Infrastructure, Transport and Regional Economics",
     %type     = "", 
     %number   = "",
     %address  = "",
-    year      = "2011",
-    %month    = "",
-    %note     = "01",
+    year      = "2011"
 }
 
 @techreport{OECDProd,
@@ -24,9 +13,7 @@ Journal titles must be abbreviated manually using shortjournal.
     %type     = "", 
     %number   = "",
     %address  = "",
-    year      = "2002",
-    %month    = "",
-    %note     = "02",
+    year      = "2002"
 }
 
 @techreport{FrostSullivan,
@@ -65,42 +52,6 @@ Journal titles must be abbreviated manually using shortjournal.
     %note     = "02",
 }
 
-@techreport{ElementEnergy,
-    title     = "Cost and performance of EV batteries, Final report for The Committee on Climate Change",
-    institution = "Element Energy Ltd., Cambridge CB1 2JD",
-    howpublished = "http://www.element-energy.co.uk/wordpress/wp-content/uploads/2012/04/CCC-battery-cost_-Element-Energy-report_March2012_Public.pdf",
-    %type     = "", 
-    %number   = "",
-    %address  = "",
-    year      = "2012",
-    %month    = "",
-    %note     = "02",
-}
-
-@techreport{EuPLot30Motors,
-    title     = "EuP Lot 30: Electric Motors and Drives",
-    institution = "Atkins \& ISR - University of Coimbra for the European Commission",
-    howpublished = "http://www.eco-motors-drives.eu/Eco/Documents_files/EuP-Lot30-Task-2-2-Dec-2012.pdf",
-    %type     = "", 
-    number   = "ENER/C3/413-2010",
-    %address  = "",
-    year      = "2010",
-    %month    = "",
-    %note     = "02",
-}
-
-@techreport{EuAECOM,
-    title     = "Collection and Analysis of Data on the Structure of the Road Haulage Sector in the European Union",
-    institution = "AECOM Ltd.",
-    howpublished = "http://ec.europa.eu/transport/modes/road/studies/doc/2014-02-03-state-of-the-eu-road-haulage-market-task-a-report.pdf",
-    %type     = "", 
-    number   = "ENER/C3/413-2010",
-    address  = "AECOM House 179 Moss Lane, Altrincham, WA15 8FH",
-    year      = "2014",
-    %month    = "",
-    %note     = "02",
-}
-
 @online{WikiLabourProd,
   author = {Wikipedia contributors},
   title = {Workforce productivity},
@@ -117,6 +68,14 @@ Journal titles must be abbreviated manually using shortjournal.
   urldate = {2014-08-27}
 }
 
+@online{EUelectricity,
+  author = {Eurostat},
+  title = {Energy price statistics },
+  year = 2014,
+  url = {http://epp.eurostat.ec.europa.eu/statistics_explained/index.php/Energy_price_statistics},
+  urldate = {2014-08-28}
+}
+
 @misc{EMSleaflet,
     %author    = "",
     title     = "EMS Forum Brochure on European Modular Systems",
@@ -125,11 +84,59 @@ Journal titles must be abbreviated manually using shortjournal.
     month    = "November",
 }
 
+@techreport{EuAECOM1,
+    title     = "Collection and Analysis of Data on the Structure of the Road Haulage Sector in the European Union",
+    institution = "AECOM Ltd.",
+    howpublished = "http://ec.europa.eu/transport/modes/road/studies/doc/2014-02-03-state-of-the-eu-road-haulage-market-task-a-report.pdf",
+    %type     = "", 
+    number   = "ENER/C3/413-2010",
+    address  = "AECOM House 179 Moss Lane, Altrincham, WA15 8FH",
+    year      = "2014",
+    %month    = "",
+    %note     = "02",
+}
+
+@techreport{EuAECOM2,
+    title     = "Collection and Analysis of Data on the Structure of the Road Haulage Sector in the European Union",
+    institution = "AECOM Ltd.",
+    howpublished = "http://ec.europa.eu/transport/modes/road/studies/doc/2014-02-03-state-of-the-eu-road-haulage-market-task-a-report.pdf",
+    %type     = "", 
+    number   = "ENER/C3/413-2010",
+    address  = "AECOM House 179 Moss Lane, Altrincham, WA15 8FH",
+    year      = "2014",
+    %month    = "",
+    %note     = "02",
+}
+
 @misc{WorldBankReport,
     %author    = "",
     title     = "Measuring Road Transport Performance",
     institution = "The World Bank, IBRD/IDA",
-    howpublished = "http://www.worldbank.org/transport/roads/rdt_docs/annex1.pdf",
+    %howpublished = "http://www.worldbank.org/transport/roads/rdt_docs/annex1.pdf",
     %year     = "2013",
     %month    = "November",
+}
+
+@techreport{ElementEnergy,
+    title     = "Cost and performance of EV batteries, Final report for The Committee on Climate Change",
+    institution = "Element Energy Ltd., Cambridge CB1 2JD",
+    %howpublished = "http://www.element-energy.co.uk/wordpress/wp-content/uploads/2012/04/CCC-battery-cost_-Element-Energy-report_March2012_Public.pdf",
+    %type     = "", 
+    %number   = "",
+    %address  = "",
+    year      = "2012",
+    %month    = "",
+    %note     = "02",
+}
+
+@techreport{EuPLot30Motors,
+    title     = "EuP Lot 30: Electric Motors and Drives",
+    institution = "Atkins \& ISR - University of Coimbra for the European Commission",
+    %howpublished = "http://www.eco-motors-drives.eu/Eco/Documents_files/EuP-Lot30-Task-2-2-Dec-2012.pdf",
+    %type     = "", 
+    number   = "ENER/C3/413-2010",
+    %address  = "",
+    year      = "2010",
+    %month    = "",
+    %note     = "02",
 }
