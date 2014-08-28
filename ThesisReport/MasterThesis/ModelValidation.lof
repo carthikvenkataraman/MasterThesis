@@ -1,0 +1,30 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Road gradient vs longitudinal position\relax }}{2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time\relax }}{4}
+\contentsline {figure}{\numberline {3}{\ignorespaces Effect of engine size and GCW on combination startability\relax }}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Effect of number of propelled axles \& engine size on fuel consumption and mission time\relax }}{6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Normalised elevation and corresponding Buffer SoC vs longitudinal position\relax }}{7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Effect of engine size and number of propelled axles on combination startability\relax }}{8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Effect of engine size and number of propelled axles on charge consumption\relax }}{8}
+\contentsline {figure}{\numberline {10}{\ignorespaces Increased propulsion and its influence on mission speed\relax }}{9}
+\contentsline {figure}{\numberline {11}{\ignorespaces Effect of number of propelled axles on mission speed\relax }}{9}
+\contentsline {figure}{\numberline {12}{\ignorespaces Effect of axle load on fuel consumption and mission time\relax }}{10}
+\contentsline {figure}{\numberline {13}{\ignorespaces Effect of engine size and axle load on charge consumption\relax }}{10}
+\contentsline {figure}{\numberline {14}{\ignorespaces Effect of engine size and axle load on combination startability\relax }}{11}
+\contentsline {figure}{\numberline {15}{\ignorespaces Effect of machine power rating on fuel consumption and mission time\relax }}{12}
+\contentsline {figure}{\numberline {16}{\ignorespaces Effect of machine power rating on vehicle speed over mission\relax }}{12}
+\contentsline {figure}{\numberline {17}{\ignorespaces Effect of engine downsizing on fuel consumption and mission time\relax }}{13}
+\contentsline {figure}{\numberline {18}{\ignorespaces Effect of engine downsizing on combination startability\relax }}{13}
+\contentsline {figure}{\numberline {19}{\ignorespaces Effect of engine downsizing on vehicle speed over mission\relax }}{14}
+\contentsline {figure}{\numberline {20}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{15}
+\contentsline {figure}{\numberline {21}{\ignorespaces Vehicle speed over mission - 011-010-01-010, D13, 70t\relax }}{16}
+\contentsline {figure}{\numberline {22}{\ignorespaces Vehicle speed over mission, zoomed in at Hallands\r asen - 011-010-01-010, D13, 70t\relax }}{16}
+\contentsline {figure}{\numberline {23}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{17}
+\contentsline {figure}{\numberline {24}{\ignorespaces Reduction in fuel consumption compared to the pure ICE combination 011-000-00-000\relax }}{17}
+\contentsline {figure}{\numberline {25}{\ignorespaces Mission speed for combinations with D13 engine, 70t GCW and varying levels of propulsion\relax }}{18}
+\contentsline {figure}{\numberline {26}{\ignorespaces Mission speed at Hallands\r asen, zoomed in - with fully predictive SoC management\relax }}{18}
+\contentsline {figure}{\numberline {27}{\ignorespaces Effect of buffer size and axle propulsion configuration on fuel consumption and mission time with full predictive SoC control\relax }}{19}
+\contentsline {figure}{\numberline {28}{\ignorespaces Buffer SoC Lower limit vs longitudinal position\relax }}{19}
+\contentsline {figure}{\numberline {29}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with full and partial predictive SoC control\relax }}{20}
+\contentsline {figure}{\numberline {30}{\ignorespaces Instantaneous electrical energy consumption vs longitudinal position\relax }}{20}

@@ -87,7 +87,7 @@
 
 		\end{itemize}
 
-		While single factor productivity measures such as fuel costs per kilometre travelled are valid figures, their relevance can be skewed when viewed in a wider perspective. For example, as shown in Table \ref{table:fuelConsumptionRate} \cite[T.~2.8]{TruckProdAus}, the average fuel consumption per kilometre travelled for articulated trucks increased from 45.7 to 49.5 litres per 100 kilometres during the years 1971 and 2007. During the same period of time, in comparison, the fuel consumption per unit freight (tonne-kilometre) dropped by 44\% from 4.7 to 2.7 litres per 100 ton-kilometres. Hence, the choice of productivity measure is key to arriving at the right objective function to optimise.\\
+		While single factor productivity measures such as fuel costs per kilometre travelled are valid figures, their relevance can be skewed when viewed in a wider perspective. For example, as shown in Table \ref{table:fuelConsumptionRate} \cite[T.~2.8]{TruckProdAus}, the average fuel consumption per kilometre travelled for articulated trucks increased from 45.7 to 49.5 litres per 100 kilometres during the years 1971 and 2007. During the same period of time, in comparison, the fuel consumption per unit freight (tonne-kilometre) dropped by 44\% from 4.7 to 2.7 litres per 100 ton-kilometres \cite{TruckProdAus}. Hence, the choice of productivity measure is key to arriving at the right objective function to optimise.\\
 
 		\begin{table}[ht]
 			\centering 
@@ -119,21 +119,47 @@
 		\item Reducing operating costs for freight transporters
 	\end{itemize}
 
-	%\begin{figure}[h!]
-	%	\centering
-	%	\includegraphics[width=\linewidth, clip=true, trim=0 0 325 0]{figures/eea_leaflet.pdf}
-	%	\caption{Goals of the European Modular System \cite{EMSleaflet}}
-	%	\label{EMSleaflet}
-	%\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth, clip=true, trim=0 0 325 0]{figures/eea_leaflet.pdf}
+		\caption{Goals of the European Modular System \cite{EMSleaflet}}
+		\label{EMSleaflet}
+	\end{figure}
 
-	It can hence been seen that, seen from the freight transporter's prespective, the productivity measure must focus on maximising freight carried while capping fuel consumption and associated emissions, while still producing revenues that promote profit maximisation. Thus, the last productivity measure defined in the previous section, revenue earned per unit investment, is chosen as a reasonable complete measure that incorporates the salient goals of the EMS. 
+	It can hence been seen that, seen from the freight transporter's prespective, the productivity measure must focus on maximising freight carried while capping fuel consumption and associated emissions, while still producing revenues that promote profit maximisation. Thus, the last productivity measure defined in the previous section, revenue earned per unit investment, is chosen as a reasonable complete measure that incorporates the salient goals of the EMS.\\ 
 
 	The productivity factor, P, is redefined below for clarity:
 	\begin{equation}
 		P = \frac{Revenue_{annual}*N_{first\ owner}}{Cost_{fixed} + Cost_{variable}}\ \euro/\euro
 	\end{equation}
 
-	where $Revenue_{annual}$ is the average annual revenue earned over a target duration of $N_{first\ owner}$ years, $Cost_{fixed}$ is the initial investment in the tractor, trailers and machinery and $Cost_{variable}$ is the total operating cost over $N_{first\ owner}$ years.
+	where $Revenue_{annual}$ is the average annual revenue earned over a target duration of $N_{first\ owner}$ years, $Cost_{fixed}$ is the initial investment in the tractor, trailers and machinery and $Cost_{variable}$ is the total operating cost over $N_{first\ owner}$ years.\\
+
+	$Revenue_{annual}$ is usually defined in terms of the average gross transporter income or gross transport costs per unit freight transported, per vehicle kilometer. It can be gleaned from literature that the former definition is known to vary between 4 and 6 US Dollar Cents per tonne-kilometre \cite{WorldBankReport} while the latter is in the range of 0.75 USD per kilometre to 1.25 USD per kilometre \cite{WorldBankReport}.\\
+
+	The initial buying prices of trucks, trailers, additional loading equipment and superstructures form the bulk of the fixed costs, $Cost_{fixed}$. Average truck prices in the context of the European buyer are considered in this thesis, with a step-up margin for the three different powertrain sizes considered in the optimisation tool. It must be noted though, that the axle load configurations, cab specifications and other truck parameters have a significant bearing on actual buying prices, aside from taxation policies and registration schedules that vary internationally. Frost \& Sullivan \cite{FrostSullivan} estimates average upfront truck prices ranging between 110,000 USD and 125,000 USD and trailer prices ranging between 30,000 USD and 50,000 USD for the year 2014. This thesis places the dolly and semitrailer prices at the lower and upper bounds for the trailer prices respectively. The truck price is assigned to the base powertrain configuration and premiums of x\% and y\% are assigned to the higher powertrain configurations respectively, based on Volvo's Cost-Calc tool.\\
+
+	In this thesis, the price of electrified axles is incorporated in the form of add-on features and are thus simple additive terms to the base price of the trailer. The electrification charges are divided primarily among the batteries, the electric machine and the auxiliary power electronics and control systems. Additionally, the additional mass of the electrification components is penalised by an appropriate reduction in payload tonnage capacity.\\
+
+	Advances in battery technology are rapid and are expected to yield significant cost advantages over the years. Hence, a price trend analysis is necessary to evaluate how mission productivities can be maximised by the availability of cheaper batteries with higher energy densities in the decades to come. Lithium-ion batteries for plug-in hybrid vehicles with energy capacities in the range of 15-21 kWh are priced between 800 and 1200 \euro per kilowatt-hour today \cite{EUROBAT} and are expected to fall to 450 \euro per kilowatt-hour in the next decade \cite{EUROBAT}. The long-term trends predicted and published in \cite[T.~8-16]{ElementEnergy} are referenced for evaluations in productivity sensitivity to battery prices and are as shown in Table \ref{table:batteryPriceMassTrend}.\\
+
+	DC electric motors rated between 75kW and 350kW are found to be priced approximately 29900 EUR \cite{EuPLot30Motors}.
+
+	Variable costs or operational costs were estimated at approximately 80 EUR per hour for France and Germany \cite{EuAECOM}.
+
+	\begin{table}[ht]
+		\centering 
+		\begin{tabular}{l c c c c c}
+			\cline{2-6}
+			\ & 2011 & 2015 & 2020 & 2025 & 2030\\ 
+			\hline
+		    Pack cost (USD/kWh)  & 746 & 436 & 275 & 244 & 230\\
+		    Pack mass (kg)  & 343 & 253 & 195  & 177 & 176\\
+			\hline 
+		\end{tabular}
+		\caption{Battery price and mass trends 2011-2030 \cite{ElementEnergy}} 
+		\label{table:batteryPriceMassTrend} 
+	\end{table}
 
 	\section{Design variable definition}
 		The choice of design variables and design parameters must be made before the objective formulation is taken up. Design variables are here defined as those configuration features that will be evaluated and determined as a result of the optimisation runs. Design parameters are defined as those configuration features that closely influence the productivity function but remain constant for a chosen population. With this distinction set up, the design variables can be briefly as listed below. It must be noted that the list is not exhaustive at the time of writing this report.
