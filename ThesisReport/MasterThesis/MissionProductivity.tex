@@ -176,14 +176,14 @@
 			\label{table:OperatingCostContributors} 
 		\end{table}
 
-		Average driver hourly wages varied between 12 and 24 \euro / hour in the EU \cite[T.~7.2]{EuAECOM1}. The average diesel price for the 27-member EU was 1.468 \euro / litre in April 2013 \cite[T.~7.3]{EuAECOM1}. Finally, the average price of electricity that will be used to recharge batteries in plug-in hybrid vehicles is 0.21 \euro / kWh \cite{EUelectricity}. Armed with these figures, a mathematical formulation for the productivity can be derived and a sensitivity analysis performed.  
+		Average driver hourly wages varied between 12 and 24 \euro / hour in the EU \cite[T.~7.2]{EuAECOM1}. The average diesel price for the 27-member EU was 1.468 \euro / litre in April 2013 \cite[T.~7.3]{EuAECOM1}. Fuel price is considered to evolve at 3\% each year \cite[C.~14]{LongHaulFH}. The average price of electricity that will be used to recharge batteries in plug-in hybrid vehicles is 0.21 \euro / kWh \cite{EUelectricity}. Electricity price evolution is also fixed at 3\% per year \cite[T.~14]{LongHaulFH}. Armed with these figures, a mathematical formulation for the productivity can be derived and a sensitivity analysis performed.  
 
 	\section{Productivity formulation}
 
 		The productivity formulation is now developed mathematically. As can be deduced, the mission productivity is desired to be as large as possible. The mission reveneues, fixed costs and operating costs are dealt with in succession.
 
 		\begin{equation} \label{eq:productivity}
-			P = \frac{Revenue_{annual}*N_{first\ owner}}{Cost_{fixed} + Cost_{variable}}\ \euro/\euro
+			P = \frac{R_N}{C_{fixed} + C_{variable,\ N}}\ \euro/\euro
 		\end{equation}
 
 		\subsection{Mission revenues}
@@ -198,15 +198,34 @@
 		\begin{equation}
 			M_{payload,\ net} = M_{payload,\ gross} - \Delta M_{eAxle}
 		\end{equation}
-		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ and $M_{payload,\ gross}$ is the mass of the payload carried by the conventional combination.
+		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ and $M_{payload,\ gross}$ is the mass of the payload carried by the conventional combination. 
 
 		\begin{equation}
 			R_{annual} = R_{mission} \times N_{mission,\ annual} \  \euro / year
 		\end{equation}
-		where, $N_{mission,\ annual}$ is the average annual number of trips made and $R_{annual}$ is the total annual mission revenue earned by the freight transporter (\euro). The revenue earned over the target first owner duration of $N_{first\ owner}$ years is then calculated as:
+		where, $N_{mission,\ annual}$ is the average annual number of trips made and $R_{annual}$ is the total annual mission revenue earned by the freight transporter (\euro). \\
+
+		The level of utilisation of the available axle load capacity and trailer volume is represented using a vehicle utilisation factor $U$. The combination is certified volume or tonnage limited based on if $V_{payload,\ max} \times \rho_{payload} \leq M_{axle, max}$. The utilisation factor is then defined as below:
 
 		\begin{equation}
-			R_{N} = R_{annual} \times N_{first\ owner} \  \euro
+			U = \frac{M_{payload,\ gross}}{M_{axle,max}}\ (Tonnage-limited)
+		\end{equation}
+		or,
+
+		\begin{equation}
+			U = \frac{V_{payload,\ gross}}{V_{payload,\ max}}\ (Volume-limited)
+		\end{equation}
+
+		This can thus be used as an adjustment factor to express annual mission revenues, when employed in a comparitive sense, like in the case of optimisation.
+
+		\begin{equation}
+			R_{annual,\ corrected} = R_{annual} \times \frac{1}{U}
+		\end{equation}
+
+		The revenue earned over the target first owner duration of $N_{first\ owner}$ years is then calculated as:
+
+		\begin{equation}
+			R_{N} = R_{annual,\ corrected} \times N_{first\ owner} \  \euro
 		\end{equation}
 
 		\subsection{Fixed costs}
@@ -229,19 +248,27 @@
 			where $P_{tractor,\ base}$ is the price of the tractor with the base powertrain configuration. 
 
 			\begin{equation}
-				C_{fixed,\ elec, i} = P_{batt,i}+\displaystyle \sum_{j=1}^{N_{eAxle}} P_{eAxle,j}
+				C_{fixed,\ elec, i} = P_{batt,i}+\displaystyle \sum_{j=1}^{N_{eAxle,i}} P_{eAxle,j}
 			\end{equation}
 			The battery price for a single unit i, $P_{batt,i}$, is expressed as
 			\begin{equation}
 				P_{batt,i}= S_{batt} \times P_{batt/kWh}
 			\end{equation}
-			The price of the electrically propelled axle $P_{eAxle,j}$ consists of the electric machine, power electronics and transmission components, all of which are considered to be included in the electric motor prices discussed in the previous section.
+			The price of the electrically propelled axle $P_{eAxle,j}$ consists of the electric machine, power electronics and transmission components, all of which are considered to be included in the electric motor prices discussed in the previous section. The total mass of electric axles, represented by $\Delta M_{eAxle}$ in the previous subsection can be expressed as:
+
+			\begin{equation}
+				\Delta M_{eAxle} = \displaystyle \sum_{i=2}^{N_{units}} M_{eAxle,i}
+			\end{equation}
+			where, 
+			\begin{equation}
+				M_{eAxle,i} = (M_{battery,i} - \sum_{j=1}^{N_{eAxle,i}} M_{mot,j}) \forall i=2,..N_{units}
+			\end{equation}
 
 		\subsection{Operational Costs}
-			The total annual variable operational costs $C_{variable}$ are expressed
+			The total mission variable operational costs $C_{variable}$ are expressed
 			
 			\begin{equation}
-				C_{variable,\ annual} = C_{driver} + C_{fuel} + C_{mnt} + C_{tyres} + C_{tolls} + C_{elec}
+				C_{variable,\ mission} = C_{driver} + C_{fuel} + C_{mnt} + C_{tyres} + C_{tolls} + C_{elec}
 			\end{equation}
 
 			\begin{equation}
@@ -274,7 +301,7 @@
 			The annual operational costs are extended over the $N_{first\ owner}$ years to arrive at total operation costs:
 
 			\begin{equation}
-				C_{variable,\ N} = C_{variable,\ annual} \times N_{first\ owner}
+				C_{variable,\ N} = C_{variable,\ mission} \times N_{first\ owner} \times N_{mission,\ annual}
 			\end{equation}
 
 
