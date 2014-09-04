@@ -5,27 +5,27 @@ typedef std::vector<Genes> UnitGene;
 typedef std::vector<UnitGene> Individual;
 
 int main() {
-  Genes machineGenes0{0,1,0};
+  Genes machineGenes0{0,0,1};
   Genes bufferGenes0{0,0,1};
   Genes axleGenes0{0,1,1};
   UnitGene unitGenes0{machineGenes0, bufferGenes0, axleGenes0};
 
   Genes machineGenes1{0,1,0};
   Genes bufferGenes1{0,1,0};
-  Genes axleGenes1{0,1,0};
+  Genes axleGenes1{0,0,0};
   UnitGene unitGenes1{machineGenes1, bufferGenes1, axleGenes1};
 
   Genes machineGenes2{0,1,0};
   Genes bufferGenes2{0,1,0};
-  Genes axleGenes2{0,0};
+  Genes axleGenes2{1,0};
   UnitGene unitGenes2{machineGenes2, bufferGenes2, axleGenes2};
 
   Genes machineGenes3{0,1,0};
   Genes bufferGenes3{0,1,0};
-  Genes axleGenes3{0,0,0};
+  Genes axleGenes3{0,1,0};
   UnitGene unitGenes3{machineGenes3, bufferGenes3, axleGenes3};
 
-  Individual individual{unitGenes0, unitGenes1, unitGenes2, unitGenes3};
+  Individual individual{unitGenes0, unitGenes1};//, unitGenes2, unitGenes3};
 
   std::vector<std::vector<double>> missionData;
   void LoadMission(std::vector<std::vector<double>>& );
@@ -38,7 +38,7 @@ int main() {
 
 void LoadMission(std::vector<std::vector<double>>& missionData) {
   MATFile *matFileHandle;
-  matFileHandle = matOpen("data/MissionData70Step.mat", "r");
+  matFileHandle = matOpen("data/MissionData35.mat", "r");
   int numberOfDirectories;
   const char** directoryField= (const char** )matGetDir(matFileHandle, &numberOfDirectories);
   //std::cout<<"Number of directories: "<<numberOfDirectories<<std::endl;

@@ -3,7 +3,7 @@ close all
 clc
 
 % Buffer Data in order [maximumBufferLevel, minimumBufferLevel, maximumStateOfBuffer, minimumAllowedStateOfBuffer]
-maximumBufferLevel = 3.3*(252*2)*3600;   % Coulombs maybe
+maximumBufferLevel = 90;   % MegaCoulombs
 minimumBufferLevel = 0;
 maximumStateOfBuffer = 0.7;
 minimumAllowedStateOfBuffer = 0.3;  % Minimum allowed SoC / fuel level can be adjusted

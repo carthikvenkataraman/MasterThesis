@@ -137,25 +137,25 @@
 
 		$Revenue_{annual}$ is usually defined in terms of the average gross transporter income or gross transport costs per unit freight transported, per vehicle kilometer. It can be gleaned from literature that the former definition is known to vary between 4 and 6 US Dollar Cents per tonne-kilometre \cite{WorldBankReport} while the latter is in the range of 0.75 USD per kilometre to 1.25 USD per kilometre \cite{WorldBankReport}.\\
 
-		The initial buying prices of trucks, trailers, additional loading equipment and superstructures form the bulk of the fixed costs, $Cost_{fixed}$. Average truck prices in the context of the European buyer are considered in this thesis, with a step-up margin for the three different powertrain sizes considered in the optimisation tool. It must be noted though, that the axle load configurations, cab specifications and other truck parameters have a significant bearing on actual buying prices, aside from taxation policies and registration schedules that vary internationally. Frost \& Sullivan \cite{FrostSullivan} estimates average upfront truck prices ranging between 105,000 USD and 130,000 USD and trailer prices ranging between 40,000 USD and 70,000 USD for the year 2014. This thesis places the dolly and semitrailer prices at the lower and upper bounds for the trailer prices respectively. The truck price is assigned to the base powertrain configuration and premiums of x\% and y\% are assigned to the higher powertrain configurations respectively, based on Volvo's Cost-Calc tool.\\
+		The initial buying prices of trucks, trailers, additional loading equipment and superstructures form the bulk of the fixed costs, $Cost_{fixed}$. Average truck prices in the context of the European buyer are considered in this thesis, with a step-up margin for the three different powertrain sizes considered in the optimisation tool. It must be noted though, that the axle load configurations, cab specifications and other truck parameters have a significant bearing on actual buying prices, aside from taxation policies and registration schedules that vary internationally. Frost \& Sullivan \cite{FrostSullivan} estimates average upfront truck prices ranging between 105,000 USD and 130,000 USD and trailer prices ranging between 40,000 USD and 70,000 USD for the year 2014. This thesis places the dolly and semitrailer prices at the lower and upper bounds for the trailer prices respectively. Trailer and dolly masses are referenced from \cite{VehCombAurell}. The truck price is assigned to the base powertrain configuration and premiums of 10.12\% and 15.2\% are assigned to the higher powertrain configurations respectively, based on Volvo's Cost-Calc tool.\\
 
-		In this thesis, the price of electrified axles is incorporated in the form of add-on features and are thus simple additive terms to the base price of the trailer. The electrification charges are divided primarily among the batteries, the electric machine and the auxiliary power electronics and control systems. Additionally, the additional mass of the electrification components is penalised by an appropriate reduction in payload tonnage capacity. Advances in battery technology are rapid and are expected to yield significant cost advantages over the years. Hence, a price trend analysis is necessary to evaluate how mission productivities can be maximised by the availability of cheaper batteries with higher energy densities in the decades to come. Lithium-ion batteries for plug-in hybrid vehicles with energy capacities in the range of 15-21 kWh are priced between 800 and 1200 \euro per kilowatt-hour today \cite{EUROBAT} and are expected to fall to 450 \euro per kilowatt-hour in the next decade \cite{EUROBAT}. The long-term trends predicted and published in \cite[T.~8-16]{ElementEnergy} are referenced for evaluations in productivity sensitivity to battery prices and are as shown in Table \ref{table:batteryPriceMassTrend}.\\
+		In this thesis, the price of electrified axles is incorporated in the form of add-on features and are thus simple additive terms to the base price of the trailer. The electrification charges are divided primarily among the batteries, the electric machine and the auxiliary power electronics and control systems. Additionally, the additional mass of the electrification components is penalised by an appropriate reduction in payload tonnage capacity. Advances in battery technology are rapid and are expected to yield significant cost advantages over the years. Hence, a price trend analysis is necessary to evaluate how mission productivities can be maximised by the availability of cheaper batteries with higher energy densities in the decades to come. Lithium-ion batteries for plug-in hybrid vehicles with energy capacities in the range of 15-21 kWh are priced between 800 and 1200\euro /kWh today \cite{EUROBAT} and are expected to fall to 450 \euro /kWh in the next decade \cite{EUROBAT}. The long-term trends predicted and published in \cite[T.~8-16]{ElementEnergy} are referenced for evaluations in productivity sensitivity to battery prices and are as shown in Table \ref{table:batteryPriceMassTrend}.\\
 
 		\begin{table}[ht]
 			\centering 
-			\begin{tabular}{l c c c c c}
-				\cline{2-6}
-				\ & 2011 & 2015 & 2020 & 2025 & 2030\\ 
+			\begin{tabular}{l c c c c}
+				\cline{2-5}
+				\  & 2015 & 2020 & 2025 & 2030\\ 
 				\hline
-			    Pack cost (USD/kWh)  & 746 & 436 & 275 & 244 & 230\\
-			    Pack mass (kg)  & 343 & 253 & 195  & 177 & 176\\
+			    Pack cost (USD/kWh)  & 436 & 275 & 244 & 230\\
+			    Pack mass reduction(\%)  &  & 22.92  & 9.23 & 0.56\\
 				\hline 
 			\end{tabular}
 			\caption{Battery price and mass trends 2011-2030 \cite{ElementEnergy}} 
 			\label{table:batteryPriceMassTrend} 
 		\end{table}
 
-		DC electric motors rated between 75kW and 350kW are found to be priced approximately 29900 EUR \cite{EuPLot30Motors}.
+		DC electric motors rated between 75kW and 350kW are found to be priced approximately 29900 EUR \cite{EuPLot30Motors}.\\ 
 
 		Variable costs or operational costs were estimated at approximately 80 \euro / hour for France and Germany \cite{EuAECOM1} with driver costs amounting to upto 38\% of the total operating costs. The contributors to total operating costs were referenced from the European Commission study \cite[T.~7b]{EuAECOM2} and average values tabulated below in Table \ref{table:OperatingCostContributors}.\\
 
@@ -176,7 +176,7 @@
 			\label{table:OperatingCostContributors} 
 		\end{table}
 
-		Average driver hourly wages varied between 12 and 24 \euro / hour in the EU \cite[T.~7.2]{EuAECOM1}. The average diesel price for the 27-member EU was 1.468 \euro / litre in April 2013 \cite[T.~7.3]{EuAECOM1}. Fuel price is considered to evolve at 3\% each year \cite[C.~14]{LongHaulFH}. The average price of electricity that will be used to recharge batteries in plug-in hybrid vehicles is 0.21 \euro / kWh \cite{EUelectricity}. Electricity price evolution is also fixed at 3\% per year \cite[T.~14]{LongHaulFH}. Armed with these figures, a mathematical formulation for the productivity can be derived and a sensitivity analysis performed.  
+		Average driver hourly wages varied between 12 and 24 \euro / hour in the EU \cite[T.~7.2]{EuAECOM1}. Yearly evolution of driver wages was fixed at an average of 2.7\% based on past years' wage increases in France and Germany \cite[T.~7a]{EuAECOM2}. The average diesel price for the 27-member EU was 1.468 \euro / litre in April 2013 \cite[T.~7.3]{EuAECOM1}. Fuel price is considered to evolve at 3\% each year \cite[C.~14]{LongHaulFH}. The average price of electricity that will be used to recharge batteries in plug-in hybrid vehicles is 0.21 \euro / kWh \cite{EUelectricity}. Electricity price evolution is also fixed at 3\% per year \cite[T.~14]{LongHaulFH}. Armed with these figures, a mathematical formulation for the productivity can be derived and a sensitivity analysis performed.  
 
 	\section{Productivity formulation}
 
@@ -198,12 +198,12 @@
 		\begin{equation}
 			M_{payload,\ net} = M_{payload,\ gross} - \Delta M_{eAxle}
 		\end{equation}
-		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ and $M_{payload,\ gross}$ is the mass of the payload carried by the conventional combination. 
+		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ and $M_{payload,\ gross}$ is the mass of the payload carried by the conventional combination. The total annual mission revenue earned by the freight transporter $R_{annual}$ is:
 
 		\begin{equation}
 			R_{annual} = R_{mission} \times N_{mission,\ annual} \  \euro / year
 		\end{equation}
-		where, $N_{mission,\ annual}$ is the average annual number of trips made and $R_{annual}$ is the total annual mission revenue earned by the freight transporter (\euro). \\
+		where, $N_{mission,\ annual}$ is the average annual number of trips made. \\
 
 		The level of utilisation of the available axle load capacity and trailer volume is represented using a vehicle utilisation factor $U$. The combination is certified volume or tonnage limited based on if $V_{payload,\ max} \times \rho_{payload} \leq M_{axle, max}$. The utilisation factor is then defined as below:
 
@@ -261,7 +261,7 @@
 			\end{equation}
 			where, 
 			\begin{equation}
-				M_{eAxle,i} = (M_{battery,i} - \sum_{j=1}^{N_{eAxle,i}} M_{mot,j}) \forall i=2,..N_{units}
+				M_{eAxle,i} = (M_{battery,i} + \sum_{j=1}^{N_{eAxle,i}} M_{mot,j}) \forall i=2,..N_{units}
 			\end{equation}
 
 		\subsection{Operational Costs}
@@ -304,5 +304,95 @@
 				C_{variable,\ N} = C_{variable,\ mission} \times N_{first\ owner} \times N_{mission,\ annual}
 			\end{equation}
 
+	\section{Sensitivity study}
+	The productivity function developed above takes several input or 'design' parameters and studying the influence of each or all of them on the final productivity measure is key to understanding the trends seen in combinations optimised for productivity. The parameters are seen to evolve over time and hence ideally suited to study the evolution of productivity itself over the years. The 011-010-01-010 combination with a D16 engine and 70t GCW is simulated and its productivity calculated for differing parameters as listed in Table \ref{table:ParameterSensitivity}. The effect of increasing the annual distance travelled and varying gross combination weights are independently studied. \\ 
 
+	\begin{table}[ht]
+			\centering 
+			\begin{tabular}{l c c c c}
+				\cline{2-5}
+				\ & 2015 & 2020 & 2025 & 2030\\ 
+				\hline
+				Fuel price per litre & 1.468 & 1.702 & 1.973 & 2.287\\
+				Electricity price per kWh & 0.21 & 0.24 & 0.282 & 0.327\\
+			    Driver hourly wages  & 24 & 27.459 & 31.418 & 35.948\\
+				\hline 
+			\end{tabular}
+			\caption{Design parameter evolution 2015-2030 \cite{ElementEnergy}} 
+			\label{table:ParameterSensitivity} 
+		\end{table}
+
+	\begin{table}[ht]
+		\centering 
+		\begin{tabular}{c c c c c}
+			\hline
+			Battery Size (kWh) & 2015 & 2020 & 2025 & 2030\\ 
+			\hline
+			5 & 1.657 & 1.045 & 0.927 & 0.874\\
+			50 & 16.57 & 10.45 & 9.27 & 8.74\\
+			90 & 29.82 & 18.81 & 16.69 & 15.73\\
+			\hline 
+		\end{tabular}
+		\caption{Battery Price evolution (k\euro) 2015-2030 \cite{ElementEnergy}} 
+		\label{table:ParameterSensitivityBattery} 
+	\end{table}
+
+	\begin{table}[ht]
+		\centering 
+		\begin{tabular}{c c c c c}
+			\hline
+			Battery Size (kWh) & 2015 & 2020 & 2025 & 2030\\ 
+			\hline
+			5 & 167 & 128.724 & 116.842 & 116.188\\
+			50 & 524 & 403.899 & 366.619 & 364.566\\
+			90 & 918 & 707.594 & 642.283 & 638.687\\
+			\hline 
+		\end{tabular}
+		\caption{Battery Mass evolution (kg) 2015-2030 \cite{ElementEnergy}} 
+		\label{table:ParameterSensitivityBatteryMass} 
+	\end{table}
+
+	The N-year productivity measures for a few combinations are evaluated over years 2015 to 2030 and are as shown in Figure \ref{ProductivityComb20152030}. The combinations chosen are the standard tractor and semitrailer, the standard A-Double, Combination 011-010-00-000, Combination 011-010-01-010 and Combination 011-111-11-111. The productivity variation over the years and the relative productivities among the combinations are both of interest.\\
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=\textwidth, clip=true, trim=60 185 45 255]{figures/MissionProductivity/ProductivityTrendsForDifferentCombinationsCompared.pdf}
+		\caption{Productivity trends for different combinations compared over years 2015 - 2030}
+		\label{ProductivityComb20152030}
+	\end{figure}
+
+	As can be seen, the improvement in mission productivity achieved by employing an A-Double for the mission in place of 2 individual tractor-semitrailers is approximately 39.1\%. The first-owner time period considered in the above productivity measures is 5 years. The daily number of missions is pegged at 2 and the gross combination weight is 70 tons. In all cases of electrified propulsion, the battery size is 50kWh and the motor rating is 173kW and 400Nm. It can be seen that the Combination 011-010-01-010 gains an advantage in productivity over the standard A-Double in year 2023 while the Combination 011-010-00-000 is already more productive than the standard A-Double.\\
+
+	\begin{figure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 208]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNumTractorST.pdf}
+			\caption{Tractor-Semitrailer}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum11.pdf}
+			\caption{A-Double}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum15.pdf}
+			\caption{011-010-00-000}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum33.pdf}
+			\caption{011-010-01-010}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum57.pdf}
+			\caption{011-111-11-111}
+		\end{subfigure}
+		\caption{Effect of daily number of missions on mission productivity}
+		\label{ProdNumMissions}
+	\end{figure} 
+
+	
+	The productivities of the above combinations can be significantly affected by the yearly distance covered as shown in Figure \ref{ProdNumMissions}. As expected, increased number of daily missions improves mission productivity and in some cases seems to converge a finite time after year 2030. The mission productivity graphs can also be used to determine the time when the combination becomes non-productive and thereby, to determine the time of tractor/combination replacement. This point in time also is conducive for a fresh evaluation of the optimal propulsion configuration to use for the given mission.\\
 \end{document}

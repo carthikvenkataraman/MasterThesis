@@ -71,7 +71,7 @@ void Buffer::LoadBuffer() {
   openCircuitVoltage = bufferData[4];
   //std::cout<<"openCircuitVoltage "<<openCircuitVoltage<<std::endl;
 
-  instantaneousBufferLevel=maximumBufferLevel;
+  instantaneousBufferLevel=maximumStateOfBuffer*maximumBufferLevel;
   //bufferLevelOverMission.push_back(instantaneousBufferLevel);
   //std::cout<<"Inst. buffer level "<<instantaneousBufferLevel<<std::endl;
 

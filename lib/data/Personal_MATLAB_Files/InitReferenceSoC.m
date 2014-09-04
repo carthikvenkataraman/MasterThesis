@@ -103,9 +103,9 @@ if(size(peakIndices)~=0)
     hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
     % saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
     
-    % figure;
-    % plot(longitudinalPosition, elevation);
-    % hold on, plot(longitudinalPosition(sortedIndices), elevation(sortedIndices), 'r-*');
+    figure;
+    plot(longitudinalPosition, elevation);
+    hold on, plot(longitudinalPosition(sortedIndices), elevation(sortedIndices), 'r-*');
     
     %% Calculate zeta_k for all k (minimum allowed SoC at each point along the mission)
     
