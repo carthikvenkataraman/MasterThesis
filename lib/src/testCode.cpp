@@ -12,17 +12,17 @@ int main() {
 
   Genes machineGenes1{0,1,0};
   Genes bufferGenes1{0,1,0};
-  Genes axleGenes1{0,1,0};
+  Genes axleGenes1{1,1,1};
   UnitGene unitGenes1{machineGenes1, bufferGenes1, axleGenes1};
 
   Genes machineGenes2{0,1,0};
   Genes bufferGenes2{0,1,0};
-  Genes axleGenes2{0,1};
+  Genes axleGenes2{1,1};
   UnitGene unitGenes2{machineGenes2, bufferGenes2, axleGenes2};
 
   Genes machineGenes3{0,1,0};
   Genes bufferGenes3{0,1,0};
-  Genes axleGenes3{0,1,0};
+  Genes axleGenes3{1,1,1};
   UnitGene unitGenes3{machineGenes3, bufferGenes3, axleGenes3};
 
   Individual individual{unitGenes0, unitGenes1, unitGenes2, unitGenes3};

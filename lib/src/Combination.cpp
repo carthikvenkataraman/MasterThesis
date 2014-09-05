@@ -731,10 +731,7 @@ void Combination::GetMissionProductivity() {
 		GVW+=kerbUnitWeight[i];
 	}
 	double grossPayload = grossCombinationWeight-GVW;
-	/*std::cout<<"grossCombinationWeight "<<grossCombinationWeight<<'\n';
-	std::cout<<"GVW "<<GVW<<'\n';
-	std::cout<<"grossPayload "<<grossPayload<<'\n';//*/
-
+	
 	// Find additional masses due to electrification
 	batteryPrice = 0;
 	batteryMass = 0;
@@ -745,8 +742,7 @@ void Combination::GetMissionProductivity() {
 			batteryMass+=batteryMasses[bufferSizeIndex];
 		}
 	}
-	//std::cout<<"batteryMass "<<batteryMass<<'\n';
-
+	
 	electricPowertrainPrice = 0;
 	electricPowertrainMass = 0;
 	for(int i=1;i<unitsInCombination.size();i++){
@@ -761,23 +757,30 @@ void Combination::GetMissionProductivity() {
 			}
 		}
 	}
-	//std::cout<<"electricPowertrainMass "<<electricPowertrainMass<<'\n';
 	double massElectrification = batteryMass + electricPowertrainMass;
-	//std::cout<<"massElectrification "<<massElectrification<<'\n';
-
+	
 	// Calculate net payload
 	double netPayload = grossPayload - massElectrification;
-	//std::cout<<"netPayload "<<netPayload<<'\n';
-
+	
 	// Mission revenues
 	double missionRevenueSingle=revenuePerTonPerKM*(netPayload/1000)*(instantaneousLongitudinalPosition/1000);
-	/*std::cout<<"revenuePerTonPerKM "<<revenuePerTonPerKM<<'\n';
-	std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<'\n';
-	std::cout<<"missionRevenueSingle "<<missionRevenueSingle<<'\n';//*/
 	double missionRevenueAnnual=missionRevenueSingle*numberOfAnnualMissions;
-	/*std::cout<<"numberOfAnnualMissions "<<numberOfAnnualMissions<<'\n';
-	std::cout<<"missionRevenueAnnual "<<missionRevenueAnnual<<'\n';//*/
 	double missionRevenueN = missionRevenueAnnual*numberOfFirstOwnerYears;
+
+	std::cout<<"grossCombinationWeight "<<grossCombinationWeight<<'\n';
+	std::cout<<"GVW "<<GVW<<'\n';
+	std::cout<<"grossPayload "<<grossPayload<<'\n';//*/
+	std::cout<<"batteryMass "<<batteryMass<<'\n';
+	std::cout<<"electricPowertrainMass "<<electricPowertrainMass<<'\n';
+	std::cout<<"massElectrification "<<massElectrification<<'\n';
+	std::cout<<"netPayload "<<netPayload<<'\n';
+
+	std::cout<<"revenuePerTonPerKM "<<revenuePerTonPerKM<<'\n';
+	std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<'\n';
+
+	std::cout<<"missionRevenueSingle "<<missionRevenueSingle<<'\n';//*/
+	std::cout<<"numberOfAnnualMissions "<<numberOfAnnualMissions<<'\n';
+	std::cout<<"missionRevenueAnnual "<<missionRevenueAnnual<<'\n';//*/
 	std::cout<<"missionRevenues "<<missionRevenueN<<'\n';
 
 	//-----------------------------------------------------------------------------------------------------------
@@ -788,7 +791,7 @@ void Combination::GetMissionProductivity() {
 		baseCombinationCost+= unitCosts[i];
 
 	}
-	//std::cout<<"baseCombinationCost (without powertrain premium) "<<baseCombinationCost<<'\n';
+	std::cout<<"baseCombinationCost (without powertrain premium) "<<baseCombinationCost<<'\n';
 	int engineIndex = unitsInCombination[0]->axlesInUnit[1]->machineForAxle->machineIndex;
 	if(engineIndex==0) {
 		baseCombinationCost+=0;
@@ -797,41 +800,40 @@ void Combination::GetMissionProductivity() {
 	} else {
 		baseCombinationCost+=powertrainPremium[1];
 	}
-	//std::cout<<"baseCombinationCost (Conventional) "<<baseCombinationCost<<'\n';
-	
 	double costFixedElectrification = batteryPrice + electricPowertrainPrice;
-	/*std::cout<<"batteryPrice "<<batteryPrice<<'\n';
-	std::cout<<"electricPowertrainPrice "<<electricPowertrainPrice<<'\n';//*/
-	//std::cout<<"costFixedElectrification "<<costFixedElectrification<<'\n';//*/
-
 	double costFixed = baseCombinationCost + costFixedElectrification;
-	std::cout<<"Total Fixed Cost (With electrification) "<<costFixed<<'\n';
+
+	std::cout<<"baseCombinationCost (Conventional) "<<baseCombinationCost<<'\n';
+	std::cout<<"batteryPrice "<<batteryPrice<<'\n';
+	std::cout<<"electricPowertrainPrice "<<electricPowertrainPrice<<'\n';
+	std::cout<<"costFixedElectrification "<<costFixedElectrification<<'\n';
+	std::cout<<"Total Fixed Cost (With electrification) "<<costFixed<<'\n';//*/
 	
 	//-----------------------------------------------------------------------------------------------------------
 
 	fuelPrice = totalFuelConsumption*fuelPricePerLitre;
-	std::cout<<"fuelPrice "<<fuelPrice<<'\n';
 
 	electricityPrice = (totalElectricEnergyToBeRecharged/(3.6*1000000))*electricityPricePerkWh;	
-	std::cout<<"totalElectricEnergyToBeRecharged "<<totalElectricEnergyToBeRecharged<<'\n';
-	std::cout<<"electricityPrice "<<electricityPrice<<'\n';
 
 	driverCosts = (totalTime/3600)*driverHourlyRate;
-	std::cout<<"totalTime "<<totalTime<<'\n';
-	std::cout<<"driverHourlyRate "<<driverHourlyRate<<'\n';
-	std::cout<<"driverCosts "<<driverCosts<<'\n';
 
 	double maintenanceCosts = otherCostRatios[0]*driverCosts;
 	double tyreCosts = otherCostRatios[1]*driverCosts;
 	double tollCosts = otherCostRatios[2]*driverCosts;
 	
 	double variableCostsMission=fuelPrice+electricityPrice+driverCosts+maintenanceCosts+tyreCosts+tollCosts;
-	std::cout<<"variableCostsMission "<<variableCostsMission<<'\n';
 	double variableCostsAnnual= variableCostsMission*numberOfAnnualMissions;
-	std::cout<<"variableCostsAnnual "<<variableCostsAnnual<<'\n';
 	double variableCostsN = variableCostsAnnual*numberOfFirstOwnerYears;
-	std::cout<<"variableCostsN "<<variableCostsN<<'\n';
 
+	std::cout<<"fuelPrice "<<fuelPrice<<'\n';
+	std::cout<<"totalElectricEnergyToBeRecharged "<<totalElectricEnergyToBeRecharged<<'\n';
+	std::cout<<"electricityPrice "<<electricityPrice<<'\n';
+	std::cout<<"totalTime "<<totalTime<<'\n';
+	std::cout<<"driverHourlyRate "<<driverHourlyRate<<'\n';
+	std::cout<<"driverCosts "<<driverCosts<<'\n';
+	std::cout<<"variableCostsMission "<<variableCostsMission<<'\n';
+	std::cout<<"variableCostsAnnual "<<variableCostsAnnual<<'\n';
+	std::cout<<"variableCostsN "<<variableCostsN<<'\n';//*/
 	//-----------------------------------------------------------------------------------------------------------
 
 	missionProductivity=missionRevenueN/(costFixed+variableCostsN);

@@ -27,11 +27,11 @@ USDtoEUR = 0.76;
 
 %% Simulation outputs
 
-C = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/33/C.mat');
-B(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/33/U0B.mat');
-B(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/33/U1B.mat');
-B(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/33/U2B.mat');
-B(4) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/33/U3B.mat');
+C = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/11/C.mat');
+B(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/11/U0B.mat');
+% B(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/11/U1B.mat');
+% B(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/11/U2B.mat');
+% B(4) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/11/U3B.mat');
 
 dMission = C.positionOverMission(end)/1000;    % km
 tMission = size(C.positionOverMission,2)/3600; % hours
@@ -47,8 +47,8 @@ sizeBattery = [batterySizes(2) batterySizes(2) batterySizes(2)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [1 1 1]; 
-battIndex = [1 1 1];
+nEAxles = [0 0 0];
+battIndex = [0 0 0];
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
@@ -95,23 +95,21 @@ for nYear=1:4
 
     %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
+    % Base combination
     pTractorBase = 130000;
-    deltaPowertrain = 15000;    % D16-D11
-    pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
+    deltaPowertrain = 15000/USDtoEUR;    % D16-D11
     
-    cFixedConv = 0; 
-    for numUnit=1:nUnits
-        cFixedConv = cFixedConv+ pUnit(i);
-    end
+    pUnitBase = [pTractorBase, 70000, 40000, 70000]*USDtoEUR;
+    pUnit = pUnitBase+[deltaPowertrain, 0, 0, 0];
+    cFixedConvBase = sum(pUnitBase);
+    cFixedConv = sum(pUnit);
     
+    % Electrification
     pEMotor = 30000;
     pEAxle = pEMotor*nEAxles;   % EUR
     pBattery(nYear,:) = batteryPrice(2,nYear)*battIndex;
-
     cFixedElec(nYear,:) = pBattery(nYear,:)+pEAxle;
-    
-    cFixedConv
-    sum(cFixedElec(nYear,:))
+
     cFixed(nYear) = cFixedConv+sum(cFixedElec(nYear,:));
 
     %% --- Operational costs------------------------------------------------------------------------------------------------
@@ -154,28 +152,49 @@ for nYear=1:4
     P(nYear) = rN(nYear)/(cFixed(nYear)+cVariableN(nYear));
 end
 
-save('OutputsProductivity/Productivity33.mat');
+% save('OutputsProductivity/Mission2/Productivity11.mat');
+% 
+% figure('name', 'Mission costs and revenues over years');
+% plot(rN)
+% hold all, plot(cFixed)
+% hold all, plot(cVariableN)
+% legend('Mission Revenue (Annual)', 'Fixed Cost', 'Operating Cost (Annual)')
+% xlabel('Year'), ylabel('Mission fixed & operating costs, mission revenues (EUR)');
+% set(gca,'XTick',[1 2 3 4]);
+% set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
+% saveas(gcf, 'PlotsProductivity/Mission2/MFORvsYear11.pdf');
+% 
+% figure('name', 'Mission productivity over years');
+% plot(P);
+% legend('N-year Productivity')
+% xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
+% set(gca,'XTick',[1 2 3 4]);
+% set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
+% saveas(gcf, 'PlotsProductivity/Mission2/ProdvsYear11.pdf');
 
+GVW
+GCW
+mPayloadGross
+sum(mBattery(1,:))
+sum(mMotor)
+deltaMAxle(1)
+mPayloadNet(1)
+revUnitFreight
+dMission
+revMission
+nMissionAnnual
+revAnnual
+rN
+cFixedConvBase
 cFixedConv
-sum(cFixedElec(r,:))
-
-
-figure('name', 'Mission costs and revenues over years');
-plot(rN)
-hold all, plot(cFixed)
-hold all, plot(cVariableN)
-legend('Mission Revenue (Annual)', 'Fixed Cost', 'Operating Cost (Annual)')
-xlabel('Year'), ylabel('Mission fixed & operating costs, mission revenues (EUR)');
-set(gca,'XTick',[1 2 3 4]);
-set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/MFORvsYear33.pdf');
-
-figure('name', 'Mission productivity over years');
-plot(P);
-legend('N-year Productivity')
-xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
-set(gca,'XTick',[1 2 3 4]);
-set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/ProdvsYear33.pdf');
-
-close all
+sum(pBattery(1,:))
+sum(pEAxle)
+sum(cFixedElec(1,:))
+cFixed(1)
+cFuel(1)
+cElec(1)
+tMission
+driverPrice(1)
+cDriver(1)
+cVariableMission
+cVariableMission*nMissionAnnual

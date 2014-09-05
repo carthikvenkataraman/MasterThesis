@@ -54,7 +54,7 @@ nEUnits = size(nEAxles,2);
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
 
 nFirstOwner=5;
-nMissionDaily = 1;
+nMissionDaily = 2;
 nMissionAnnual = nMissionDaily*365;
 
 %% Productivity evolution over years 2015-2030 in 5 year intervals
@@ -95,23 +95,20 @@ for nYear=1:4
 
     %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
+    % Base combination
     pTractorBase = 130000;
-    deltaPowertrain = 15000/USDtoEUR;    % D16-D11
-    pUnit = [pTractorBase + deltaPowertrain, 70000, 40000, 70000]*USDtoEUR;
-    
-    cFixedConv = 0; 
-    for numUnit=1:nUnits
-        cFixedConv = cFixedConv+ pUnit(i);
-    end
-    
+    deltaPowertrain = 15000;    % D16-D11
+    pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
+    cFixedConv = sum(pUnit);
+
+    % Electrification
     pEMotor = 30000;
     pEAxle = pEMotor*nEAxles;   % EUR
-    pBattery(nYear,:) = batteryPrice(2,nYear)*ones(1,nUnits-1);
-
+    pBattery(nYear,:) = batteryPrice(2,nYear)*battIndex;
     cFixedElec(nYear,:) = pBattery(nYear,:)+pEAxle;
-
+    
     cFixed(nYear) = cFixedConv+sum(cFixedElec(nYear,:));
-
+    
     %% --- Operational costs------------------------------------------------------------------------------------------------
 
     %% --- CHANGE BELOW IF RATIOS OF OTHER COSTS TO DRIVER COSTS CHANGES ---------------------------------------------------
@@ -152,7 +149,7 @@ for nYear=1:4
     P(nYear) = rN(nYear)/(cFixed(nYear)+cVariableN(nYear));
 end
 
-save('OutputsProductivity/Mission1/ProductivityTractorST.mat');
+save('OutputsProductivity/Mission2/ProductivityTractorST.mat');
 
 figure('name', 'Mission costs and revenues over years');
 plot(rN)
@@ -162,7 +159,7 @@ legend('Mission Revenue (Annual)', 'Fixed Cost', 'Operating Cost (Annual)')
 xlabel('Year'), ylabel('Mission fixed & operating costs, mission revenues (EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/Mission1/MFORvsYearTractorST.pdf');
+saveas(gcf, 'PlotsProductivity/Mission2/MFORvsYearTractorST.pdf');
 
 figure('name', 'Mission productivity over years');
 plot(P);
@@ -170,4 +167,34 @@ legend('N-year Productivity')
 xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/Mission1/ProdvsYearTractorST.pdf');
+saveas(gcf, 'PlotsProductivity/Mission2/ProdvsYearTractorST.pdf');
+
+vFuel
+GCW
+GVW
+mPayloadGross
+sum(mBattery(1,:))
+sum(mMotor)
+deltaMAxle(1)
+mPayloadNet(1)
+revUnitFreight
+dMission
+revMission(1)
+nMissionAnnual
+revAnnual(1)
+rN(1)
+cFixedConvBase
+cFixedConv
+sum(pBattery(1,:))
+sum(pEAxle)
+sum(cFixedElec(1,:))
+cFixed(1)
+cFuel(1)
+cElec(1)
+tMission*3600
+driverPrice(1)
+cDriver(1)
+cVariableMission(1)
+cVariableMission(1)*nMissionAnnual
+cVariableN(1)
+P(1)
