@@ -44,7 +44,8 @@ double Axle::GetAxleLoad() {
 void Axle::UpdateAxleWheelSpeed(double instantaneousSpeed) {
 	axleTireRPM = instantaneousSpeed*60/(2*3.14159*axleTireRadius);	
 	RPMToAxleDifferential = axleTireRPM*axleFinalDriveRatio;
-	//std::cout<<"axleTireRPM "<<axleTireRPM<<std::endl<<"RPMToAxleDifferential "<<RPMToAxleDifferential<<std::endl;
+	/*std::cout<<"axleFinalDriveRatio "<<axleFinalDriveRatio<<std::endl<<"axleTireRadius "<<axleTireRadius<<" m"<<std::endl;
+	std::cout<<"axleTireRPM "<<axleTireRPM<<std::endl<<"RPMToAxleDifferential "<<RPMToAxleDifferential<<std::endl;//*/
 }
 
 double Axle::GetTractiveForceAtWheels(double torqueAtDifferential) {

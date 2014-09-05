@@ -67,33 +67,33 @@ void Machine::LoadMachine() {
 	  switch(i) {
      case 0:
       machineRPMRange = machineData[0];
-      //std::cout<<"machineRPMRange"<<std::endl;
-      //PrintMachineData(machineRPMRange);
+      /*std::cout<<"machineRPMRange"<<std::endl;
+      PrintMachineData(machineRPMRange);//*/
       break;
      case 1:
       machineTorqueRange = machineData[0];
-      //std::cout<<"machineTorqueRange"<<std::endl;
-      //PrintMachineData(machineTorqueRange);
+      /*std::cout<<"machineTorqueRange"<<std::endl;
+      PrintMachineData(machineTorqueRange);//*/
       break;
      case 2:
       machineEfficiencyData = machineData;
-      //std::cout<<"machineEfficiencyData"<<std::endl;
-      //PrintMachineData(machineEfficiencyData);
+      /*std::cout<<"machineEfficiencyData"<<std::endl;
+      PrintMachineData(machineEfficiencyData);//*/
       break;
      case 3:
       rpmRangeForMaximumBrakeTorque = machineData[0];
-      //std::cout<<"rpmRangeForMaximumBrakeTorque"<<std::endl;
-      //PrintMachineData(rpmRangeForMaximumBrakeTorque);
+      /*std::cout<<"rpmRangeForMaximumBrakeTorque"<<std::endl;
+      PrintMachineData(rpmRangeForMaximumBrakeTorque);//*/
       break;
      case 4:
       machineMaximumBrakeTorque = machineData[0]; 
-      //std::cout<<"machineMaximumBrakeTorque"<<std::endl;
-      //PrintMachineData(machineMaximumBrakeTorque);
+      /*std::cout<<"machineMaximumBrakeTorque"<<std::endl;
+      PrintMachineData(machineMaximumBrakeTorque);//*/
       break;
      case 5:
       machineMaximumRegenerationTorque = machineData[0];
-      //std::cout<<"machineMaximumRegenerationTorque"<<std::endl;
-      //PrintMachineData(machineMaximumRegenerationTorque);
+      /*std::cout<<"machineMaximumRegenerationTorque"<<std::endl;
+      PrintMachineData(machineMaximumRegenerationTorque);//*/
       break;
     }
   }
@@ -354,14 +354,14 @@ void Machine::RunMachine(double powertrainOutputTorque, double powertrainOutputR
 }
 
 void Machine::GetPossibleMachineSpeeds(double powertrainOutputRPM) {
-  //std::cout<<"Calculating possible machine speeds for powertrain output "<<powertrainOutputRPM<<" RPM"<<std::endl;
-  //std::cout<<"Possible machine speeds: ";//*/
+  /*std::cout<<"Calculating possible machine speeds for powertrain output "<<powertrainOutputRPM<<" RPM"<<std::endl;
+  std::cout<<"Possible machine speeds: ";//*/
   for(int i=0;i<transmissionForMachine->gearRatios.size();i++) {
     double possibleMachineSpeed = powertrainOutputRPM*transmissionForMachine->gearRatios[i];
     //std::cout<<possibleMachineSpeed<<" RPM at gear number "<<i<<" (ratio = "<<transmissionForMachine->gearRatios[i]<<") "<<std::endl;
     possibleMachineSpeeds.push_back(possibleMachineSpeed);
   }
-  std::cout<<std::endl;
+  //std::cout<<std::endl;
 }
 
 void Machine::GetPossibleMachineTorques(double powertrainOutputTorque) {

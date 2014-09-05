@@ -21,17 +21,19 @@ class Combination { // Access control pending
 
 	// Mission parameters
 	std::vector<std::vector<double>> missionData;
-	std::vector<double> grossUnitWeight, payloadEachUnit;
+	std::vector<double> kerbUnitWeight, payloadEachUnit;
 	std::vector<std::vector<double>> unitAxleLoads;
 	std::vector<double> targetSpeed, longitudinalPosition, roadGradientInRadians,
-		payloadDensity, ladenCGHeight, motorCost, powerElectronicsCost, bufferCost, mechanicalDriveCost,
-	    annuitPercentage, coefficientOfFriction, tireRadiusEachUnit, referenceSoC;
+		unitCosts, motorCost, powerElectronicsCost, bufferCost, mechanicalDriveCost, powertrainPremium, 
+	    annuitPercentage, coefficientOfFriction, tireRadiusEachUnit, referenceSoC, motorMasses, batteryMasses, otherCostRatios;
 
 	double gravitationalAcceleration, frontalArea, 
 				aerodynamicDragCoefficient, densityOfAir, grossCombinationWeight, rollingResistanceCoefficient;
 	double semiTrailerCost,dollyCost;
 	double driverHourlyRate, fuelPricePerLitre;
-	double totalPayload, electricityPricePerkWh, revenuePerTonPayload;
+	double totalPayload, electricityPricePerkWh, revenuePerTonPerKM;
+	double numberOfAnnualMissions;
+	int numberOfFirstOwnerYears;
 
 	// Iteration time step
 	double timeInterval;
@@ -70,12 +72,10 @@ class Combination { // Access control pending
 	// Mission outputs - fuel and charge consumption, time taken, 
 	double cumulativeFuelConsumption, instantaneousFuelConsumption;
 	double cumulativeChargeConsumption, instantaneousChargeConsumption;
-	double totalTime;
+	double totalTime=0;
 	
 	// Vehicle productivity
-	double baseTractorCostD11, engineCostPenalty;
-	double costDifferenceD11D13=10000, costDifferenceD11D16=15000;	// Euros
-	double baseTractorCost, baseTractorPrice;
+	double baseTractorCost;
 	double baseCombinationCost;
 
 	double batteryPrice;
@@ -86,8 +86,6 @@ class Combination { // Access control pending
 
 	double totalFuelConsumption, totalElectricEnergyToBeRecharged;
 	double fuelPrice, electricityPrice;
-
-	double priceMarkup = 1.1;	// 10% markup. Sorry, Sales. And AM.
 
 	double reducedPayload, revenuePerUnitPayload;
 	double driverCosts;

@@ -1,14 +1,15 @@
 %% To plot how productivities of different combinations vary over years
+% Same number of daily missions, different combinations
 
 clear all
 close all
 clc
 
-C1 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission3/ProductivityTractorST.mat');
-C2 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission3/Productivity11.mat');
-C3 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission3/Productivity15.mat');
-C4 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission3/Productivity33.mat');
-C5 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission3/Productivity57.mat');
+C1 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission1/ProductivityTractorST.mat');
+C2 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission1/Productivity11.mat');
+C3 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission1/Productivity15.mat');
+C4 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission1/Productivity33.mat');
+C5 = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsProductivity/Mission1/Productivity57.mat');
 
 figure('name', 'Productivity trends for different combinations compared');
 plot(C1.P);
@@ -25,4 +26,4 @@ xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
 grid on
-saveas(gcf, 'PlotsProductivity/Mission3/ProdTrendMissionNum1.pdf');
+saveas(gcf, 'PlotsProductivity/Mission1/ProdTrendMissionNum.pdf');

@@ -12,8 +12,7 @@
 class Buffer {
       int unitIndex, unitBufferTypeIndex;
       std::string bufferName, completeBufferName;
-      std::vector<int> bufferGenes;
-      int bufferIndex;              
+      std::vector<int> bufferGenes; 
       char* bufferFileName;
       std::vector<double> bufferData;
 
@@ -26,6 +25,7 @@ class Buffer {
       void UpdateBufferAvailabilityRatio();
 
    public:
+      int bufferIndex;             
       double maximumBufferLevel, minimumBufferLevel, instantaneousBufferLevel;//, bufferCapacity; 
       double referenceStateOfBuffer, maximumStateOfBuffer;         
       double stateOfBuffer;

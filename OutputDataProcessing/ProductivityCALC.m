@@ -48,6 +48,7 @@ sizeBattery = [batterySizes(2) batterySizes(2) batterySizes(2)];    % SIZE OF BA
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
 nEAxles = [1 1 1]; 
+battIndex = [1 1 1];
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
@@ -68,7 +69,7 @@ for nYear=1:4
     
     %% --- CHANGE THESE TO OBSERVE EFFECTS OF GCW-------------------------------------------------------------------------
     
-    AxleLoads(1,:) = [7094, 11340/2*[1 1]];   
+    AxleLoads(1,:) = [7094, 15340/2*[1 1]];   
     AxleLoads(2,:) = 22100/3*[1 1 1];    
     AxleLoads(3,:) = 10500/2*[1 1 0];    
     AxleLoads(4,:) = 13480/3*[1 1 1];   
@@ -81,7 +82,7 @@ for nYear=1:4
     end
     
     mBattery(nYear,:) = [batteryMass(2,nYear) batteryMass(2,nYear) batteryMass(2,nYear)];    % MASS OF BATTERY ON EACH TRAILING UNIT IN FIRST YEAR
-    mMotor = [43 43 43];
+    mMotor = 43*nEAxles;
     mEAxle(nYear,:) = mBattery(nYear,:)+mMotor;
     deltaMAxle(nYear) = sum(mEAxle(nYear,:));
 
@@ -94,21 +95,18 @@ for nYear=1:4
 
     %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
+    % Base combination
     pTractorBase = 130000;
-    deltaPowertrain = 15000/USDtoEUR;    % D16-D11
-    pUnit = [pTractorBase + deltaPowertrain, 70000, 40000, 70000]*USDtoEUR;
-    
-    cFixedConv = 0; 
-    for numUnit=1:nUnits
-        cFixedConv = cFixedConv+ pUnit(i);
-    end
-    
+    deltaPowertrain = 15000;    % D16-D11
+    pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
+    cFixedConv = sum(pUnit);
+
+    % Electrification
     pEMotor = 30000;
     pEAxle = pEMotor*nEAxles;   % EUR
-    pBattery(nYear,:) = batteryPrice(2,nYear)*ones(1,nUnits-1);
-
+    pBattery(nYear,:) = batteryPrice(2,nYear)*battIndex;
     cFixedElec(nYear,:) = pBattery(nYear,:)+pEAxle;
-
+    
     cFixed(nYear) = cFixedConv+sum(cFixedElec(nYear,:));
 
     %% --- Operational costs------------------------------------------------------------------------------------------------

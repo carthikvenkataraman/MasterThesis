@@ -126,7 +126,8 @@ void Unit::AssignAxleParameters() {
 }
 
 void Unit::GetMaximumTractivePower(double instantaneousSpeed) {
-  //std::cout<<'\n'<<"Finding Unit "<<unitIndex<<"'s max. tractive power. GetMaximumTractivePower()"<<std::endl;
+  /*std::cout<<'\n'<<"Finding Unit "<<unitIndex<<"'s max. tractive power. GetMaximumTractivePower()"<<std::endl;
+  std::cout<<"instantaneousSpeed "<<instantaneousSpeed<<'\n';//*/
   unitInstantaneousSpeed = instantaneousSpeed;
   maximumInstantaneousPower=0;
   maximumInstantaneousTractiveForce=0;
@@ -136,7 +137,7 @@ void Unit::GetMaximumTractivePower(double instantaneousSpeed) {
       std::shared_ptr<Axle> currentAxle = axlesInUnit[i];
       if(currentAxle->machineForAxle!=nullptr) {   // Not all axles may be propelled        
         auto currentMachine = currentAxle->machineForAxle;
-        //std::cout<<'\n'<<"Current machine's axle index "<<currentMachine->machineAxleIndex<<std::endl;
+        //std::cout<<"Current machine's axle index "<<currentMachine->machineAxleIndex<<std::endl;
 
         currentAxle->UpdateAxleWheelSpeed(unitInstantaneousSpeed); // GetRpmBeforeAxleDifferential()
         currentMachine->GetPossibleMachineSpeeds(currentAxle->RPMToAxleDifferential);

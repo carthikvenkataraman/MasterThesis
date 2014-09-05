@@ -48,12 +48,13 @@ sizeBattery = [batterySizes(2) batterySizes(2) batterySizes(2)];    % SIZE OF BA
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
 nEAxles = [1 0 0]; 
+battIndex = [1 0 0];
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
 
 nFirstOwner=5;
-nMissionDaily = 3;
+nMissionDaily = 1;
 nMissionAnnual = nMissionDaily*365;
 
 %% Productivity evolution over years 2015-2030 in 5 year intervals
@@ -68,7 +69,7 @@ for nYear=1:4
     
     %% --- CHANGE THESE TO OBSERVE EFFECTS OF GCW-------------------------------------------------------------------------
     
-    AxleLoads(1,:) = [7094, 11340/2*[1 1]];   
+    AxleLoads(1,:) = [7094, 15340/2*[1 1]];   
     AxleLoads(2,:) = 22100/3*[1 1 1];    
     AxleLoads(3,:) = 10500/2*[1 1 0];    
     AxleLoads(4,:) = 13480/3*[1 1 1];   
@@ -81,7 +82,7 @@ for nYear=1:4
     end
     
     mBattery(nYear,:) = [batteryMass(2,nYear) batteryMass(2,nYear) batteryMass(2,nYear)];    % MASS OF BATTERY ON EACH TRAILING UNIT IN FIRST YEAR
-    mMotor = [43 43 43];
+    mMotor = 43*nEAxles;
     mEAxle(nYear,:) = mBattery(nYear,:)+mMotor;
     deltaMAxle(nYear) = sum(mEAxle(nYear,:));
 
@@ -151,7 +152,7 @@ for nYear=1:4
     P(nYear) = rN(nYear)/(cFixed(nYear)+cVariableN(nYear));
 end
 
-save('OutputsProductivity/Mission3/Productivity15.mat');
+save('OutputsProductivity/Mission1/Productivity15.mat');
 
 figure('name', 'Mission costs and revenues over years');
 plot(rN)
@@ -161,7 +162,7 @@ legend('Mission Revenue (Annual)', 'Fixed Cost', 'Operating Cost (Annual)')
 xlabel('Year'), ylabel('Mission fixed & operating costs, mission revenues (EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/Mission3/MFORvsYear15.pdf');
+saveas(gcf, 'PlotsProductivity/Mission1/MFORvsYear15.pdf');
 
 figure('name', 'Mission productivity over years');
 plot(P);
@@ -169,4 +170,4 @@ legend('N-year Productivity')
 xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivity/Mission3/ProdvsYear15.pdf');
+saveas(gcf, 'PlotsProductivity/Mission1/ProdvsYear15.pdf');

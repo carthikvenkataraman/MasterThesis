@@ -6,20 +6,26 @@ ElectricMotor::ElectricMotor(int currentUnitIndex, Genes machineGenes, std::shar
 	
 	transmissionForMachine.reset(new MotorTransmission(currentUnitIndex));
 
-	switch(currentUnitIndex) {
+	std::vector<int>::iterator it = std::find(machineGenes.begin(), machineGenes.end(),1);
+	int machineSizeIndex = std::distance(machineGenes.begin(), it);
+	//std::cout<<"machineSizeIndex "<<machineSizeIndex<<std::endl;//*/
+
+	switch(machineSizeIndex) {
 	 case 0:
-	  unitPowertrainPrice = 1000;
-	  unitPowertrainMass = 0.2*120;
+	  unitPowertrainPrice = 30000;
+	  unitPowertrainMass = 43;
 	  break;
 	 case 1:
-	  unitPowertrainPrice = 2500;
-	  unitPowertrainMass = 0.2*173;
+	  unitPowertrainPrice = 30000;
+	  unitPowertrainMass = 43;
 	  break;
 	 case 2:
-	  unitPowertrainPrice = 4000;
-	  unitPowertrainMass = 0.2*180;
+	  unitPowertrainPrice = 30000;
+	  unitPowertrainMass = 43;
 	  break;
 	}
+
+	//std::cout<<"unitPowertrainMass"<<unitPowertrainMass<<'\n'<<"unitPowertrainPrice "<<unitPowertrainPrice<<'\n';
 }
 
 ElectricMotor::~ElectricMotor() {
