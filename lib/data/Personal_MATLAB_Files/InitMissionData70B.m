@@ -120,4 +120,4 @@ rTollDriver = 14/35;
 otherCostRatios = [rMntDriver, rTyreDriver, rTollDriver];
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData70B.mat', 'otherCostRatios', '-append');    % 33
 
-% close all
+close all
