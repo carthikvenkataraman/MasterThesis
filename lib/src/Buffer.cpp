@@ -22,7 +22,9 @@ void Buffer::GetBufferIndex() {
    std::vector<int>::iterator it = std::find(bufferGenes.begin(), bufferGenes.end(),1);
    bufferIndex = std::distance(bufferGenes.begin(), it);
    if(bufferIndex==3) {
-      std::cout<<"Error in buffer genes. No buffer specified"<<std::endl;
+      if(unitIndex!=0) {
+        std::cout<<"Error in buffer genes. No buffer specified"<<std::endl;
+      }
       bufferIndex = 0;
    }
 }
@@ -46,6 +48,9 @@ void Buffer::LoadBuffer() {
   MATFile *matFileHandle;
   matFileHandle = matOpen(bufferFileName, "r");
   int numberOfDirectories;
+  if(matFileHandle==NULL) {
+    std::cout<<"ERROR IN FILE OPENING"<<std::endl;
+  }
   const char** directoryField= (const char** )matGetDir(matFileHandle, &numberOfDirectories);
   for(int i=0; i < numberOfDirectories; i++) {
     //std::cout<<directoryField[i]<<std::endl;
@@ -75,8 +80,10 @@ void Buffer::LoadBuffer() {
   //bufferLevelOverMission.push_back(instantaneousBufferLevel);
   //std::cout<<"Inst. buffer level "<<instantaneousBufferLevel<<std::endl;
 
-
   //std::cout<<"Buffer data successfully loaded"<<std::endl;
+  if (matClose(matFileHandle) != 0) {
+    std::cout<<"Error closing file"<<'\n';
+  }
 }
 
 std::string Buffer::ReturnBufferName() {

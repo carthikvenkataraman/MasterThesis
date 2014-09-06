@@ -53,12 +53,15 @@ void Transmission::LoadTransmission() {
   gearInertias = transmissionData[2];
 
   //std::cout<<"Transmission data successfully loaded"<<std::endl;
+  if (matClose(matFileHandle) != 0) {
+    std::cout<<"Error closing file"<<'\n';
+  }
 }
 
 void Transmission::PrintTransmissionData(std::vector<double>& transmissionDataEntry) {
 	 for(int i=0;i<transmissionDataEntry.size();i++)
 	   std::cout<<transmissionDataEntry[i]<<"	";
-	 std::cout<<std::endl;
+	 //std::cout<<std::endl;
 }
 
 double Transmission::GetOutputTorque(double transmissionInputTorque, int gearNumber) {

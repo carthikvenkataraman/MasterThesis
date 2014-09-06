@@ -338,7 +338,7 @@ void Unit::RunUnit(double assignedUnitTraction) {
 }
 
 void Unit::GetAchievedTractiveForce() {
-  //std::cout<<std::endl<<"Getting unit "<<unitIndex<<"'s achieved tractive force"<<std::endl;
+  ////std::cout<<std::endl<<"Getting unit "<<unitIndex<<"'s achieved tractive force"<<std::endl;
   instantaneousTractiveForce = 0;
   if(unitIndex==0) {
     std::shared_ptr<Axle> currentAxle = axlesInUnit[1];
@@ -380,5 +380,5 @@ void Unit::GetAchievedTractiveForce() {
 }
 
 Unit::~Unit() {
-   std::cout<<"Destroying Unit number "<<unitIndex<<std::endl;
+   //std::cout<<"Destroying Unit number "<<unitIndex<<std::endl;
 }

@@ -46,8 +46,12 @@ std::string Machine::ReturnMachineName() {
 
 void Machine::LoadMachine() {
   MATFile *matFileHandle;
+  //std::cout<<"machineFileName "<<machineFileName<<'\n';
   matFileHandle = matOpen(machineFileName, "r");
   int numberOfDirectories;
+  if(matFileHandle==NULL) {
+    std::cout<<"ERROR IN FILE OPENING"<<std::endl;
+  }
   const char** directoryField= (const char** )matGetDir(matFileHandle, &numberOfDirectories);
   for(int i=0; i < numberOfDirectories; i++) {
     //std::cout<<directoryField[i]<<std::endl;
@@ -98,6 +102,9 @@ void Machine::LoadMachine() {
     }
   }
   //std::cout<<"Data for machine "<<machineIndex<<" successfully loaded"<<std::endl;
+  if (matClose(matFileHandle) != 0) {
+    std::cout<<"Error closing file"<<'\n';
+  }
 }
 
 void Machine::PrintMachineData(std::vector<std::vector<double>>& machineData) {
@@ -105,7 +112,7 @@ void Machine::PrintMachineData(std::vector<std::vector<double>>& machineData) {
 	std::vector<double> machineDataRow = machineData[i];
 	for(int j=0;j<machineDataRow.size();j++)
 	   std::cout<<machineDataRow[j]<<"	";
-	std::cout<<std::endl;
+	//std::cout<<std::endl;
    }
 }
 
@@ -113,7 +120,7 @@ void Machine::PrintMachineData(std::vector<double>& machineData) {
   for(int i=0;i<machineData.size();i++) {
     std::cout<<machineData[i]<<std::endl;
   }
-  std::cout<<std::endl;
+  //std::cout<<std::endl;
 }
 
 void Machine::GetMaximumInstantaneousTorque() {
@@ -290,7 +297,7 @@ void Machine::RunMachine(double powertrainOutputTorque, double powertrainOutputR
   transmissionForMachine->operatingGearRatio=transmissionForMachine->gearRatios[temporarySelectedTransmissionIndex];
         
   if(machineEfficiencies.size()>1) {
-    //std::cout<<std::endl<<"ENTERED FINDING OPTIMAL EFFICIENCY"<<std::endl;  
+    ////std::cout<<std::endl<<"ENTERED FINDING OPTIMAL EFFICIENCY"<<std::endl;  
     //std::cout<<"Let optimal efficiency = "<<optimalMachineEfficiency<<std::endl;
     for(int i=1;i<allowedMachineSpeeds.size();i++) {
       //std::cout<<"machineEfficiencies["<<i<<"] "<<machineEfficiencies[i]<<std::endl;
@@ -361,7 +368,7 @@ void Machine::GetPossibleMachineSpeeds(double powertrainOutputRPM) {
     //std::cout<<possibleMachineSpeed<<" RPM at gear number "<<i<<" (ratio = "<<transmissionForMachine->gearRatios[i]<<") "<<std::endl;
     possibleMachineSpeeds.push_back(possibleMachineSpeed);
   }
-  //std::cout<<std::endl;
+  ////std::cout<<std::endl;
 }
 
 void Machine::GetPossibleMachineTorques(double powertrainOutputTorque) {

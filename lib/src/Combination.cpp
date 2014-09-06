@@ -15,7 +15,7 @@ Combination::Combination(Individual individual, std::vector<std::vector<double>>
 	   //std::cout<<"Creation of unit "<<unitIndex<<" initiated"<<std::endl;
 	   newUnit.reset(new Unit(unitIndex, unitGenes));
 	   unitsInCombination.push_back(newUnit);
-	   std::cout<<"Unit "<<unitIndex+1<<" created"<<std::endl<<std::endl;
+	   //std::cout<<"Unit "<<unitIndex+1<<" created"<<std::endl<<std::endl;
 	}
 	AssignUnitParameters();
 	//CheckUnitParameters();
@@ -95,7 +95,7 @@ void Combination::CheckUnitParameters() {
 	/*for(int i=0;i<longitudinalPosition.size();i++) {
 		std::cout<<longitudinalPosition[i]<<"	";
 	}//*/
-	std::cout<<std::endl;
+	////std::cout<<std::endl;
 	for(int i=0;i<numberOfUnits;i++) {
 		std::shared_ptr<Unit> currentUnit = unitsInCombination[i];
 		std::cout<<"Unit "<<i<<"'s tire radius "<<currentUnit->unitTireRadius<<std::endl;
@@ -111,13 +111,13 @@ void Combination::PrintMissionDataEntry(std::vector<double>& missionDataEntry) {
 	for(int i=0;i<missionDataEntry.size();i++) {
 			std::cout<<missionDataEntry[i]<<"	";
 	}
-	std::cout<<std::endl<<std::endl;
+	////std::cout<<std::endl<<std::endl;
 }
 
 void Combination::RunMission() {
 	while(instantaneousLongitudinalPosition < longitudinalPosition.back()-1 && instantaneousSpeed>=0) {
-		//std::cout<<std::endl<<"STEP "<<testCount<<"---------------------------------------------------------------------------------------------"<<std::endl;
-		//std::cout<<std::endl<<"STEP "<<testCount<<std::endl;
+		//////std::cout<<std::endl<<"STEP "<<testCount<<"---------------------------------------------------------------------------------------------"<<std::endl;
+		//////std::cout<<std::endl<<"STEP "<<testCount<<std::endl;
 		// Calculate exact instantaneous position and gradient
 		double interpolationRatio;
 		for(int i=currentPositionIndex+1;i<=longitudinalPosition.size();i++) {
@@ -263,7 +263,7 @@ void Combination::RunMission() {
 
 	auto fuelTank = unitsInCombination[0]->bufferInUnit;
 	totalFuelConsumption = fuelTank->maximumBufferLevel-fuelTank->instantaneousBufferLevel;
-	std::cout<<"totalFuelConsumption "<<totalFuelConsumption<<'\n';
+	//std::cout<<"totalFuelConsumption "<<totalFuelConsumption<<'\n';
 
 
 	totalElectricEnergyToBeRecharged=0;
@@ -362,7 +362,7 @@ void Combination::AssignTractiveForceAmongUnits() {
 	// implies that the tractive force demand is zero!!
 
 	if(instantaneousPowerDemand>=0) { // Propulsion		
-		//std::cout<<std::endl<<"Propulsion mode engaged"<<std::endl<<'\n';
+		//////std::cout<<std::endl<<"Propulsion mode engaged"<<std::endl<<'\n';
 		double maximumTractionAtGivenSpeed = GetMaximumTraction(instantaneousSpeed);
 		if(tractiveForceToBeDivided<=maximumTractionAtGivenSpeed) {
 			//std::cout<<"Tractive Force To Be Divided "<<tractiveForceToBeDivided<<" less than max. traction "<<maximumTractionAtGivenSpeed<<" N"<<std::endl;
@@ -560,7 +560,7 @@ double Combination::GetMaximumTraction(double instantaneousSpeed) {
 		//std::cout<<"Maximum instantaneous traction (intermediate): "<<maximumInstantaneousTraction<<" N"<<std::endl;
 	}
 	//std::cout<<'\n'<<"Maximum instantaneous traction (final): "<<maximumInstantaneousTraction<<" N"<<std::endl;
-	std::cout<<std::endl;
+	////std::cout<<std::endl;
 	return maximumInstantaneousTraction;
 }
 
@@ -621,7 +621,7 @@ void Combination::SetRegenerationDistributionRatios() {
 }
 
 double Combination::GetTractorTraction(double engineRPM, double engineTorque) {
-	//std::cout<<std::endl<<"Calculating tractor traction if engine is run at its optimum operating point"<<std::endl;
+	//////std::cout<<std::endl<<"Calculating tractor traction if engine is run at its optimum operating point"<<std::endl;
 	std::shared_ptr<Axle> currentAxle = unitsInCombination[0]->axlesInUnit[1]; // Rear axle
 	auto engine = currentAxle->machineForAxle;
 	auto transmission = engine->transmissionForMachine;
@@ -663,7 +663,7 @@ double Combination::GetTractorTraction(double engineRPM, double engineTorque) {
 	double tractionAtEachAxle = currentAxle->GetTractiveForceAtWheels(torqueAtEachAxleDifferential);
 	double tractionAtWheelsDueToEngine = tractionAtEachAxle*2;
 	//std::cout<<"Tractor traction at engine optimum operating point "<<tractionAtWheelsDueToEngine<<std::endl;
-	std::cout<<std::endl;
+	////std::cout<<std::endl;
 	return tractionAtWheelsDueToEngine;
 }
 
@@ -691,7 +691,7 @@ void Combination::GetCombinationStartability() {
 	effectiveGrossCombinationWeight = grossCombinationWeight+equivalentMassDueToInertia;
 	double combinationStartabilityInRadians = asin(startabilityTraction/(effectiveGrossCombinationWeight*gravitationalAcceleration));
 	combinationStartability = combinationStartabilityInRadians*180/M_PI;
-	std::cout<<"Combination startability "<<combinationStartability<<" degrees"<<std::endl;
+	//std::cout<<"Combination startability "<<combinationStartability<<" degrees"<<std::endl;
 
 	for(int i=0;i<unitsInCombination.size();i++) {
 		if(unitsInCombination[i]->bufferInUnit!=nullptr) {
@@ -767,9 +767,9 @@ void Combination::GetMissionProductivity() {
 	double missionRevenueAnnual=missionRevenueSingle*numberOfAnnualMissions;
 	double missionRevenueN = missionRevenueAnnual*numberOfFirstOwnerYears;
 
-	std::cout<<"grossCombinationWeight "<<grossCombinationWeight<<'\n';
+	/*std::cout<<"grossCombinationWeight "<<grossCombinationWeight<<'\n';
 	std::cout<<"GVW "<<GVW<<'\n';
-	std::cout<<"grossPayload "<<grossPayload<<'\n';//*/
+	std::cout<<"grossPayload "<<grossPayload<<'\n';
 	std::cout<<"batteryMass "<<batteryMass<<'\n';
 	std::cout<<"electricPowertrainMass "<<electricPowertrainMass<<'\n';
 	std::cout<<"massElectrification "<<massElectrification<<'\n';
@@ -778,10 +778,10 @@ void Combination::GetMissionProductivity() {
 	std::cout<<"revenuePerTonPerKM "<<revenuePerTonPerKM<<'\n';
 	std::cout<<"instantaneousLongitudinalPosition "<<instantaneousLongitudinalPosition<<'\n';
 
-	std::cout<<"missionRevenueSingle "<<missionRevenueSingle<<'\n';//*/
+	std::cout<<"missionRevenueSingle "<<missionRevenueSingle<<'\n';
 	std::cout<<"numberOfAnnualMissions "<<numberOfAnnualMissions<<'\n';
-	std::cout<<"missionRevenueAnnual "<<missionRevenueAnnual<<'\n';//*/
-	std::cout<<"missionRevenues "<<missionRevenueN<<'\n';
+	std::cout<<"missionRevenueAnnual "<<missionRevenueAnnual<<'\n';
+	std::cout<<"missionRevenues "<<missionRevenueN<<'\n';//*/
 
 	//-----------------------------------------------------------------------------------------------------------
 
@@ -791,7 +791,7 @@ void Combination::GetMissionProductivity() {
 		baseCombinationCost+= unitCosts[i];
 
 	}
-	std::cout<<"baseCombinationCost (without powertrain premium) "<<baseCombinationCost<<'\n';
+	//std::cout<<"baseCombinationCost (without powertrain premium) "<<baseCombinationCost<<'\n';
 	int engineIndex = unitsInCombination[0]->axlesInUnit[1]->machineForAxle->machineIndex;
 	if(engineIndex==0) {
 		baseCombinationCost+=0;
@@ -803,7 +803,7 @@ void Combination::GetMissionProductivity() {
 	double costFixedElectrification = batteryPrice + electricPowertrainPrice;
 	double costFixed = baseCombinationCost + costFixedElectrification;
 
-	std::cout<<"baseCombinationCost (Conventional) "<<baseCombinationCost<<'\n';
+	/*std::cout<<"baseCombinationCost (Conventional) "<<baseCombinationCost<<'\n';
 	std::cout<<"batteryPrice "<<batteryPrice<<'\n';
 	std::cout<<"electricPowertrainPrice "<<electricPowertrainPrice<<'\n';
 	std::cout<<"costFixedElectrification "<<costFixedElectrification<<'\n';
@@ -825,7 +825,7 @@ void Combination::GetMissionProductivity() {
 	double variableCostsAnnual= variableCostsMission*numberOfAnnualMissions;
 	double variableCostsN = variableCostsAnnual*numberOfFirstOwnerYears;
 
-	std::cout<<"fuelPrice "<<fuelPrice<<'\n';
+	/*std::cout<<"fuelPrice "<<fuelPrice<<'\n';
 	std::cout<<"totalElectricEnergyToBeRecharged "<<totalElectricEnergyToBeRecharged<<'\n';
 	std::cout<<"electricityPrice "<<electricityPrice<<'\n';
 	std::cout<<"totalTime "<<totalTime<<'\n';
@@ -837,7 +837,7 @@ void Combination::GetMissionProductivity() {
 	//-----------------------------------------------------------------------------------------------------------
 
 	missionProductivity=missionRevenueN/(costFixed+variableCostsN);
-	std::cout<<"Mission productivity "<<missionProductivity<<std::endl;
+	//std::cout<<"Mission productivity "<<missionProductivity<<std::endl;
 }
 
 void Combination::WriteOutputFiles() {

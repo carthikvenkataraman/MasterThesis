@@ -88,6 +88,46 @@ Population InitialisePopulation(int populationSize, std::vector<std::vector<int>
  return population;
 }
 
+void PrintGeneSet(Genes& geneSet) {
+  int sizeOfGeneSet = geneSet.size();
+  for(int i=0;i<sizeOfGeneSet;i++) 
+    std::cout<<geneSet[i];
+}
+
+void PrintUnitGene(UnitGene& unitGene) {
+  int numberOfGeneSets = unitGene.size(); // Normally 2 for tractor unit & 3 for trailing unit
+  for(int j=0;j<numberOfGeneSets;j++) {
+    Genes geneSet = unitGene[j];
+    PrintGeneSet(geneSet);
+    std::cout<<"\\";
+  }
+}
+
+void PrintIndividual(Individual& individual) {
+  int numberOfUnits = individual.size();
+  for(int i=0;i<numberOfUnits;i++) {
+    UnitGene unitGene = individual[i];      // Tractor or Trailing Unit Genes 
+    PrintUnitGene(unitGene);
+    std::cout<<"  ";
+  }
+  std::cout<<std::endl;
+}
+
+void PrintMembersOfPopulation(Population& population) {
+  int populationSize = population.size();
+  for(int i=0;i<populationSize;i++) {
+    std::cout<<"Individual "<<i<<": ";
+    Individual individualToPrint = population[i];
+    PrintIndividual(individualToPrint);
+  }
+}
+
+void PrintFitness(Fitnesses& fitness) {
+  int populationSize = fitness.size();
+  for(int i=0;i<populationSize;i++)
+    std::cout<<"Individual "<<i<<": "<<fitness[i]<<std::endl;
+}
+
 double EvaluateIndividualFitness(Individual individual, std::vector<std::vector<double>>& missionData) {
  double fitness=0;
  /*int numberOfUnits = individual.size();
@@ -101,6 +141,7 @@ double EvaluateIndividualFitness(Individual individual, std::vector<std::vector<
      fitness+=genesSingleSet[k];
     }
   }//*/
+  PrintIndividual(individual);
   std::shared_ptr<Combination> newCombination(new Combination(individual, missionData));
   newCombination->RunMission();
   fitness = newCombination->missionProductivity;
@@ -129,46 +170,6 @@ int GetBestIndividualIndex(Fitnesses& fitness) {
     }
   }
   return bestIndividualIndex;
-}
-
-void PrintGeneSet(Genes& geneSet) {
-  int sizeOfGeneSet = geneSet.size();
-  for(int i=0;i<sizeOfGeneSet;i++) 
-    std::cout<<geneSet[i];
-}
-
-void PrintUnitGene(UnitGene& unitGene) {
-  int numberOfGeneSets = unitGene.size(); // Normally 2 for tractor unit & 3 for trailing unit
-  for(int j=0;j<numberOfGeneSets;j++) {
-    Genes geneSet = unitGene[j];
-    PrintGeneSet(geneSet);
-    std::cout<<"\\";
-  }
-}
-
-void PrintIndividual(Individual& individual) {
-  int numberOfUnits = individual.size();
-  for(int i=0;i<numberOfUnits;i++) {
-    UnitGene unitGene = individual[i];      // Tractor or Trailing Unit Genes 
-    PrintUnitGene(unitGene);
-    std::cout<<"	";
-  }
-  std::cout<<std::endl;
-}
-
-void PrintMembersOfPopulation(Population& population) {
-  int populationSize = population.size();
-  for(int i=0;i<populationSize;i++) {
-    std::cout<<"Individual "<<i<<": ";
-    Individual individualToPrint = population[i];
-    PrintIndividual(individualToPrint);
-  }
-}
-
-void PrintFitness(Fitnesses& fitness) {
-  int populationSize = fitness.size();
-  for(int i=0;i<populationSize;i++)
-    std::cout<<"Individual "<<i<<":	"<<fitness[i]<<std::endl;
 }
 
 int GetWeakestIndividual(std::vector<int>& randomIndividualIndex, std::vector<double>& randomIndividualFitness) {
@@ -445,6 +446,9 @@ void LoadMission(std::vector<std::vector<double>>& missionData) {
     missionData.push_back(missionDataEntry);
   }
   std::cout<<"Mission data successfully loaded"<<std::endl<<std::endl;
+  if (matClose(matFileHandle) != 0) {
+    std::cout<<"Error closing file"<<'\n';
+  }
 }
 
 int main() {
