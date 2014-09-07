@@ -22,13 +22,14 @@ for i=1:size(missionRouteData.longitudinalPosition,2)-1
     longitudinalPosition(i+size(missionRouteData.longitudinalPosition,2))=...
         missionRouteData.longitudinalPosition(end)+missionRouteData.longitudinalPosition(i+1);     % #2 m
 end
+longitudinalPosition(end)
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData70C.mat', 'longitudinalPosition', '-append');
 roadGradientInRadians=[missionRouteData.roadGradientInRadians missionRouteData.roadGradientInRadians];    % #3 rad
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData70C.mat', 'roadGradientInRadians', '-append');
-elevation(1)=0;
-for i=2:size(roadGradientInRadians,2)-1
-    elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1); % (m)
-end
+% elevation(1)=0;
+% for i=2:size(roadGradientInRadians,2)-1
+%     elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1); % (m)
+% end
 
 %% Mission payload data
 

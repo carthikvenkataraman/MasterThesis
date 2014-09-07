@@ -1,6 +1,6 @@
 % close all
 % clear all
-clc
+% clc
 %% Currency conversion
 
 USDtoEUR = 0.76;

@@ -1,8 +1,8 @@
 function zeta = InitReferenceSoCAlt(targetSpeed, longitudinalPosition, roadGradientInRadians)
 
 % clear all
-% % close all
-clc
+% close all
+% clc
 
 %% Vehicle data
 A = 9.7;  % m2
@@ -24,7 +24,7 @@ M = 68000;  % kg
 % clear missionRouteData;
 
 elevation(1)=0;
-for i=2:size(roadGradientInRadians,2)-3
+for i=2:size(roadGradientInRadians,2)-1
     elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1);    % (m)
 end
 

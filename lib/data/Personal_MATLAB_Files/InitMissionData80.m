@@ -2,6 +2,13 @@ clear all;
 % close all;
 clc
 
+delete('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat');
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat');
+
+%% Currency conversion
+
+USDtoEUR = 0.76;
+
 %% Mission route data
 
 missionRouteData = csvread('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData.csv');
@@ -14,96 +21,103 @@ longitudinalPosition=missionRouteData(:,2)';     % #2 m
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'longitudinalPosition', '-append');
 roadGradientInRadians=missionRouteData(:,3)';    % #3 rad
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'roadGradientInRadians', '-append');
-% elevation(1)=0;
-% for i=2:size(roadGradientInRadians,2)
-%     elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1); % (m)
-% end
+elevation(1)=0;
+for i=2:size(roadGradientInRadians,2)
+    elevation(i)=(longitudinalPosition(i)-longitudinalPosition(i-1))*tan(roadGradientInRadians(i-1))+elevation(i-1); % (m)
+end
 
 %% Mission payload data
 
-payloadDensity = 2000;                  % #4 kg/m3
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'payloadDensity', '-append');
-revenuePerTonPayload = 3000;            % #5 Euro / ton
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'revenuePerTonPayload', '-append');
-ladenCGHeight = 1.8;                    % #6 m
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'ladenCGHeight', '-append');
+revenuePerTonPerKM = 0.06*USDtoEUR;            % #4 Euro / ton-km
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'revenuePerTonPerKM', '-append');
 
 %% Mission cost data
 
-baseTractorCost = 90000;     % #7 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'baseTractorCost', '-append');
-semiTrailerCost = 20000;     % #8 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'semiTrailerCost', '-append');
-dollyCost = 15000;           % #9 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'dollyCost', '-append');
+baseTractorCost = 130000*USDtoEUR;     
+semiTrailerCost = 70000*USDtoEUR;     
+dollyCost = 40000*USDtoEUR;          
+unitCosts = [baseTractorCost, semiTrailerCost, dollyCost, semiTrailerCost];  % #5 Euro
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'unitCosts', '-append');
+powertrainPremium = [10000, 15000];
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'powertrainPremium', '-append');
 
-motorCosts = [2000, 3000, 5000];    % #10 Euro
+motorCosts = [30000, 30000, 30000];    % #6 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'motorCosts', '-append');
-powerElectronicsCosts = [2000, 3000, 5000]; % #11 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'powerElectronicsCosts', '-append');
-bufferCosts = [5000, 6000, 8000];   % #12 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'bufferCosts', '-append');
-mechanicalDriveCosts = [1500, 3000, 5000];  % #13 Euro
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'mechanicalDriveCosts', '-append');
+batteryCosts = [1657, 16570, 29820];   % #7 Euro
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'batteryCosts', '-append');
 
-driverHourlyRates = 500;            % #14 Euro
+driverHourlyRates = 24;            % #8 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'driverHourlyRates', '-append');
-fuelCosts = 3;                      % #15 Euro / litre
+fuelCosts = 1.468;                      % #9 Euro / litre
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'fuelCosts', '-append');
-electricityRates = 0.2;               % #16 Euro / kWh
+electricityRates = 0.21;               % #10 Euro / kWh
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'electricityRates', '-append');
-annuitPercentage = 10;  % #17
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'annuitPercentage', '-append');
 
 %% Combination loading details
 
-grossUnitWeight = [9000,26000,3000,14000];  % #18 kg
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'grossUnitWeight', '-append');
-% ALWAYS CHANGE INDIVIDUAL UNIT AXLE LOADS WHEN YOU CHANGE EACH GVW /
-% GCW!!!
-tractorAxleLoads = [7094, 15340/2*[1 1]];    % #19 kg
+kerbUnitWeight = [9000, 7000, 3000, 4000];  % #11 kg
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'kerbUnitWeight', '-append');
+tractorAxleLoads = [7094, 15340/2*[1 1]];    % #12 kg
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'tractorAxleLoads', '-append');
-firstSemiTrailerAxleLoads = 22400/3*[1 1 1];    % #20 kg
+firstSemiTrailerAxleLoads = 22400/3*[1 1 1];    % #13 kg
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'firstSemiTrailerAxleLoads', '-append');
-dollyAxleLoads =    12500/2*[1 1];    % #21 kg
+dollyAxleLoads =    12500/2*[1 1];    % #14 kg
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'dollyAxleLoads', '-append');
-secondSemiTrailerAxleLoads = 22400/3*[1 1 1];    % #22 kg
+secondSemiTrailerAxleLoads = 22400/3*[1 1 1];    % #15 kg
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'secondSemiTrailerAxleLoads', '-append');
-grossCombinationWeight = sum(tractorAxleLoads)+sum(firstSemiTrailerAxleLoads)+sum(dollyAxleLoads)+sum(secondSemiTrailerAxleLoads); % #23 kg
+grossCombinationWeight = sum(tractorAxleLoads)+sum(firstSemiTrailerAxleLoads)+sum(dollyAxleLoads)+sum(secondSemiTrailerAxleLoads); % #16 kg
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'grossCombinationWeight', '-append');
-payloadEachUnit = [0,24000,0,10000];    % #24 kg
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'payloadEachUnit', '-append');
 
 %% Tractor, tire and air parameters
 
-frontalArea = 9.7;  % #25 m2
+frontalArea = 9.7;  % #17 m2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'frontalArea', '-append');
-aerodynamicDragCoefficient = 0.6;   % #26
+aerodynamicDragCoefficient = 0.6;   % #18
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'aerodynamicDragCoefficient', '-append');
-densityOfAir = 1.184; % #27 kg/m3
+densityOfAir = 1.184; % #19 kg/m3
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'densityOfAir', '-append');
-rollingResistanceCoefficient = 0.005;   % #28
+rollingResistanceCoefficient = 0.005;   % #20
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'rollingResistanceCoefficient', '-append');
-wheelRadiusEachUnit = 0.502*[1 1 1 1];    % #29 m
+wheelRadiusEachUnit = 0.502*[1 1 1 1];    % #21 m
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'wheelRadiusEachUnit', '-append');
-coefficientOfFrictionEachUnit = [0.77 0.77 0.77 0.77];       % #30
+coefficientOfFrictionEachUnit = [0.77 0.77 0.77 0.77];       % #22
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'coefficientOfFrictionEachUnit', '-append');
-gravitationalAcceleration = 9.81;       % #31 m/s^2
+gravitationalAcceleration = 9.81;       % #23 m/s^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'gravitationalAcceleration', '-append');
 
 %% Powertrain inertia parameters
 
-tireInertia = 4*35; % 32 kgm^2
+tireInertia = 4*35; % 24 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'tireInertia', '-append');
-axleInertia = 2.14; % 33 kgm^2
+axleInertia = 2.14; % 25 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'axleInertia', '-append');
-propShaftInertia = 2; % 34 kgm^2
+propShaftInertia = 2; % 26 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'propShaftInertia', '-append');
-clutchInertia = 3.8; % 35 kgm^2
+clutchInertia = 3.8; % 27 kgm^2
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'clutchInertia', '-append');
 clear missionRouteData;
 
 zeta = InitReferenceSoC(targetSpeed, longitudinalPosition, roadGradientInRadians);
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'zeta', '-append'); % 36
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'zeta', '-append'); % 28
 
-save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat');
+%% Motor and battery masses
+
+motorMasses = [43 43 43];
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'motorMasses', '-append');  % 29
+batteryMasses = [167 524 918];
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'batteryMasses', '-append');    % 30
+
+%% More mission data
+nMissionDaily = 2;
+nMissionAnnual = nMissionDaily*365;
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'nMissionAnnual', '-append');    % 31
+nFirstOwner=5;
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'nFirstOwner', '-append');    % 32
+
+rMntDriver = 6/35;
+rTyreDriver = 7/35;
+rTollDriver = 14/35;
+otherCostRatios = [rMntDriver, rTyreDriver, rTollDriver];
+save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData80.mat', 'otherCostRatios', '-append');    % 33
+
+close all

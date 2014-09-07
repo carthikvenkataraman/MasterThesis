@@ -280,7 +280,7 @@ void Combination::RunMission() {
 	}
 
 	GetMissionProductivity();
-	//WriteOutputFiles();
+	WriteOutputFiles();
 }
 
 void Combination::GetEquivalentMassDueToInertia() {
