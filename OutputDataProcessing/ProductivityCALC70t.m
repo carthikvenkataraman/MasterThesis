@@ -89,7 +89,7 @@ for nYear=1:4
     mPayloadGross = GCW-GVW;
     mPayloadNet(nYear) = mPayloadGross - deltaMAxle(nYear);    % INCREASES as deltaMAxle decreases every 5 years
     
-    revMission(nYear) = revUnitFreight*(70000/1000)*300; %revUnitFreight*(mPayloadNet(nYear)/1000)*dMission;
+    revMission(nYear) = revUnitFreight*(mPayloadNet(nYear)/1000)*dMission; %revUnitFreight*(70000/1000)*300; 
     revAnnual(nYear) = revMission(nYear) * nMissionAnnual;
     rN(nYear) = revAnnual(nYear)*nFirstOwner;
 
@@ -149,7 +149,7 @@ for nYear=1:4
     P(nYear) = rN(nYear)/(cFixed(nYear)+cVariableN(nYear));
 end
 
-save('OutputsWithOtherGCWs/70/57/ProductivityFixedRevenue.mat');
+% save('OutputsWithOtherGCWs/70/57/ProductivityFixedRevenue.mat');
 
 figure('name', 'Mission costs and revenues over years');
 plot(rN)
@@ -169,4 +169,14 @@ set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
 saveas(gcf, 'PlotsProductivityWithOtherGCWs/70/57/ProdvsYearFixedRevenue.pdf');
 
-P
+years=[2015, 2020, 2025, 2030];
+for i=1:4
+    X=[cFixedConv, [cDriver(i), cFuel(i), cMnt(i), cTyres(i), cTolls(i), cElec(i)]*nFirstOwner*nMissionAnnual, sum(cFixedElec(i,:))];
+    figure('name', 'First-owner-lifetime Costs for A-Double, 70t, D16');
+    pie(X);    
+    title(strcat('Year ', int2str(years(i))));
+    legend('Fixed Costs (Conv)','Driver Costs', 'Fuel Costs', 'Maintenance Costs', 'Tyre Costs', 'Toll costs', 'Fixed Costs (Electrification)', 'Location', 'NorthEastOutside')
+    fileName=strcat('PlotsProductivityWithOtherGCWs/70/57/NYearCostsPie', int2str(i),'.pdf');
+    saveas(gcf, fileName);
+end
+    

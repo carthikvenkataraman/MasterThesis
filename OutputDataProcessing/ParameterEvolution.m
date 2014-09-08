@@ -1,5 +1,5 @@
-% close all
-% clear all
+close all
+clear all
 % clc
 %% Currency conversion
 
@@ -42,6 +42,35 @@ for i=1:3
         batteryMass(i,j) = batteryMass(i,j-1)*(1-rBattery(j-1)/100);
     end
 end
+
+%% Plots
+
+plot(fuelPrice);
+hold all; 
+plot(elecPrice);
+legend('Fuel Prices', 'Electricity (Grid) Prices');
+xlabel('Year'), ylabel('Fuel and grid electricity price trends (EUR)');
+set(gca,'XTick',[1 2 3 4]);
+set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
+saveas(gcf, 'PlotsProductivity/FuelElectricityTrends.pdf');
+
+figure;
+plot(batteryPricePerkWh);
+hold all;
+plot(batteryMass(2,:));
+legend('Battery Prices Per kWh', 'Battery Mass');
+xlabel('Year'), ylabel('Battery mass (kg) and price (EUR) trends');
+set(gca,'XTick',[1 2 3 4]);
+set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
+saveas(gcf, 'PlotsProductivity/BatteryMassPriceTrends.pdf');
+
+figure;
+plot(driverPrice);
+legend('Driver Hourly Wages');
+xlabel('Year'), ylabel('Driver Hourly Wages (EUR/hour)');
+set(gca,'XTick',[1 2 3 4]);
+set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
+saveas(gcf, 'PlotsProductivity/DriverWageTrends.pdf');
 
 %% Output parameters
 
