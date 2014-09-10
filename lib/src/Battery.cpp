@@ -2,8 +2,6 @@
 
 Battery::Battery(int currentUnitIndex, Genes bufferGenes) : Buffer(currentUnitIndex, bufferGenes) {
 	double unitBufferEnergy = maximumBufferLevel*openCircuitVoltage*0.001/3600;	//kWh
-	unitBatteryCost = unitBufferEnergy*batteryCostPerkWh;
-	unitBatteryMass = unitBufferEnergy*batteryMassPerkWh;
 }
 
 void Battery::RunBuffer(double powerDemand, double operatingEfficiency) {

@@ -735,14 +735,25 @@ void Combination::GetMissionProductivity() {
 	// Find additional masses due to electrification
 	batteryPrice = 0;
 	batteryMass = 0;
+
+	for(int i=1;i<unitsInCombination.size();i++) {
+		if(unitsInCombination[i]->bufferInUnit!=nullptr) {
+			auto battery = unitsInCombination[i]->bufferInUnit;
+			double depthOfDischarge = 1-battery->minimumStateOfBuffer;
+			double batteryLife = 100000*pow(battery->referenceDepthOfDischarge/depthOfDischarge, 0.376)*
+														exp(1-(depthOfDischarge/battery->referenceDepthOfDischarge));
+			battery->numberOfBatteryReplacements = numberOfAnnualMissions*numberOfFirstOwnerYears/batteryLife;
+		}
+	}
+
 	for(int i=1;i<unitsInCombination.size();i++) {
 		if(unitsInCombination[i]->bufferInUnit!=nullptr) {
 			int bufferSizeIndex = unitsInCombination[i]->bufferInUnit->bufferIndex;
-			batteryPrice+=bufferCost[bufferSizeIndex];
+			batteryPrice+=bufferCost[bufferSizeIndex]*unitsInCombination[i]->bufferInUnit->numberOfBatteryReplacements;
 			batteryMass+=batteryMasses[bufferSizeIndex];
 		}
 	}
-	
+
 	electricPowertrainPrice = 0;
 	electricPowertrainMass = 0;
 	for(int i=1;i<unitsInCombination.size();i++){

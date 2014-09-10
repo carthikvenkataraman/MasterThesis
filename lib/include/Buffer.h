@@ -32,15 +32,15 @@ class Buffer {
       double openCircuitVoltage;
       double instantaneousBufferDemand;
       double bufferAvailabilityRatio;
+      double minimumStateOfBuffer;
+      double referenceDepthOfDischarge = 0.8;
+      int numberOfBatteryReplacements;
 
       double endOfStepPowerDemand;
       std::vector<double> bufferLevelOverMission, bufferPowerDemandOverMission;
       std::vector<double> bufferAvailabilityRatioOverMission, stateOfBufferOverMission;
       std::vector<double> referenceSoCOverMission;
 
-      double unitBatteryCost;
-      double unitBatteryMass;
-      
       Buffer(int , std::vector<int> );
       void GetStateOfBuffer();
       double GetBufferAvailabilityRatio();

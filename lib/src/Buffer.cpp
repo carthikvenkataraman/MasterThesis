@@ -13,6 +13,7 @@ Buffer::Buffer(int currentUnitIndex, std::vector<int> currentBufferGenes) {
    GetBufferFileName();
    LoadBuffer();
    UpdateBufferAvailabilityRatio();
+   minimumStateOfBuffer = 1;
 
    //bufferAvailabilityRatioOverMission.push_back(bufferAvailabilityRatio);
    //stateOfBufferOverMission.push_back(stateOfBuffer);
@@ -129,6 +130,10 @@ void Buffer::GetStateOfBuffer() {
 
    /*stateOfBuffer = (instantaneousBufferLevel-minimumBufferLevel)/
                               (maximumBufferLevel-minimumBufferLevel);//*/
+   if(stateOfBuffer<minimumStateOfBuffer) {
+    minimumStateOfBuffer = stateOfBuffer;
+   }
+   
 }
 
 void Buffer::RunBuffer(double powerDemand, double operatingEfficiency) {

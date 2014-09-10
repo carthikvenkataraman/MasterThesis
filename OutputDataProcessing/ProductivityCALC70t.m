@@ -19,7 +19,7 @@
 
 clear all
 close all
-% clc
+clc
 
 %% Currency conversion
 
@@ -63,7 +63,7 @@ nMissionAnnual = nMissionDaily*365;
 for nYear=1:4     
     %% --- Mission revenues----------------------------------------------------------------------------------------------
 
-    revUnitFreight = 0.06*USDtoEUR; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
+    %revUnitFreight = 0.06*USDtoEUR; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
 
     KerbWeight = [9000, 7000, 3000, 4000];
     
@@ -89,25 +89,27 @@ for nYear=1:4
     mPayloadGross = GCW-GVW;
     mPayloadNet(nYear) = mPayloadGross - deltaMAxle(nYear);    % INCREASES as deltaMAxle decreases every 5 years
     
-    revMission(nYear) = revUnitFreight*(mPayloadNet(nYear)/1000)*dMission; %revUnitFreight*(70000/1000)*300; 
+    revMission(nYear) = revUnitFreight(i)*(mPayloadNet(nYear)/1000)*dMission; %revUnitFreight*(70000/1000)*300; 
     revAnnual(nYear) = revMission(nYear) * nMissionAnnual;
     rN(nYear) = revAnnual(nYear)*nFirstOwner;
 
     %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
     % Base combination
-    pTractorBase = 130000;
-    deltaPowertrain = 15000;    % D16-D11
-    pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
-    cFixedConv = sum(pUnit);
+%     pTractorBase = 130000;
+%     deltaPowertrain = 15000;    % D16-D11
+%     pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
+%     cFixedConv = sum(pUnit);
 
     % Electrification
     pEMotor = 30000;
     pEAxle = pEMotor*nEAxles;   % EUR
-    pBattery(nYear,:) = batteryPrice(2,nYear)*battIndex;
+    nBattReplacement = 1;
+    pBattery(nYear,:) = batteryPrice(2,nYear)*battIndex*(1+nBattReplacement);
     cFixedElec(nYear,:) = pBattery(nYear,:)+pEAxle;
     
-    cFixed(nYear) = cFixedConv+sum(cFixedElec(nYear,:));
+    cFixed(nYear) = cFixedConv(nYear)+sum(cFixedElec(nYear,:));
+    cElecTot = cFixed(nYear) - cFixedConv(nYear);
 
     %% --- Operational costs------------------------------------------------------------------------------------------------
 
@@ -159,7 +161,7 @@ legend('Mission Revenue (Annual)', 'Fixed Cost', 'Operating Cost (Annual)')
 xlabel('Year'), ylabel('Mission fixed & operating costs, mission revenues (EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivityWithOtherGCWs/70/57/MFORvsYearFixedRevenue.pdf');
+% saveas(gcf, 'PlotsProductivityWithOtherGCWs/70/57/MFORvsYearFixedRevenue.pdf');
 
 figure('name', 'Mission productivity over years');
 plot(P);
@@ -167,16 +169,15 @@ legend('N-year Productivity')
 xlabel('Year'), ylabel('Mission N-year Productivity (EUR/EUR)');
 set(gca,'XTick',[1 2 3 4]);
 set(gca,'XTickLabel',{'2015','2020','2025', '2030'});
-saveas(gcf, 'PlotsProductivityWithOtherGCWs/70/57/ProdvsYearFixedRevenue.pdf');
+% saveas(gcf, 'PlotsProductivityWithOtherGCWs/70/57/ProdvsYearFixedRevenue.pdf');
 
-years=[2015, 2020, 2025, 2030];
-for i=1:4
-    X=[cFixedConv, [cDriver(i), cFuel(i), cMnt(i), cTyres(i), cTolls(i), cElec(i)]*nFirstOwner*nMissionAnnual, sum(cFixedElec(i,:))];
-    figure('name', 'First-owner-lifetime Costs for A-Double, 70t, D16');
-    pie(X);    
-    title(strcat('Year ', int2str(years(i))));
-    legend('Fixed Costs (Conv)','Driver Costs', 'Fuel Costs', 'Maintenance Costs', 'Tyre Costs', 'Toll costs', 'Fixed Costs (Electrification)', 'Location', 'NorthEastOutside')
-    fileName=strcat('PlotsProductivityWithOtherGCWs/70/57/NYearCostsPie', int2str(i),'.pdf');
-    saveas(gcf, fileName);
-end
-    
+% years=[2015, 2020, 2025, 2030];
+% for i=1:4
+%     X=[cFixedConv, [cDriver(i), cFuel(i), cMnt(i), cTyres(i), cTolls(i), cElec(i)]*nFirstOwner*nMissionAnnual, sum(cFixedElec(i,:))];
+%     figure('name', 'First-owner-lifetime Costs for A-Double, 70t, D16');
+%     pie(X);    
+%     title(strcat('Year ', int2str(years(i))));
+%     legend('Fixed Costs (Conv)','Driver Costs', 'Fuel Costs', 'Maintenance Costs', 'Tyre Costs', 'Toll costs', 'Fixed Costs (Electrification)', 'Location', 'NorthEastOutside')
+%     fileName=strcat('PlotsProductivityWithOtherGCWs/70/57/NYearCostsPie', int2str(i),'.pdf');
+%     % saveas(gcf, fileName);
+% end
