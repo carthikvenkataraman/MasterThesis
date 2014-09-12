@@ -16,7 +16,7 @@ fuelPrice(1)= 1.468;            % EUR
 elecPrice(1)= 0.21;             % EUR
 driverPrice(1) = 24;            % EUR
 batteryPricePerkWh(1) = 800;    % EUR [436 275 244 230]*USDtoEUR;
-revUnitFreight(1) = 0.06*USDtoEUR;  % EUR
+revUnitFreight(1) = 0.06;       % EUR
 
 %% Base combination price
 

@@ -280,7 +280,7 @@ void Combination::RunMission() {
 	}
 
 	GetMissionProductivity();
-	WriteOutputFiles();
+	//WriteOutputFiles();
 }
 
 void Combination::GetEquivalentMassDueToInertia() {
@@ -848,7 +848,7 @@ void Combination::GetMissionProductivity() {
 	//-----------------------------------------------------------------------------------------------------------
 
 	missionProductivity=missionRevenueN/(costFixed+variableCostsN);
-	//std::cout<<"Mission productivity "<<missionProductivity<<std::endl;
+	std::cout<<"Mission productivity "<<missionProductivity<<std::endl;
 }
 
 void Combination::WriteOutputFiles() {
