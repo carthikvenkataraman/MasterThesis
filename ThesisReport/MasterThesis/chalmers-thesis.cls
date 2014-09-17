@@ -718,6 +718,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makeacknowledgementspage}{% Note: Doesn't need a new page.
+\if@draft
+  \newpage
+ \else
+  \cleardoublepage
+ \fi
  \presectiontitle{\acknowledgementsname}
  \@acknowledgements
 }

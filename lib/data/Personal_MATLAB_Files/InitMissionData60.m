@@ -28,14 +28,14 @@ end
 
 %% Mission payload data
 
-revenuePerTonPerKM = 0.0696*USDtoEUR;            % #4 Euro / ton-km
+revenuePerTonPerKM = 0.0935*USDtoEUR;            % #4 Euro / ton-km
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'revenuePerTonPerKM', '-append');
 
 %% Mission cost data
 
-baseTractorCost = 130000*USDtoEUR*(1.03^5);     
-semiTrailerCost = 70000*USDtoEUR*(1.03^5);     
-dollyCost = 40000*USDtoEUR*(1.03^5);          
+baseTractorCost = 130000*USDtoEUR*(1.03^15);     
+semiTrailerCost = 70000*USDtoEUR*(1.03^15);     
+dollyCost = 40000*USDtoEUR*(1.03^15);          
 unitCosts = [baseTractorCost, semiTrailerCost, dollyCost, semiTrailerCost];  % #5 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'unitCosts', '-append');
 powertrainPremium = [10000, 15000];
@@ -43,14 +43,14 @@ save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionD
 
 motorCosts = [30000, 30000, 30000];    % #6 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'motorCosts', '-append');
-batteryCosts = [3095, 30951, 55712];   % #7 Euro
+batteryCosts = [1853, 18532, 33357];   % #7 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'batteryCosts', '-append');
 
-driverHourlyRates = 27.4598;            % #8 Euro
+driverHourlyRates = 35.9477;            % #8 Euro
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'driverHourlyRates', '-append');
-fuelCosts = 1.7018;                      % #9 Euro / litre
+fuelCosts = 2.2871;                      % #9 Euro / litre
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'fuelCosts', '-append');
-electricityRates = 0.2434;               % #10 Euro / kWh
+electricityRates = 0.3272;               % #10 Euro / kWh
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'electricityRates', '-append');
 
 %% Combination loading details
@@ -104,7 +104,7 @@ save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionD
 
 motorMasses = [43 43 43];
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'motorMasses', '-append');  % 29
-batteryMasses = [215 676 1184];
+batteryMasses = [129 405 709];
 save('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/lib/data/MissionData60.mat', 'batteryMasses', '-append');    % 30
 
 %% More mission data
