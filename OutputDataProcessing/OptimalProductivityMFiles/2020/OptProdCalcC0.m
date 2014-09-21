@@ -2,15 +2,18 @@ clear all
 close all
 clc
 
+% Combination - 010\000\011\  001\001\000\  100\001\00\  100\001\000\
+
 %% Year & missionData.grossCombinationWeight
 
 year = 2015;
-gcw = 50;
-gcwCode = 'A';
+gcw = 70;
+gcwCode = 'C';
+fileCode = 0;
 
-filePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputFilesAfterOptimisation/',int2str(year),'/',gcwCode,'0/');
+filePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalCombinationsOutputFilesRevised/',int2str(year),'/',gcwCode,int2str(fileCode),'/');
 missionDataFile = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/MissionDataFiles/', int2str(year),'/MissionData',int2str(gcw),'.mat');
-outputFilePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/',int2str(year),'/',gcwCode,'0.mat');
+outputFilePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/',int2str(year),'/',gcwCode,int2str(fileCode),'.mat');
 
 %% Currency conversion
 
@@ -53,14 +56,13 @@ nMissionAnnual = nMissionDaily*365;
 
 %% --- Mission revenues----------------------------------------------------------------------------------------------
 
-revUnitFreight = 0.06*USDtoEUR; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
-
-GVW=sum(missionData.kerbUnitWeight);
+revUnitFreight = missionData.revenuePerTonPerKM; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
 
 mBattery = missionData.batteryMasses(1)*battIndex;
 mMotor = 43*nEAxles;
 mEAxle = mBattery+mMotor;
 deltaMAxle = sum(mEAxle);
+GVW=sum(missionData.kerbUnitWeight);
 
 mPayloadGross = missionData.grossCombinationWeight-GVW;
 mPayloadNet = mPayloadGross - deltaMAxle;    
@@ -72,13 +74,10 @@ rN = revAnnual*nFirstOwner;
 %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
 % Base combination
-pTractorBase = 130000;
-deltaPowertrain = 0;    % D11
-pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
-cFixedConv = sum(pUnit);
+cFixedConv = sum(missionData.unitCosts);
 
 % Electrification
-pEMotor = 30000;
+pEMotor = missionData.motorCosts(1);
 pEAxle = pEMotor*nEAxles;   % EUR
 pBattery = missionData.batteryCosts(1)*battIndex;
 cFixedElec = pBattery+pEAxle;
@@ -93,7 +92,7 @@ rTyreDriver = 7/35;
 rTollDriver = 14/35;
 
 if(any(nEAxles)==1)
-    for j=2:nUnits
+    for j=2:3
         if(nEAxles(j-1)~=0)
             deltaSOC = (B(1,j-1).stateOfBufferOverMission(1))-(B(1,j-1).stateOfBufferOverMission(end));
             if(deltaSOC<1)
@@ -123,5 +122,30 @@ cVariableN = cVariableMission*nFirstOwner*nMissionAnnual;
 %% Productivity
 
 P = rN/(cFixed+cVariableN);
+
+missionData.grossCombinationWeight
+GVW=sum(missionData.kerbUnitWeight)
+sum(mBattery)
+sum(mMotor)
+deltaMAxle
+mPayloadNet
+missionData.revenuePerTonPerKM
+dMission
+revMission
+revAnnual
+rN
+cFixedConv
+sum(pBattery)
+cFixedElec
+cFixed
+cFuel
+eRecharge
+cElec
+tMission
+missionData.driverHourlyRates
+cDriver
+cVariableMission
+cVariableN
+P
 
 save(outputFilePath);

@@ -2,17 +2,18 @@ clear all
 close all
 clc
 
-% Combination - 100\000\011\-001\001\000\-001\100\00\-001\100\010\
+% Combination - 010\000\011\  001\001\000\  100\001\00\  100\001\000\
 
 %% Year & missionData.grossCombinationWeight
 
 year = 2015;
-gcw = 50;
-gcwCode = 'A';
+gcw = 70;
+gcwCode = 'C';
+fileCode = 0;
 
-filePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputFilesAfterOptimisation/',int2str(year),'/',gcwCode,'1/');
+filePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalCombinationsOutputFilesRevised/',int2str(year),'/',gcwCode,int2str(fileCode),'/');
 missionDataFile = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/MissionDataFiles/', int2str(year),'/MissionData',int2str(gcw),'.mat');
-outputFilePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/',int2str(year),'/',gcwCode,'1.mat');
+outputFilePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/',int2str(year),'/',gcwCode,int2str(fileCode),'.mat');
 
 %% Currency conversion
 
@@ -22,7 +23,7 @@ USDtoEUR = 0.76;
 
 C = load(strcat(filePath,'C.mat'));
 B(1) = load(strcat(filePath,'U0B.mat'));
-B(2) = load(strcat(filePath,'U1B.mat'));
+% B(2) = load(strcat(filePath,'U1B.mat'));
 % B(3) = load(strcat(filePath,'U2B.mat'));
 % B(4) = load(strcat(filePath,'U3B.mat'));
 
@@ -41,8 +42,8 @@ sizeBattery = [batterySizes(1) batterySizes(1) batterySizes(1)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [1 0 0]; 
-battIndex = [1 0 0];
+nEAxles = [0 0 0]; 
+battIndex = [0 0 0];
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
@@ -55,7 +56,7 @@ nMissionAnnual = nMissionDaily*365;
 
 %% --- Mission revenues----------------------------------------------------------------------------------------------
 
-revUnitFreight = 0.06*USDtoEUR; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
+revUnitFreight = missionData.revenuePerTonPerKM; % [12] CHANGE IF REVENUE PER UNIT FREIGHT CHANGES
 
 mBattery = missionData.batteryMasses(1)*battIndex;
 mMotor = 43*nEAxles;
@@ -73,13 +74,10 @@ rN = revAnnual*nFirstOwner;
 %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
 % Base combination
-pTractorBase = 130000;
-deltaPowertrain = 0;    % D11
-pUnit = [pTractorBase, 70000, 40000, 70000]*USDtoEUR+[deltaPowertrain, 0, 0, 0];
-cFixedConv = sum(pUnit);
+cFixedConv = sum(missionData.unitCosts);
 
 % Electrification
-pEMotor = 30000;
+pEMotor = missionData.motorCosts(1);
 pEAxle = pEMotor*nEAxles;   % EUR
 pBattery = missionData.batteryCosts(1)*battIndex;
 cFixedElec = pBattery+pEAxle;
