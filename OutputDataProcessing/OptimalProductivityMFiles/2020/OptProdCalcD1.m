@@ -6,7 +6,7 @@ clc
 
 %% Year & missionData.grossCombinationWeight
 
-year = 2015;
+year = 2020;
 gcw = 80;
 gcwCode = 'D';
 fileCode = 1;
@@ -19,9 +19,9 @@ outputFilePath = strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOp
 
 C = load(strcat(filePath,'C.mat'));
 B(1) = load(strcat(filePath,'U0B.mat'));
-% B(2) = load(strcat(filePath,'U1B.mat'));
+B(2) = load(strcat(filePath,'U1B.mat'));
 % B(3) = load(strcat(filePath,'U2B.mat'));
-B(4) = load(strcat(filePath,'U3B.mat'));
+% B(4) = load(strcat(filePath,'U3B.mat'));
 
 dMission = C.positionOverMission(end)/1000;    % km
 tMission = size(C.positionOverMission,2)/3600; % hours
@@ -38,8 +38,8 @@ sizeBattery = [batterySizes(1) batterySizes(1) batterySizes(1)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [0 0 2];      % For motor calculation
-battIndex = [0 0 1];    % For battery calculation
+nEAxles = [2 0 0];      % For motor calculation
+battIndex = [1 0 0];    % For battery calculation
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
@@ -90,7 +90,7 @@ rTollDriver = 14/35;
 if(any(nEAxles)==1)
     for j=2:3
         if(nEAxles(j-1)~=0)
-            deltaSOC = (B(1,j-1).stateOfBufferOverMission(1))-(B(1,j-1).stateOfBufferOverMission(end));
+            deltaSOC = (B(1,j).stateOfBufferOverMission(1))-(B(1,j).stateOfBufferOverMission(end));
             if(deltaSOC<1)
                 deltaSOC=0;
             end

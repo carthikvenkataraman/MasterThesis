@@ -6,7 +6,7 @@ clc
 
 %% Year & missionData.grossCombinationWeight
 
-year = 2015;
+year = 2025;
 gcw = 70;
 gcwCode = 'C';
 fileCode = 0;

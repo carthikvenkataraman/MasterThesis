@@ -6,7 +6,7 @@ clc
 
 %% Year & missionData.grossCombinationWeight
 
-year = 2015;
+year = 2025;
 gcw = 50;
 gcwCode = 'A';
 fileCode = 1;
@@ -23,7 +23,7 @@ USDtoEUR = 0.76;
 
 C = load(strcat(filePath,'C.mat'));
 B(1) = load(strcat(filePath,'U0B.mat'));
-% B(2) = load(strcat(filePath,'U1B.mat'));
+B(2) = load(strcat(filePath,'U1B.mat'));
 % B(3) = load(strcat(filePath,'U2B.mat'));
 % B(4) = load(strcat(filePath,'U3B.mat'));
 
@@ -42,8 +42,8 @@ sizeBattery = [batterySizes(1) batterySizes(1) batterySizes(1)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [0 0 0]; 
-battIndex = [0 0 0];
+nEAxles = [1 0 0]; 
+battIndex = [1 0 0];
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
@@ -74,7 +74,7 @@ rN = revAnnual*nFirstOwner;
 %% --- Fixed Costs-----------------------------------------------------------------------------------------------------
 
 % Base combination
-cFixedConv = sum(missionData.unitCosts)+missionData.powertrainPremium(1); % ONLY IN THIS CASE - D13!!
+cFixedConv = sum(missionData.unitCosts);
 
 % Electrification
 pEMotor = missionData.motorCosts(1);

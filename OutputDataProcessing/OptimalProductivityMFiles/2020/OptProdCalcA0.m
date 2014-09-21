@@ -2,8 +2,6 @@ clear all
 close all
 clc
 
-% Combination - 010\000\011\  001\001\000\  100\001\00\  100\001\000\
-
 %% Year & missionData.grossCombinationWeight
 
 year = 2020;

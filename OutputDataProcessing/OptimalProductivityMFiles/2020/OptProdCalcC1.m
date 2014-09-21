@@ -6,7 +6,7 @@ clc
 
 %% Year & missionData.grossCombinationWeight
 
-year = 2015;
+year = 2020;
 gcw = 70;
 gcwCode = 'C';
 fileCode = 1;
@@ -90,7 +90,7 @@ rTollDriver = 14/35;
 if(any(nEAxles)==1)
     for j=2:3
         if(nEAxles(j-1)~=0)
-            deltaSOC = (B(1,j-1).stateOfBufferOverMission(1))-(B(1,j-1).stateOfBufferOverMission(end));
+            deltaSOC = (B(1,j).stateOfBufferOverMission(1))-(B(1,j).stateOfBufferOverMission(end));
             if(deltaSOC<1)
                 deltaSOC=0;
             end

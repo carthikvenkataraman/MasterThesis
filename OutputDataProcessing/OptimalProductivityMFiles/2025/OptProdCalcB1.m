@@ -6,7 +6,7 @@ clc
 
 %% Year & missionData.grossCombinationWeight
 
-year = 2015;
+year = 2025;
 gcw = 60;
 gcwCode = 'B';
 fileCode = 1;
@@ -38,7 +38,7 @@ sizeBattery = [batterySizes(1) batterySizes(1) batterySizes(1)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [1 0 0];      % For motor calculation
+nEAxles = [2 0 0];      % For motor calculation
 battIndex = [1 0 0];    % For battery calculation
 nEUnits = size(nEAxles,2);
 
