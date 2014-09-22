@@ -708,7 +708,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makeprefacepage}{%
  \if@draft
-  \newpage
+  \pagebreak
  \else
   \cleardoublepage
  \fi
@@ -719,7 +719,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makeacknowledgementspage}{% Note: Doesn't need a new page.
 \if@draft
-  \newpage
+  \pagebreak
  \else
   \cleardoublepage
  \fi

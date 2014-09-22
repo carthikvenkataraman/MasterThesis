@@ -1,23 +1,16 @@
 % Sample file on how to use subfiles.
-\documentclass[MastersThesis.tex]{subfiles}
+\documentclass[ExampleMasters.tex]{subfiles}
 
 \begin{document}
 
 \chapter{Vehicle Model}
-\lipsum
-\section{Purpose}
-\lipsum
 
-\section{Background}
-\lipsum
-
-\section{Modelling}
-
-A layout of the entire model architecture is as shown in Figure (\ref{fig:architecture}). This section will cover a description of the cycle , driver and vehicle model. 
+\lipsum 
+A layout of the entire model architecture is as shown in Figure (\ref{fig:architecture}). This section will cover a description of the cycle , driver and vehicle model. \\
 
 \begin{figure}[ht!]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/architecture2.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/architecture2.png}
 	\end{center}
 	\caption{Model architecture - Overview}
 	\label{fig:architecture}
@@ -51,7 +44,7 @@ The resolution of the position data was determined to be too low which caused pr
 
 \begin{figure}[hb]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/noise.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/noise.jpg}
 	\end{center}
 	\caption{Noisy slope signal.}
 	\label{fig:noise}
@@ -61,7 +54,7 @@ The data was also inconsistent resulting in a much disrupted slope signal as can
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/rollingavg.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/rollingavg.jpg}
 	\end{center}
 	\caption{Slope signal after rolling average.}
 	\label{fig:rollingavg}
@@ -71,7 +64,7 @@ While the slope signal was now less irregular with a sampling frequency of 1 Hz 
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/aftersplinefit.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/aftersplinefit.jpg}
 	\end{center}
 	\caption{Slope signal after splinefit.}
 	\label{fig:aftersplinefit}
@@ -83,55 +76,55 @@ The slope data is defined as against distance as the vehicles current position i
 The road resistive force consists of three main components: the slope force caused by the gradient of the road, the rolling force to overcome the road resistance and the aerodynamic force to counter the air drag.
 
 \begin{equation} \label{eq:roadresforce}
-F_{res}=F_{slope} + F_{roll} + F_{aero}
+Total road resistive force(F_{res}) =Slope force + Rolling force + Aerodynamic force
 \end{equation}
 
 \begin{equation} \label{eq:slopeforce}
-F_{slope}=W_{eq}* g * \sin(\theta_{slope})
+Slope force=Equivalent combination weight(W_{eq})* g * \sin(slope)
 \end{equation}
 
 \begin{equation} \label{eq:rollingforce}
-F_{roll} =Coeff_{roll})* W_{eq} * g
+Rolling force =Coeff_{rolling resistance})* W_{eq} * g
 \end{equation}
 
 \begin{equation} \label{eq:aeroforce}
-F_{aero}= \frac{1}{2} * \rho_{air}*Coeff_{drag})* A_f * v^2
+Aerodynamic force = \frac{1}{2} * \rho_{air}*Coeff_{rdrag})* frontal area *( instantaneous speed)^2
 \end{equation}
 
 \begin{equation} \label{eq:rollingforce}
-W_{eq} =W_{gc}+W_{total inertia}
+W_{eq} =Gross combination weight(W_{gc})+Total inertial mass(W_{total inertia})
 \end{equation}
 
 The inertial effects of rotation were taken into account through an equivalent mass addition $(W_{total inertia})$ as seen in equation (\ref{eq:totinertialmass}). The term is defined as: 
 
 \begin{equation} \label{eq:totinertialmass}
-W_{total inertia}  = W_{tire inertia} +W_{axle inertia}+W_{prop inertia}+W_{trans inertia}
+W_{total inertia}  =  Tire inertial mass(W_{tire inertia} )+Axle inertial mass(W_{axle inertia} )+Propeller shaft inertial mass(W_{prop inertia})+Transmission inertia mass(W_{trans inertia})
 \end{equation}
 
 \begin{equation} \label{eq:tireinertia}
-W_{tire inertia} =I_{tire}*(\frac{1}{r})^2
+W_{tire inertia} =Inertia_{tire}*(\frac{1}{tire radius(r)})^2
 \end{equation}
 
 \begin{equation} \label{eq:axleinertia}
-W_{axle inertia} =I_{axle}*(\frac1r)^2
+W_{axle inertia} =Inertia_{axle}*(\frac1r)^2
 \end{equation}
 
 \begin{equation} \label{eq:propinertia}
-W_{prop inertia} =I_{prop}*(\frac{f.d.}{r})^2
+W_{prop inertia} =Inertia_{prop shaft}*(\frac{final drive ratio(f.d)}{r})^2
 \end{equation}
 
 \begin{equation} \label{eq:transinertia}
-W_{trans inertia} =I_{trans}*(\frac{\gamma*f.d.}{r})^2
+W_{trans inertia} =Inertia_{transmission}*(\frac{gear ratio*f.d}{r})^2
 \end{equation}
 
 Once the vehicle combination returns information of the total traction that could be achieved by the truck in a particular instant, it is used with $F_{res}$ to calculate the actual acceleration that is achieved.
  
 \begin{equation} \label{eq:acclforce}
-F_{accl}=F_{trac}-F_{res}
+Achieved acceleration force=Total achieved tractive force-Total resistive force(F_res)
 \end{equation} 
 
 \begin{equation} \label{eq:acclinstant}
-a_{inst}=\frac{F_{accl}}{W_{gc}}
+Instantaneous acceleration=\frac{Achieved acceleration force}{Gross combination weight}
 \end{equation} 
 
 Through the basic motion equations is used to determine the distance travelled and speed at the next instant taking a cycle frequency of 1Hz. This continues till the total distance is covered. 
@@ -141,21 +134,20 @@ The truck is modelled as a longitudinal bicycle model where the focus lies on me
 The axle has the final drive ratio(f.d) associated with it. It is used to gear down the wheel speeds to a gearbox shaft speed as according to equations (\ref{eq:axlespeedgearing}) \&  (\ref{eq:axletorquegearing})
 
 \begin{equation} \label{eq:axlespeedgearing}
- \omega_{diff} =V_{wheel}*\frac{60}{2*\pi*r}
+Angular speed before differential =Longitudinal wheel speed*\frac{60}{2*\pi*tire radius(r)}
 \end{equation}
-
 \begin{equation} \label{eq:axletorquegearing}
-\tau_{diff}=F_{wheel}*\frac{r}{f.d} 
+Torque before differential =Tractive force at wheels*\frac{r}{f.d} 
 \end{equation}
 
- So when a traction demand passes down to an axle, clears the grip limitation check and passes past the axle differential, it is sent to the machine transmissions. The functionality associated at the transmission level is simply to encapsulate the gearing reduction effects so as to arrive at the machine torque$(\tau_{machine})$ and speed $\omega_{machine}$ given the selected gear$(\gamma)$. The losses at the transmission are neglected. 
+ So when a traction demand passes down to an axle, clears the grip limitation check and passes past the axle differential, it is sent to the machine transmissions. The functionality associated at the transmission level is simply to encapsulate the gearing reduction effects so as to arrive at the machine torque and speed given the selected gear. The losses at the transmission are neglected. 
 
 \begin{equation} \label{eq:transpeedgearing}
-\omega_{machine} =\omega_{diff}*\gamma
+Angular machine speed =Angular speed before differential*Selected gear ratio
 \end{equation}
 
 \begin{equation} \label{eq:transtorquegearing}
-\tau_{machine} =\frac{ \tau_{diff}}{\gamma}
+Machine torque =\frac{Torque before differential}{Selected gear ratio}
 \end{equation}
 
 \subsection{Machine model}
@@ -164,7 +156,7 @@ The axle has the final drive ratio(f.d) associated with it. It is used to gear d
 When the axle speed information is passed down to the transmission the gear is selected as described in Section \ref{sec:drivermodel}, the machine speed is then calculated as above and assigned to the machine. Once the machine speed is set the values of maximum propulsive torque and in the case of a motor, the maximum regenerative torque are identified for the current speed. This information is accessed at the unit level as mentioned earlier .The torque requests are checked against the maximum torque capabilities regardless of whether it is positive propulsion torque or in the case of an electric motor, negative regenerative torque. If it within acceptable limits the machine torque is set to the demand value. The machine power to be demanded from the associated buffer is then calculated as 
 
 \begin{equation} \label{eq:machinepowerdem}
-P_{dem}=\tau_{machine}*\omega_{machine}*\frac{2*\pi}{60}
+Power demand=Machine torque*MachineRPM*\frac{2*\pi}{60}
 \end{equation}
 
 \subsection{Buffer model}
@@ -173,17 +165,17 @@ P_{dem}=\tau_{machine}*\omega_{machine}*\frac{2*\pi}{60}
 The fuel tank or the battery, depending on the machine, receives a power demand from the machine. This is also converted into an energy demand for that particular instant which is calculated by assuming that the power is constant for a fixed time interval which the whole cycle has been discretised into (1 second by default). The brake specific fuel consumpsion $(B.S.F.C.)$ of the engine for the particular point is determined by the machine and the data is provided to the fuel tank.  On receiving the power demand and B.S.F.C, the amount of fuel to be consumed from the fuel tank to provide the power is calculated for that instant as shown below.
 
 \begin{equation} \label{eq:fueldem}
-f.c_{inst}=\frac{P_{dem}* B.S.F.C * Time}{1000*\rho_{fuel}}
+Instantaneous fuel demand=\frac{Instantaneous power demand(P_{dem}) * B.S.F.C * Time}{1000*\rho_{fuel}}
 \end{equation}
 
 When power is demanded from the battery, information of the operating efficiency of the machine $(\eta_{Machine})$  is also sent. This information is recieved from the machine as it depends on its instantaneous point of operation. The battery model does not account for variations in open circuit voltage(OCV) and battery efficiency with state of charge(SoC). So the OCV is taken as constant while the battery efficiency is assumed to be 100\%. Thus the total charge demanded is calculated directly at each instant and this demand whether positive or negative will in turn append the overall SoC as shown in equation (\ref{eq:newsoc}) where $(Q_{tot})$ is the total charge capacity of the battery.
 
 \begin{equation} \label{eq:instantchargedem}
-Q_{inst}=\frac{P_{dem} * t }{OCV * \eta_{machine} }
+Instantaneous charge demand(Q_{instant dem}) =\frac{Power demand * time}{OCV * \eta_{Machine} }
 \end{equation}
 
 \begin{equation} \label{eq:newsoc}
-SoC_{new} =SoC_{old}+ \frac{Q_{inst}}{Q_{tot}}
+SoC_{new} =SoC_{old}+ \frac{Q_{instant dem}t}{Q_{tot}}
 \end{equation}
 
 \section{Driver Model}
@@ -192,10 +184,10 @@ SoC_{new} =SoC_{old}+ \frac{Q_{inst}}{Q_{tot}}
 The driver is designed to be aggressive with the acceleration as the aim is to get the truck to maintain a top speed (80 kmph) whenever traction is available. Based on this logic a subsequent desired acceleration force is calculated which is indicative of the amount of force needed to propel the truck to the max speed in the next instant. This term also ensures that the trucks does not speed over the 80kmph limit which could be likely during downhill conditions as the acceleration force in this case would be negative. The total demanded torque is given as
 
 \begin{equation} \label{eq:reqacclforce}
-F_{raf} =\frac {v_{aim}- v_{current}}{t}*W_{eq}
+Requested acceleration force(F_{raf}) =\frac {Aim speed- Current speed}{Time step}*W_{eq}
 \end{equation}
 \begin{equation} \label{eq:totdemforce}
-F_{dem} = F_{raf}+F_{res}
+Total demand traction force = F_{raf}+F_{res}
 \end{equation}
 
 This demand is sent to the vehicle model which returns the achieved acceleration for each time step.
@@ -212,10 +204,9 @@ The vehicle model was constructed to be represented as a combination of a number
 \item Buffers
 \end{itemize}
 
-The attributes associates with each level are described as in figure \ref{fig:vehiclelayout} . This provides a visualization of 4 units, 11 axles which may be associated with machine or left non-driven as indicated in the figure by a shaded block and an empty one respectively. 
 \begin{figure}[ht!]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/vehiclelayout.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/vehiclelayout.jpg}
 	\end{center}
 	\caption{Vehicle model - Structure}
 	\label{fig:vehiclelayout}
@@ -226,7 +217,7 @@ The truck is constructed using the genetic chromosome as a blueprint as mentione
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/combinationfunction.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/combinationfunction.jpg}
 	\end{center}
 	\caption{Combination functionality}
 	\label{fig:combinationfunction}
@@ -242,7 +233,7 @@ The individual axle loads are defined for each axle which provides information o
 The transmission linked to the axles possess the same structure regardless of the machine. The only property that varies is in fact the number of gears. The other properties are the gear ratios and gear inertias. The functionality of this section is covered by equations (\ref{eq:transpeedgearing}) and (\ref{eq:transtorquegearing})
 
 \subsection{Machines}\label{sec:machinestructure}
-The machines, as mentioned earlier maybe either an electric motor or an engine. The machine block contains information about the engine or motor map i.e the maximum torque the machine can produce across the range of operating speed and the B.S.F.C. values and efficiency values associated with each operating point for the engine and motor respectively.  
+The machines, as mentioned earlier maybe either an electric motor or an engine. The machine block contains information about the engine or motor map i.e the maximum torque the machine can produce across the range of operating speed and the b.s.f.c. values and efficiency values associated with each operating point for the engine and motor respectively.  
 
 \subsection{Buffers} \label{sec:bufferstructure}
 The buffers associated to the machines are a fuel tank in the case of an engine and a battery when the machine is an electric motor. They are provided with information of the power demand along with the electric machine efficiency or the brake specific fuel consumption of the engine for that operation point of that machine respectively.  
@@ -255,7 +246,7 @@ When the units are able to produce the required force though the question arises
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/ems.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/ems.jpg}
 	\end{center}
 	\caption{Heuristic energy management strategy}
 	\label{fig:ems}
@@ -264,17 +255,17 @@ When the units are able to produce the required force though the question arises
 As can be seen in fig (\ref{fig:ems}) during regeneration mode the logic flows similarly. If magnitude of the traction request is greater than the magnitude of the maximum traction the units can provide for that instant the negative torque requests to the units are limited to their respective maximum regenerative tractive capability$(F_{trailunitregenmax})$. If it is within range however a similar term called Regenerative Traction Distribution Ratio $(RTDR)$ is calculated as explained below.
 
 \subsection{Optimal operating point (OOP)} \label{sec:oop}
-The optimal operating point is a set point of operation of an engine at a particular speed and torque at which the engine is the most efficient i.e. the amount of fuel consumed $(m_f)$ per unit brake power$(P_b)$ produced is the lowest as compared to any other point of operation. This term is known as the brake specific fuel consumption $(B.S.F.C)$ as shown below:
+The optimal operating point is a set point of operation of an engine at a particular speed and torque at which the engine is the most efficient i.e. the amount of fuel consumed $(m_f)$ per unit brake power$(P_b)$ produced is the lowest as compared to any other point of operation. This term is known as the brake specific fuel consumption $(bsfc)$ as shown below:
 
 \begin{equation} \label{eq:bsfc}
-B.S.F.C.=\frac{m_f}{P_b}
+bsfc=\frac{m_f}{P_b}
 \end{equation}
  
-The point of lowest B.S.F.C. for a D16 engine may be seen in fig(\ref{fig:enginemap}) where the blue line describes the maximum level of brake torque that can be produced at each speed of operation and the contours in the figure connect the points having same B.S.F.C. values.The engine is allowed to operate at this point as indicated in the figure found to be the point of lowest B.S.F.C if possible . That is to say if the amount of torque that is produced at the OOP is sufficient or if the remaining torque can be handled by the electric powertrain. 
+The point of lowest bsfc for a D16 engine may be seen in fig(\ref{fig:enginemap}) where the blue line describes the maximum level of brake torque that can be produced at each speed of operation.The engine is allowed to operate at this point if possible. That is to say if the amount of torque that is produced at the OOP is sufficient or if the remaining torque can be handled by the electric powertrain. 
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/enginemap.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/enginemap.jpg}
 	\end{center}
 	\caption{Optimal operating point of a D16 engine}
 	\label{fig:enginemap}
@@ -288,7 +279,7 @@ TDR_{unit i}=\frac{(Power Availability)_{unit i}}{Total Power Availability}
 \end{equation}
  
 \begin{equation} \label{eq:tdr2}
-Total Power Availability = \Sigma_{i=1}^{4} Power Availability_{unit i} = 1\\
+Total Power Availability = \Sigma Power Availability_{unit}
 \end{equation}
 
 The power availability term is defined for each unit as a product of Buffer Availability Ratio $(BAR)$ along with the total maximum tractive power that can be produced in that instant by all the electric motors on that unit as shown in equation (\ref{eq:poweravail}). The power term here allows for the unit with the higher power capacity to be assigned with the higher traction.
