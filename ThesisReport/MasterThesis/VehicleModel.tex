@@ -4,18 +4,13 @@
 \begin{document}
 
 \chapter{Vehicle Model}
-\lipsum
-\section{Purpose}
-\lipsum
+The vehicle model was constructed to encapsulate the main functions of the powertrain of a long haul truck.When each gene of data processed by the optimization tool is then used to create a particular combination with a variable degree of hybridization. This combination is created with its components assigned as dictated by the genotype and its functionality flow developed in an object oriented fashion. The following section will explain in greater detail how exactly the model of truck created, simulates the cycle run and produces appropriate results to be used by the productivity function developed as mention earlier.  
 
-\section{Background}
-\lipsum
-
-\section{Modelling}
+\section{Simulation architecture}
 
 A layout of the entire model architecture is as shown in Figure (\ref{fig:architecture}). This section will cover a description of the cycle , driver and vehicle model. 
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/architecture2.pdf}
 	\end{center}
@@ -23,63 +18,36 @@ A layout of the entire model architecture is as shown in Figure (\ref{fig:archit
 	\label{fig:architecture}
 \end{figure}
 
-\section{Driving Cycle}
-\label{sec:drivingcycle}
-The aim of the project is to find the most productive vehicle combination for a particular route. The route chosen for this is the 294 km E20/E6 highway from G\"oteborg to Malm\"o. This particular journey back and forth is quite popular among companies transporting goods and any findings of the report will be of key interest. 
-The driving cycle data provided was recorded with a frequency of 1 Hz from an on-board GPS and it included:
-\begin{itemize}
-\item X-axis position data
-\item Y-axis position data
-\item Z-axis position data
-\item Velocity
-\item Distance covered
-\end{itemize}
+\section{Mission Data}
+Mission data consisting of route coordinates, target vehicle speed at each point along the mission, vehicle loading characteristics etc. are fed as inputs to the vehicle model. The route considered in this research is Malm\"o-G\"oteborg on the west coast of Sweden. The elevation profile of the route is depicted in Figure \ref{MLMGBGElevation}. As can be seen, the route contains repetitively undulating terrain in the first half and a steep ascent to Hallands\aa s 60\% into the mission. The average gradient over the ascent is approximately 6\% and that over the descent is approximately negative 3\%. This section proves a challenge to vehicle gradeability and is an ample opportunity for energy regeneration downhill in hybrid propulsion configurations. The section is shown in detail in Figure \ref{Hallandas}.\\ 
 
-The inputs that are required from the driving cycle are the information of road gradient, instantaneous velocity and acceleration. Each of which could have been directly used from the provided data. However on subsequent study the speed signal was found to have considerable noise and many data points missing, making it unusable. The distance signal did not correspond to the distance covered as calculated from the position signal according to the equation below.
-
-\begin{equation} \label{eq:cycle distance}
-Distance = \sqrt{(x_{i+1} - x_i)^2 +(y_{i+1} - y_i)^2}
-\end{equation}
-
-This left only the position signals which had some issues that posed problems at first. The data is used to obtain the values of the slope of the road along the z axis (? Road gradient) since the vehicle model is represented as a one-track bicycle model and lateral effects are neglected. This is done as 
-
-\begin{equation} \label{eq:cycle slope}
-Slope =\frac{\delta Height}{\delta Distance} = \frac{z_{i+1} - z_i}{\sqrt{(x_{i+1}-x_i)^2 +(y_{i+1}-y_i)^2  }}
-\end{equation}
-
-The resolution of the position data was determined to be too low which caused problems when the slope was calculated as there were sudden big jumps in the slope values.
-
-\begin{figure}[hb]
+\begin{figure}[ht!]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/noise.pdf}
+		\includegraphics[width=0.75\textwidth,clip=true, trim=45 185 35 208]{figures/VehicleModel/ElevationProfile.pdf}
 	\end{center}
-	\caption{Noisy slope signal.}
-	\label{fig:noise}
-\end{figure}
+	\caption{Mission Route - Malm\"o - G\"oteborg}
+	\label{MLMGBGElevation}
+\end{figure} 
 
-The data was also inconsistent resulting in a much disrupted slope signal as can be seen in figure (\ref{fig:noise}).This was addressed by introducing a rolling average filter for the position data along each axis. This approximates the value of the position over a range of old data to the average value in that range. The size of the range is dependent on the speed of the truck (i.e. taking a small sample size when the truck is moving faster and vice-versa) in order to provide a more realistic new signal. The sampling range was 10 above a threshold speed of 40 kmph and 5 for speeds below. When the position signals were filtered the slope was recalculated using equation (\ref{eq:cycle slope}). This gave an improved new slope data (data 2) as shown in figure(\ref{fig:rollingavg}).
 
-\begin{figure}
+\begin{figure}[ht!]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/rollingavg.pdf}
+		\includegraphics[width=0.55\textwidth,clip=true, trim=45 185 35 208]{figures/VehicleModel/ElevationProfileH.pdf}
 	\end{center}
-	\caption{Slope signal after rolling average.}
-	\label{fig:rollingavg}
-\end{figure}
+	\caption{Road elevation profile - Hallands\aa s}
+	\label{Hallandas}
+\end{figure} 
 
-While the slope signal was now less irregular with a sampling frequency of 1 Hz the calculated slope was still too noisy to be used directly. To ensure the signal was smoother, a Matlab cubic spline function was used with a tuning factor of 0.1.Lastly the slope signal was redefined as against distance rather than time to suit the functionality of the driver model which is explained in more detail in Section  \ref{sec:drivermodel}.
+A constant target vehicle speed of 80 kph is set throughout the mission route for all vehicle propulsion configurations. Road gradient data mapped along longitudinal position is set as input to the vehicle model for tractive force calculation at each point along the mission. Longitudinal position, in turn, is logged at intervals of 100 metres.\\
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.75\textwidth]{figures/VehicleModel/aftersplinefit.pdf}
-	\end{center}
-	\caption{Slope signal after splinefit.}
-	\label{fig:aftersplinefit}
-\end{figure}
+Mission inputs additionally contain axle loads, gross unit weights and unit kerb weights for all units in the combination. Vehicular frontal area, air density at 25 degrees Celsius and coefficient of aerodynamic resistance are included too. Rolling resistance coefficients for Michelin 315/80R22.5 tyres are taken as standard references for all tires including those on trailer axles.\\
+
+Mission productivity parameters such as revenue per unit freight, unit fixed costs, variable operating cost parameters, electric motor and buffer masses are provided among several others as input.\\
 
 \section{Vehicle Model}
 \label{sec:vehiclemodel}
-The slope data is defined as against distance as the vehicles current position is calculated at each instant and the slope for that position is interpolated using the data. The slope information along with the vehicle parameters are used to calculate the total road resistive force as according to the equations %\ref{eq:roadresforce}% . 
+The slope data is defined as against distance as the vehicles current position is calculated at each instant and the slope for that position is interpolated using the data. The slope information along with the vehicle parameters are used to calculate the total road resistive force as according to the equations.\\
+
 The road resistive force consists of three main components: the slope force caused by the gradient of the road, the rolling force to overcome the road resistance and the aerodynamic force to counter the air drag.
 
 \begin{equation} \label{eq:roadresforce}

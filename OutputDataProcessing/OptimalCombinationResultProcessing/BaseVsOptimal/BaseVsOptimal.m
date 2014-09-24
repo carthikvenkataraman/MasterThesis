@@ -2,15 +2,15 @@ clear all
 close all
 clc
 
-folderLocation = 'C:\Karthik\Sweden\Chalmers\MasterThesis-PropOpt\OutputDataProcessing\OptimalProductivityOutputs\';
+folderLocation = '/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/';
 year = 2015;
-gcwCode = 'C';
-baseFileLocation = strcat(folderLocation,int2str(year), '\', gcwCode,'0.mat');
-optimalFileLocation = strcat(folderLocation,int2str(year), '\', gcwCode,'1.mat');
+gcwCode = 'A';
+baseFileLocation = strcat(folderLocation,int2str(year), '/', gcwCode,'0D16.mat');
+optimalFileLocation = strcat(folderLocation,int2str(year), '/', gcwCode,'1.mat');
 
-resultFolderLocation = 'C:\Karthik\Sweden\Chalmers\MasterThesis-PropOpt\OutputDataProcessing\OptimalCombinationResults\';
-dummyResultLocation = strcat(resultFolderLocation,int2str(year),'\Dummy',gcwCode,'.pdf');
-actualResultLocation = strcat(resultFolderLocation,int2str(year),'\',gcwCode,'.pdf');
+resultFolderLocation = '/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalCombinationResults/';
+dummyResultLocation = strcat(resultFolderLocation,int2str(year),'/Dummy',gcwCode,'.pdf');
+actualResultLocation = strcat(resultFolderLocation,int2str(year),'/',gcwCode,'.pdf');
 
 Base = load(baseFileLocation);
 Optimal = load(optimalFileLocation);
@@ -106,7 +106,7 @@ xticklabel_rotate([1:10],45,{'Mission Revenues', 'Fixed Cost (Conv)', 'Fixed Cos
 % lDummy=legend('Base', 'Location', 'SouthEastOutside');
 % set(lDummy, 'FontSize', 8);
 set(gcf, 'Position', get(0,'Screensize')); 
-saveas(gcf, dummyResultLocation);
+% saveas(gcf, dummyResultLocation);
 
 figure('name', 'Actual');
 h = bar(y);
@@ -117,4 +117,4 @@ xticklabel_rotate([1:10],45,{'Mission Revenues', 'Fixed Cost (Conv)', 'Fixed Cos
 % lActual=legend('Base', 'Optimal', 'Location', 'SouthEastOutside');
 % set(lActual, 'FontSize', 8);
 set(gcf, 'Position', get(0,'Screensize')); 
-saveas(gcf, actualResultLocation);
+% saveas(gcf, actualResultLocation);

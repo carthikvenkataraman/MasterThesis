@@ -94,14 +94,20 @@ if(size(peakIndices)~=0)
     end
     
     figure;
-    plot(elevation);
-    % saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission','.pdf'));
+    plot(longitudinalPosition, elevation);
+    xlabel('Longitudinal position (m)');
+    ylabel('Elevation above sea level (m)');
+    text(0.1e5,50,'Gothenburg');
+    text(1.6e5,175,'Hallandsas');
+    text(2.75e5,50,'Malmo');
+    keyboard;
+    saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/','ElevationProfile','.pdf'));
     
     figure;
-    plot(elevation);
+    plot(longitudinalPosition, elevation);
     sortedIndices = sort([peakIndices troughIndices]);
     hold on, plot(sortedIndices, elevation(sortedIndices), 'r-*');
-    % saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
+    % saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Elevation profile over the mission with peaks and troughs','.pdf'));
     
     figure;
     plot(longitudinalPosition, elevation);
@@ -187,7 +193,7 @@ end
 figure('name', 'Reference SoC vs Position Index');
 plot(zeta);
 title('Minimum allowed SoC at each longitudinal position index');
-% saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Reference SoC vs Position Index','.pdf'));
+% saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/PlotsWithPredictiveControl/','Reference SoC vs Position Index','.pdf'));
 
 clearvars -except zeta 
 % close all;

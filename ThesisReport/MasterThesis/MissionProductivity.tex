@@ -305,7 +305,9 @@
 			\end{equation}
 
 	\section{Sensitivity study}
-	The productivity function developed above takes several input or 'design' parameters and studying the influence of each or all of them on the final productivity measure is key to understanding the trends seen in combinations optimised for productivity. The parameters are seen to evolve over time and hence ideally suited to study the evolution of productivity itself over the years. The 011-010-01-010 combination with a D16 engine and 70t GCW is simulated and its productivity calculated for differing parameters as listed in Table \ref{table:ParameterSensitivity}. The effect of increasing the annual distance travelled and varying gross combination weights are independently studied. \\ 
+	The productivity function developed above takes several input or 'design' parameters and studying the influence of each or all of them on the final productivity measure is key to understanding the trends seen in combinations optimised for productivity. The parameters are seen to evolve over time and hence ideally suited to study the evolution of productivity itself over the years. Electric motors considered for a sensitivity analysis are rated 120 kW \& 230 Nm, 120 kW \& 400 Nm, and 175 kW \& 800 Nm. Electric buffers considered are of capacities 5 kWh, 50 kWh and 90 kWh. The combination with the tractor powered by a D16 engine and one axle on each trailer propelled by the mid-sized motor and carrying a mid-sized battery with a GCW of 70t is simulated and its productivity calculated for differing parameters as listed in Table \ref{table:ParameterSensitivity}. The effect of increasing the annual distance travelled and varying gross combination weights are independently studied. \\ 
+
+	%\pagebreak
 
 	\begin{table}[ht]
 			\centering 
@@ -352,42 +354,52 @@
 		\label{table:ParameterSensitivityBatteryMass} 
 	\end{table}
 
-	The N-year productivity measures for a few combinations are evaluated over years 2015 to 2030 and are as shown in Figure \ref{ProductivityComb20152030}. The combinations chosen are the standard tractor and semitrailer, the standard A-Double, Combination 011-010-00-000, Combination 011-010-01-010 and Combination 011-111-11-111. The productivity variation over the years and the relative productivities among the combinations are both of interest.\\
+	The N-year productivity measures for a few combinations are evaluated over years 2015 to 2030 and are as shown in Figure \ref{ProductivityComb20152030}. The combinations chosen are:
+
+	\begin{itemize}
+	\item Combination A - Standard tractor and semitrailer
+	\item Combination B - Standard A-Double
+	\item Combination C - Tractor powered by D16 engine, one axle on first semi-trailer propelled
+	\item Combination D - Tractor powered by D16 engine, one axle on each trailing unit propelled
+	\item Combination E - Tractor powered by D16 engine, all axles on all trailing units propelled
+	\end{itemize}
+
+	All additionally propelled axles are powered by the mid-sized motor and the buffer on each unit containing electrically propelled ales is the mid-sized buffer. The productivity variation over the years and the relative productivities among the combinations are both of interest.\\
 
 	\begin{figure}[ht!]
 		\centering
-		\includegraphics[width=\textwidth, clip=true, trim=60 185 45 255]{figures/MissionProductivity/ProductivityTrendsForDifferentCombinationsCompared.pdf}
+		\includegraphics[width=0.5\textwidth, clip=true, trim=60 185 45 255]{figures/MissionProductivity/ProductivityTrendsForDifferentCombinationsCompared.pdf}
 		\caption{Productivity trends for different combinations compared over years 2015 - 2030}
 		\label{ProductivityComb20152030}
 	\end{figure}
 
-	As can be seen, the improvement in mission productivity achieved by employing an A-Double for the mission in place of 2 individual tractor-semitrailers is approximately 39.1\%. The first-owner time period considered in the above productivity measures is 5 years. The daily number of missions is pegged at 2 and the gross combination weight is 70 tons. In all cases of electrified propulsion, the battery size is 50kWh and the motor rating is 173kW and 400Nm. It can be seen that the Combination 011-010-01-010 gains an advantage in productivity over the standard A-Double in year 2023 while the Combination 011-010-00-000 is already more productive than the standard A-Double.\\
+	As can be seen, the improvement in mission productivity achieved by employing an A-Double for the mission in place of 2 individual tractor-semitrailers is approximately 39.1\%. The first-owner time period considered in the above productivity measures is 5 years. The daily number of missions is pegged at 2 and the gross combination weight is 70 tons. In all cases of electrified propulsion, the battery size is 50kWh and the motor rating is 173kW and 400Nm. It can be seen that the Combination D gains an advantage in productivity over the standard A-Double in year 2023 while the Combination C is already more productive than the standard A-Double.\\
 
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 208]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNumTractorST.pdf}
-			\caption{Tractor-Semitrailer}
+			\caption{Combination A}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum11.pdf}
-			\caption{A-Double}
+			\caption{Combination B}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum15.pdf}
-			\caption{011-010-00-000}
+			\caption{Combination C}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum33.pdf}
-			\caption{011-010-01-010}
+			\caption{Combination D}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=\textwidth, clip=true, trim=45 185 45 210]{figures/MissionProductivity/EffectNumberMissions/ProdTrendMissionNum57.pdf}
-			\caption{011-111-11-111}
+			\caption{Combination E}
 		\end{subfigure}
 		\caption{Effect of daily number of missions on mission productivity}
 		\label{ProdNumMissions}
@@ -395,4 +407,7 @@
 
 	
 	The productivities of the above combinations can be significantly affected by the yearly distance covered as shown in Figure \ref{ProdNumMissions}. As expected, increased number of daily missions improves mission productivity and in some cases seems to converge a finite time after year 2030. The mission productivity graphs can also be used to determine the time when the combination becomes non-productive and thereby, to determine the time of tractor/combination replacement. This point in time also is conducive for a fresh evaluation of the optimal propulsion configuration to use for the given mission.\\
+
+	\newpage
+
 \end{document}

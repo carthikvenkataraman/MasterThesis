@@ -458,7 +458,6 @@ int main() {
   const int tournamentSize = 2;
   const double tournamentSelectionParameter = 0.75;
   const float crossOverProbability = 0.7;
-  const float creepRateMutation = 0.1;
   const double mutationProbability = 0.05;
 
   // Vehicle related parameters for chromosome construction

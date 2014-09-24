@@ -15,6 +15,8 @@
 \usepackage[firstinits=true, style=numeric, backend=biber]{biblatex} % Modern bibliography facilities (you may change style to numeric)
 \usepackage{mathtools} % All your math related needs
 \usepackage{tikz} % Draw figures. Required for cover page
+\usetikzlibrary{arrows,shapes,trees}
+\usetikzlibrary{backgrounds} 
 %\usepackage{subfig} % Subfloats
 %\usepackage{pdfpages} % For included other pdf files (like articles).
 %\usepackage{thmtools} % For theorems.
@@ -33,6 +35,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[gen]{eurosym}
+\usepackage[larger]{skt}
 
 \usepackage{lipsum}\setlipsumdefault{1-3} % Package used to put in placeholder text. Remove it.
 
@@ -47,6 +50,8 @@
 
 \coverfigure{\includegraphics[width=\textwidth,height=0.4\paperheight,keepaspectratio]{figures/ADouble1}}
 \covercaption{A-Double combination, Malm\"o - G\"oteborg, Sweden}
+
+\dedication{\input{Dedication.tex}}
 
 \firstabstract{\input{Abstract.tex}}
 \keywords{Optimisation, Evolutionary algorithms, Long Vehicle Combinations, Propulsion}
@@ -74,30 +79,37 @@
 \addbibresource{Bibliography.bib} % New command, use if available
 
 \begin{document}
+
 	\maketitle
 	%\makecoverpage
 	%\maketitlepage
 	%\makeprintinfopage
 	%\makesecondabstractpage
-	%\makededicationpage
+	\makededicationpage
 	%\makeprefacepage
 	%\makeacknowledgementspage
 	%\maketableofpaperspage
 	%\cleardoublepage\tableofcontents
 	%\cleardoublepage\pagenumbering{arabic}
+	\listoffigures
+	\newpage
 
 	 % Sets up page numbering for the rest of the document.
 	\subfile{Introduction}
 	\newpage
-	\subfile{OptimisationEvolutionaryAlgorithms}
-	\newpage
 	\subfile{MissionProductivity}
+	\newpage
+	\subfile{GeneticAlgorithm}
 	\newpage
 	\subfile{VehicleModel}
 	\newpage
 	\subfile{ModelValidation}
 	\newpage
 	\subfile{OptimisationResults}
+	\newpage
+	\subfile{AppendixA}
+	\newpage
+	\subfile{AppendixB}
 
 	\nocite{*} % Cites everything from the bibliography
 	\printbibliography % This command is new in biblatex. Do not attempt to use style files as with old latex.
