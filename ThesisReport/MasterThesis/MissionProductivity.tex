@@ -31,7 +31,7 @@
 				P1 = \frac{M_{payload} \times N_{trips}}{D_{annual}} \ tons/km
 			\end{equation}
 
-			where $N_{trips}$ is the average annual number of trips covered for the given mission, $M_{payload}$ is the average load carried per mission (kg) and $D_{annual}$ is the average total vehicle distance covered (km).
+			where $N_{trips}$ \nomenclature{$N_{trips}$}{Average annual number of trips} is the average annual number of trips covered for the given mission, $M_{payload}$ \nomenclature{$M_{payload}$}{Average load carried per mission (kg)} is the average load carried per mission (kg) and $D_{annual}$ \nomenclature{$D_{annual}$}{Average total vehicle distance covered (km)} is the average total vehicle distance covered (km).
 
 			\item \textit{Annual freight per vehicle} - This measure, P2, is indicative of the utilisation of the vehicle and is expressed in number of tonne-kilometres covered annually \cite{TruckProdAus}. Thus, the number of useful transportation kilometres coupled with the quantity of payload transported forms the basis for the measure. This too, does not consider fuel consumption and other mission outputs.
 
@@ -45,13 +45,13 @@
 				P3 = \frac{Cost_{operating}}{M_{payload} \times D_{annual}},\ or\ \frac{Cost_{operating}}{D_{annual}} \  \euro/tonne-km \ or \ \euro/km 
 			\end{equation}
 
-			where $Cost_{operating}$ is the average annual operating cost. This may itself be expressed as 
+			where $Cost_{operating}$ \nomenclature{$Cost_{operating}$}{Average annual operating cost} is the average annual operating cost. This may itself be expressed as 
 
 			\begin{equation}
 				Cost_{operating} = Cost_{fuel} + Cost_{personnel} + Cost_{maintenance} + Cost_{miscellaneous} \ \euro
 			\end{equation}
 
-			where $Cost_{fuel}$ is the average annual fuel expense, $Cost_{personnel}$ is the average annual cost incurred by employment of personnel including the driver, $Cost_{maintenance}$  is the average annual cost of maintenance of the truck and associated operational elements and $Cost_{miscellaneous}$ is the sum of all miscellaneous costs arising from the freight transport.\\
+			where $Cost_{fuel}$ \nomenclature{$Cost_{fuel}$}{Average annual fuel expense \euro} is the average annual fuel expense, $Cost_{personnel}$ \nomenclature{$Cost_{personnel}$}{Average annual personnel cost \euro} is the average annual cost incurred by employment of personnel including the driver, $Cost_{maintenance}$ \nomenclature{$Cost_{maintenance}$}{Average annual maintenance cost \euro} is the average annual cost of maintenance of the truck and associated operational elements and $Cost_{miscellaneous}$ \nomenclature{$Cost_{miscellaneous}$}{Average annual miscellaneous cost \euro} is the sum of all miscellaneous costs arising from the freight transport.\\
 
 			\item \textit{Freight per driver hour} - In developed economies, personnel costs in heavy trucking can account for upto 44\% in long haul operations. The dominant contribution of personnel expenses to transportation costs thus implies that the freight transport productivity relative to investment in drivers and other personnel, P4, must be maximised. This, of course, must not be achieved at the expense of high fuel prices resulting from aggressive driving to minimise mission times. 
 
@@ -59,7 +59,7 @@
 				P4 = \frac{M_{payload} \times D_{annual}}{T_{driver}} \ tonne-km/hour
 			\end{equation}
 
-			where $T_{driver}$ is the average annual number of driver hours billed to the freight transport company (including rest and halt hours).\\
+			where $T_{driver}$ \nomenclature{$T_{driver}$}{Average annual number of driver hours} is the average annual number of driver hours billed to the freight transport company (including rest and halt hours).\\
 
 			\item \textit{Freight per unit fuel consumed} - The ratio of driver to fuel expenses is reversed in developing economies where fuel prices can account for upto 45\% of the transportation costs. Here, maximising the freight transport per litre of fuel consumed, P5, becomes more pertinent.
 			
@@ -67,7 +67,7 @@
 				P5 = \frac{M_{payload} \times D_{annual}}{V_{fuel}} \ tonne-km/litre
 			\end{equation}
 
-			where $V_{fuel}$ is the average annual fuel consumption in litres.\\
+			where $V_{fuel}$ \nomenclature{$V_{fuel}$}{Average annual fuel consumption (l)} is the average annual fuel consumption in litres.\\
 
 			\item \textit{Emissions per unit freight transported} - The environmental impact of freight transport can be quantified in terms of the number of milligrams of carbon dioxide emissions generated per tonne-kilometre of freight transported, P6. This become relevant especially in the current context where additional electric propulsion can improve not only vehicle gradeability and average speed, but also reduce vehicle emissions. The combination that has the least carbon footprint for the given mission can thus be identified and the transportation expenses viewed more holistically. The fixed costs in the optimisation schedule will thus vary depending on the exhaust after-treatment systems used; maintenance costs will depend on the quantity of AdBlue used, number of diesel particulate filters replaced etc.
 
@@ -75,7 +75,7 @@
 				P6 = \frac{M_{emissions}}{M_{payload} \times D_{annual}}\  mg/tonne-km
 			\end{equation}
 
-			where $M_{emissions}$ is the average annual number of milligrams of carbon dioxide and other noxious pollutant emissions generated by the vehicle.
+			where $M_{emissions}$ \nomenclature{$M_{emissions}$}{Average annual carbon dioxide emission (mg)} is the average annual number of milligrams of carbon dioxide and other noxious pollutant emissions generated by the vehicle.
 
 			\item \textit{Revenue earned per unit investment} - From the logistics provider's perspective, the maximisation of returns on investment, or profit maximisation, over a fixed number of years is primal. This depends not only on the freight transported, driver, fuel and maintenance expenses and fixed initial costs, but also on the type of payload being transported and the revenue earned from each mission. This measure, P7, is thus a multi-factor productivity factor that is sensitive to several input factors as mentioned above.
 
@@ -83,7 +83,7 @@
 				P7 = \frac{Revenue_{annual} \times N_{first\ owner}}{Cost_{fixed} + Cost_{variable}}\ \euro/\euro
 			\end{equation}
 
-			where $Revenue_{annual}$ is the average annual revenue earned over a target duration of $N_{first\ owner}$ years, $Cost_{fixed}$ is the initial investment in the tractor, trailers and machinery and $Cost_{variable}$ is the total operating cost over $N_{first\ owner}$ years.
+			where $Revenue_{annual}$ \nomenclature{$Revenue_{annual}$}{Average annual revenue \euro} is the average annual revenue earned over a target duration of $N_{first\ owner}$ years \nomenclature{$N_{first\ owner}$}{Number of years of first ownership}, $Cost_{fixed}$ \nomenclature{$Cost_{fixed}$}{Initial investment in tractor \& trailers \euro} is the initial investment in the tractor, trailers and machinery and $Cost_{variable}$ \nomenclature{$Cost_{variable}$}{Total operating cost over $N_{first\ owner}$ years \euro} is the total operating cost over $N_{first\ owner}$ years.
 
 		\end{itemize}
 
@@ -133,8 +133,6 @@
 			P = \frac{Revenue_{annual} \times N_{first\ owner}}{Cost_{fixed} + Cost_{variable}}\ \euro/\euro
 		\end{equation}
 
-		where $Revenue_{annual}$ is the average annual revenue earned over a target duration of $N_{first\ owner}$ years, $Cost_{fixed}$ is the initial investment in the tractor, trailers and machinery and $Cost_{variable}$ is the total operating cost over $N_{first\ owner}$ years.\\
-
 		$Revenue_{annual}$ is usually defined in terms of the average gross transporter income or gross transport costs per unit freight transported, per vehicle kilometer. It can be gleaned from literature that the former definition is known to vary between 4 and 6 US Dollar Cents per tonne-kilometre \cite{WorldBankReport} while the latter is in the range of 0.75 USD per kilometre to 1.25 USD per kilometre \cite{WorldBankReport}.\\
 
 		The initial buying prices of trucks, trailers, additional loading equipment and superstructures form the bulk of the fixed costs, $Cost_{fixed}$. Average truck prices in the context of the European buyer are considered in this thesis, with a step-up margin for the three different powertrain sizes considered in the optimisation tool. It must be noted though, that the axle load configurations, cab specifications and other truck parameters have a significant bearing on actual buying prices, aside from taxation policies and registration schedules that vary internationally. Frost \& Sullivan \cite{FrostSullivan} estimates average upfront truck prices ranging between 105,000 USD and 130,000 USD and trailer prices ranging between 40,000 USD and 70,000 USD for the year 2014. This thesis places the dolly and semitrailer prices at the lower and upper bounds for the trailer prices respectively. Trailer and dolly masses are referenced from \cite{VehCombAurell}. The truck price is assigned to the base powertrain configuration and premiums of 10.12\% and 15.2\% are assigned to the higher powertrain configurations respectively, based on Volvo's Cost-Calc tool.\\
@@ -183,29 +181,29 @@
 		The productivity formulation is now developed mathematically. As can be deduced, the mission productivity is desired to be as large as possible. The mission reveneues, fixed costs and operating costs are dealt with in succession.
 
 		\begin{equation} \label{eq:productivity}
-			P = \frac{R_N}{C_{fixed} + C_{variable,\ N}}\ \euro/\euro
+			P = \frac{R_N}{C_{fixed} + C_{variable,\ N}}\ \nomenclature{$R_N$}{Revenue earned over $N_{first\ owner}$ years \euro} \nomenclature{$C_{fixed,\ N}$}{Fixed costs \euro} \nomenclature{$C_{variable,\ N}$}{Variable costs incurred over $N_{first\ owner}$ years \euro} \euro/\euro
 		\end{equation}
 
 		\subsection{Mission revenues}
 
-		The average revenue earned per unit freight carried, $R_{unit\ freight}$ \euro \ has been discussed in the earlier section and is used to arrive at annual mission revenues.
+		The average revenue earned per unit freight carried, $R_{unit\ freight}$ \nomenclature{$R_{unit\ freight}$}{Revenue earned per unit freight \euro/tonne-km} \euro \ has been discussed in the earlier section and is used to arrive at annual mission revenues.
 
 		\begin{equation}
 			R_{mission} = R_{unit\ freight} \times M_{payload,\ net} \times D_{mission} \  \euro / mission
 		\end{equation}
-		where, $R_{mission}$ is the revenue earned per mission (\euro). The net payload carried $M_{payload,\ net}$ is expressed as:
+		where, $R_{mission}$ \nomenclature{$R_{mission}$}{Revenue earned per mission \euro} is the revenue earned per mission (\euro). The net payload carried $M_{payload,\ net}$ is expressed as:
 
 		\begin{equation}
 			M_{payload,\ net} = M_{payload,\ gross} - \Delta M_{eAxle}
 		\end{equation}
-		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ and $M_{payload,\ gross}$ is the mass of the payload carried by the conventional combination. The total annual mission revenue earned by the freight transporter $R_{annual}$ is:
+		where the total mass due to propulsion of additional axles on trailers is $\Delta M_{eAxle}$ \ \euro \ \nomenclature{$\Delta M_{eAxle}$}{Total additional propulsion mass (kg)} and $M_{payload,\ gross}$ \nomenclature{$M_{payload,\ gross}$}{Payload carried by conventional combination (kg)} is the mass of the payload carried by the conventional combination. The total annual mission revenue earned by the freight transporter $R_{annual}$ is:
 
 		\begin{equation}
 			R_{annual} = R_{mission} \times N_{mission,\ annual} \  \euro / year
 		\end{equation}
-		where, $N_{mission,\ annual}$ is the average annual number of trips made. \\
+		where, $N_{mission,\ annual}$ \nomenclature{$N_{mission,\ annual}$}{Average annual number of trips} is the average annual number of trips made. \\
 
-		The level of utilisation of the available axle load capacity and trailer volume is represented using a vehicle utilisation factor $U$. The combination is certified volume or tonnage limited based on if $V_{payload,\ max} \times \rho_{payload} \leq M_{axle, max}$. The utilisation factor is then defined as below:
+		The level of utilisation of the available axle load capacity and trailer volume is represented using a vehicle utilisation factor $U$. The combination is certified volume or tonnage limited based on if $V_{payload,\ max} \times \rho_{payload} \leq M_{axle, max}$ \nomenclature{$V_{payload,\ max}$}{Payload volume cbm} \nomenclature{$\rho_{payload}$}{Payload density kg.m\textsuperscript{-3}} \nomenclature{$M_{axle, max}$}{Payload density kg.m\textsuperscript{-3}} \nomenclature{$M_{axle, max}$}{Total axle load limit (kg)}. The utilisation factor is then defined as below:
 
 		\begin{equation}
 			U = \frac{M_{payload,\ gross}}{M_{axle,max}}\ (Tonnage-limited)
@@ -222,7 +220,7 @@
 			R_{annual,\ corrected} = R_{annual} \times \frac{1}{U}
 		\end{equation}
 
-		The revenue earned over the target first owner duration of $N_{first\ owner}$ years is then calculated as:
+		\nomenclature{$R_{annual,\ corrected}$}{Corrected revenues \euro} The revenue earned over the target first owner duration of $N_{first\ owner}$ years is then calculated as:
 
 		\begin{equation}
 			R_{N} = R_{annual,\ corrected} \times N_{first\ owner} \  \euro
@@ -235,34 +233,36 @@
 			\begin{equation}
 				C_{fixed} = C_{fixed,\ conv}+ \displaystyle \sum_{i=2}^{N_{units}} C_{fixed,\ elec, i}
 			\end{equation}
-			where,
+			\nomenclature{$C_{fixed,\ conv}$}{Fixed cost of conventional combination \euro} \nomenclature{$N_{units}$}{Number of units in the combination} \nomenclature{$C_{fixed,\ elec, i}$}{Fixed cost of additional propulsion \euro} where, 
 
 			\begin{equation}
 				C_{fixed,\ conv} = P_{tractor,\ net}+P_{dolly}+P_{ST,1}+P_{ST,2}
 			\end{equation}
-			Premiums on higher powertrains $\Delta P_{powertrain}$ are added as:
+
+			\nomenclature{$P_{tractor,\ net}$}{Net tractor price \euro} \nomenclature{$P_{dolly}$}{Dolly price \euro} \nomenclature{$P_{ST,i}$}{Price of semitrailer $\textit{i}$ \euro} Premiums on higher powertrains $\Delta P_{powertrain}$ \nomenclature{$P_{ST,i}$}{Powertrain premium (tractor) \euro} are added as:
 			
 			\begin{equation}
 				P_{tractor,\ net} = P_{tractor,\ base} + \Delta P_{powertrain}
 			\end{equation}
-			where $P_{tractor,\ base}$ is the price of the tractor with the base powertrain configuration. 
+			where $P_{tractor,\ base}$ \nomenclature{$P_{tractor,\ base}$}{Base tractor price (D11) \euro} is the price of the tractor with the base powertrain configuration. 
 
 			\begin{equation}
 				C_{fixed,\ elec, i} = P_{batt,i}+\displaystyle \sum_{j=1}^{N_{eAxle,i}} P_{eAxle,j}
 			\end{equation}
-			The battery price for a single unit i, $P_{batt,i}$, is expressed as
+			\nomenclature{$P_{batt,i}$}{Buffer price, unit i \euro} \nomenclature{$N_{eAxle,i}$}{Number of propelled axles on specified unit} \nomenclature{$P_{eAxle,j}$}{Price of electrification of a single axle \euro} The battery price for a single unit i, $P_{batt,i}$, is expressed as
 			\begin{equation}
 				P_{batt,i}= S_{batt} \times P_{batt/kWh}
 			\end{equation}
-			The price of the electrically propelled axle $P_{eAxle,j}$ consists of the electric machine, power electronics and transmission components, all of which are considered to be included in the electric motor prices discussed in the previous section. The total mass of electric axles, represented by $\Delta M_{eAxle}$ in the previous subsection can be expressed as:
+			\nomenclature{$S_{batt}$}{Battery size kWh} \nomenclature{$P_{batt/kWh}$}{Battery price per kWh} The price of the electrically propelled axle $P_{eAxle,j}$ consists of the electric machine, power electronics and transmission components, all of which are considered to be included in the electric motor prices discussed in the previous section. The total mass of electric axles, represented by $\Delta M_{eAxle}$ in the previous subsection can be expressed as:
 
 			\begin{equation}
 				\Delta M_{eAxle} = \displaystyle \sum_{i=2}^{N_{units}} M_{eAxle,i}
 			\end{equation}
-			where, 
+			\nomenclature{$M_{eAxle,i}$}{Mass of additional propulsion added, each unit} where, 
 			\begin{equation}
 				M_{eAxle,i} = (M_{battery,i} + \sum_{j=1}^{N_{eAxle,i}} M_{mot,j}) \forall i=2,..N_{units}
 			\end{equation}
+			\nomenclature{$M_{battery,i}$}{Battery mass, each unit}
 
 		\subsection{Operational Costs}
 			The total mission variable operational costs $C_{variable}$ are expressed
@@ -279,7 +279,7 @@
 			\begin{equation}
 				C_{fuel} = V_{fuel} \times C_{fuel, litre}
 			\end{equation}
-			where the fuel costs $C_{fuel, litre}$ are the average EU-27 costs mentioned earlier. Maintenance costs $C_{mnt}$ are expressed in terms of a relative ratio to driver costs, $R_{mnt-driver}$. Ratios are as derived from Table \ref{table:OperatingCostContributors}.
+			where the fuel costs $C_{fuel, litre}$ are the average EU-27 costs mentioned earlier. Maintenance costs $C_{mnt}$ are expressed in terms of a relative ratio to driver costs, $R_{mnt-driver}$. Ratios are as derived from Table \ref{table:OperatingCostContributors}. \nomenclature{$C_{fuel, litre}$}{Fuel price per litre} \nomenclature{$T_{mission}$}{Mission time hours} \nomenclature{$C_{driver, hour}$}{Driver hourly wages \euro / hour} \nomenclature{$C_{tyres}$}{Tyre maintenance costs per mission \euro} \nomenclature{$C_{fuel}$}{Fuel costs per mission \euro} \nomenclature{$C_{fuel}$}{Driver costs per mission \euro} \nomenclature{$C_{mnt}$}{Maintenance costs per mission \euro} \nomenclature{$C_{mnt}$}{Tolls per mission \euro} \nomenclature{$C_{elec}$}{Electricity costs (for plugin recharge) per mission \euro}
 
 			\begin{equation}
 				C_{mnt} = C_{driver} \times R_{mnt-driver}

@@ -40,7 +40,7 @@
 
 		\begin{figure}[ht!]
 			\centering
-			\includegraphics[width=0.5\linewidth]{figures/GeneticAlgorithm/GAFlowchart.png}
+			\includegraphics[width=0.4\linewidth]{figures/GeneticAlgorithm/GAFlowchart.png}
 			\caption{Genetic Algorithm Description Flowchart \cite{Wahde}}
 			\label{GAFlowchart}
 		\end{figure}
@@ -196,7 +196,7 @@
 			\label{genomeDecoding}
 		\end{figure}
 
-	\section{Crossover and Mutation}
+	\section{Crossover, Mutation and Fitness Evaluation}
 		Gene mutation follows the same protocol as in normal binary mutations with the added restriction that mutations can result in only one kind of machine or buffer being valid for a single unit. Crossovers are programmed in manner such that individual \textit{Gene Sets} are considered as the equivalents of single bits. In this manner, the chromosome described in Section 3.3 can be said to contain 12 such bits, 3 for each Unit. A crossover point is stochastically determined and crossover initiate with a predefined probability.\\
 
 		For example, with the two \textit{selected} individuals shown below, a crossover is initiated at \textbf{Gene Set number 5} and the resulting crossed over individuals shown below.\\ 
@@ -224,6 +224,8 @@
 			\centerline{\framebox{0}\framebox{1}\framebox{0} | \framebox{0}\framebox{0}\framebox{0} | \framebox{0}\framebox{1}\framebox{1} ||| \framebox{1}\framebox{0}\framebox{0} | \framebox{0}\framebox{1}\framebox{0} | \framebox{0}\framebox{0}\framebox{1} |||} 
 			\centerline{| \framebox{0}\framebox{1}\framebox{0} | \framebox{1}\framebox{0}\framebox{0} | \framebox{0}\framebox{1} ||| \framebox{0} \framebox{0}\framebox{1} | \framebox{1}\framebox{0}\framebox{0} | \framebox{0}\framebox{0}\framebox{0}}
 			\vspace{0.1in}
+
+		Individuals are parsed to create a vehicle model based on the architecture described in Chapter 4. The created vehicle model executes the mission based on input mission data to generate fuel and charge consumption, mission time and other mission outputs that are used to calculate the productivity of the combination created. This productivity is assigned as the individual's fitness measure.\\
 
 	\section{Algorithm parameter settings}
 		A population consisting of 30 individuals was randomly generated. Tournament selection was performed with a tournament size of 2 individuals and the tournament selection parameter was 0.75. The crossover probability was fixed 0.7 and the mutation probability was fixed at 0.05. The number of generations chosen was 100.\\

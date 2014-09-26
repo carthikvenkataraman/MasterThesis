@@ -35,8 +35,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[gen]{eurosym}
-\usepackage[larger]{skt}
-
+\usepackage{skt}
+\usepackage{nomencl}
 \usepackage{lipsum}\setlipsumdefault{1-3} % Package used to put in placeholder text. Remove it.
 
 \title{Optimisation of  Distributed Propulsion in Long Heavy Vehicle Combinations}
@@ -59,7 +59,7 @@
 %\preface{\input{Preface.tex}} % You can use \input to put preface and acknowledgements in another document
 \acknowledgements{\input{Acknowledgements.tex}}
 
-\extrafrontmatter{\presectiontitle{Nomenclature} \lipsum} % Optional
+%\extrafrontmatter{\presectiontitle{Nomenclature} \lipsum} % Optional
 
 \DeclareFieldFormat[article]{title}{#1} % Removes quotes from article title
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}} % Makes volume print in bold.
@@ -85,12 +85,15 @@
 	%\maketitlepage
 	%\makeprintinfopage
 	%\makesecondabstractpage
-	\makededicationpage
+	%\makededicationpage
 	%\makeprefacepage
 	%\makeacknowledgementspage
 	%\maketableofpaperspage
 	%\cleardoublepage\tableofcontents
 	%\cleardoublepage\pagenumbering{arabic}
+	\makenomenclature
+	\printnomenclature
+	\newpage 
 	\listoffigures
 	\newpage
 
@@ -110,6 +113,8 @@
 	\subfile{AppendixA}
 	\newpage
 	\subfile{AppendixB}
+	\newpage
+	\subfile{AppendixC}
 
 	\nocite{*} % Cites everything from the bibliography
 	\printbibliography % This command is new in biblatex. Do not attempt to use style files as with old latex.

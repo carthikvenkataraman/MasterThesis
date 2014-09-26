@@ -1,0 +1,293 @@
+\documentclass[ExampleMasters.tex]{subfiles}
+
+\begin{document}
+
+	\chapter{APPENDIX C}
+	{\Large Vehicle Model Pseudo-Code}
+
+		\section{Class structure and Functions} \label{sec:appendixcodeoverview}
+
+		\subsection{Combination.cpp} \label{sec:appendixcombination}
+			\begin{verbatim}
+			#include "Combination.h"
+
+			typedef std::vector<int> Genes;
+			typedef std::vector<Genes> UnitGene;
+			typedef std::vector<UnitGene> Individual;
+
+			Combination::Combination(Individual individual
+							, std::vector<std::vector<double>> currentMissionData) {...}
+
+			void Combination::AssignMissionData() {...}
+
+			void Combination::AssignUnitParameters() {...}
+
+			void Combination::CheckUnitParameters() {...}
+
+			void Combination::RunMission() {...}
+
+			void Combination::GetEquivalentMassDueToInertia() {...}
+
+			void Combination::GetMaximumGripLimitedTraction() {...}
+
+			void Combination::AssignTractiveForceAmongUnits() {...}
+
+			double Combination::GetMaximumTraction(double instantaneousSpeed) {...}
+
+			double Combination::GetMaximumRegenerativeTraction(double instantaneousSpeed) {...}
+
+			void Combination::SetTractionDistributionRatios() {...}
+
+			void Combination::SetRegenerationDistributionRatios() {...}
+
+			double Combination::GetTractorTractionAtEngineOptimumOperatingPoint() {...}
+
+			void Combination::GetInstantaneousTractiveForce() {...}
+
+			void Combination::GetMissionProductivity() {...}
+
+			void Combination::WriteOutputFiles() {...}
+
+			void Combination::WriteCombinationOutput() {...}\
+
+			void Combination::WriteUnitOutput() {...}
+
+			char* Combination::GetUnitOutputFileName(int unitIndex) {...}
+
+			void Combination::WriteAxleLevelOutputs() {...}
+
+			void Combination::WriteBufferOutput(int unitIndex, std::shared_ptr<Buffer> buffer) {...}
+
+			char* Combination::GetBufferOutputFileName(int unitIndex) {...}
+
+			void Combination::WriteAxleOutput(int unitIndex, int axleIndex, std::shared_ptr<Axle> axle) {...}
+
+			char* Combination::GetMachineOutputFileName(int unitIndex, int axleIndex) {...}
+
+			void Combination::WriteTransmissionOutput(int unitIndex,
+									 int axleIndex, std::shared_ptr<Transmission> transmission) {...}
+
+			char* Combination::GetTransmissionOutputFileName(int unitIndex, int axleIndex) {...}
+
+			Combination::~Combination(void) {...}
+			\end{verbatim}
+
+		\subsection{Unit.cpp} \label{sec:appendixunit}
+			\begin{verbatim}
+			#include "Unit.h"
+
+			typedef std::vector<int> Genes;
+			typedef std::vector<Genes> UnitGene;
+
+			Unit::Unit(int currentUnitIndex, UnitGene unitGenes) {...}
+
+			int Unit::GetNumberOfAxles() {...}
+
+			void Unit::GetNumberOfDrivenAxles() {...}
+
+			void Unit::BuildUnitBuffer() {...}
+
+			void Unit::BuildTractorAxles() {...}
+
+			void Unit::BuildTrailerAxles() {...}
+
+			void Unit::GetMaximumTractivePower(double instantaneousSpeed) {...}
+
+			void Unit::GetMaximumRegenerativePower(double instantaneousSpeed) {...}
+
+			double Unit::GetUnitPowerAvailability() {...}
+
+			void Unit::GetAchievedTractiveForce() {...}
+
+			Unit::~Unit() {...}
+			\end{verbatim}
+
+		\subsection{Axle.cpp} \label{sec:appendixaxle}
+			\begin{verbatim}
+			#include "Axle.h"
+
+			typedef std::vector<int> Genes;
+			typedef std::vector<Genes> UnitGene;
+			typedef std::vector<UnitGene> Individual;
+
+			Axle::Axle(int currentAxleIndex, int currentAxlePropulsionFlag, std::shared_ptr<Machine> currentMachineForAxle) {...}
+
+			int Axle::GetAxleIndex() {...}
+
+			std::shared_ptr<Machine> Axle::ReturnMachineForAxle() {...}
+
+			int Axle::GetAxlePropulsionFlag() {...}
+
+			void Axle::DefineAxleParameters(double currentAxleLoad,
+			double currentAxleTireRadius, double axleCoefficientOfFriction, double finalDriveRatio) {...}
+
+			double Axle::GetAxleCoefficientOfFriction() {...}
+
+			void Axle::UpdateAxleWheelSpeed(double instantaneousSpeed) {...}
+
+			double Axle::GetTractiveForceAtWheels(double torqueAtDifferential) {...}
+
+			void Axle::GetTorqueToAxleDifferential(double tractiveForceAtWheels) {...}
+
+			Axle::~Axle() {...}
+			\end{verbatim}
+
+		\subsection{Machine.cpp} \label{sec:appendixmachine}
+			\begin{verbatim}
+			#include "Machine.h"
+
+			typedef std::vector<int> Genes;
+
+			Machine::Machine(int currentUnitIndex,
+			 Genes currentMachineGenes, std::shared_ptr<Buffer> bufferInUnit, int axleIndex) {...}
+
+			void Machine::GetMachineIndex() {...}
+
+			void Machine::GetMachineFileName() {...}
+
+			std::string Machine::ReturnMachineName() {...}
+
+			void Machine::LoadMachine() {...}
+
+			void Machine::PrintMachineData(std::vector<std::vector<double>>& machineData) {...}
+
+			void Machine::GetMaximumInstantaneousTorque() {...}
+
+			double Machine::GetMaximumBrakeTorque(double machineSpeed) {...}
+
+			void Machine::GetMaximumInstantaneousRegenerativeTorque() {...}
+
+			double Machine::GetMaximumRegenerativeTorque(double machineSpeed) {...}
+
+			void Machine::RunMachine(double powertrainOutputTorque, double powertrainOutputRPM) {...}
+
+			void Machine::GetPossibleMachineSpeeds(double powertrainOutputRPM) {...}
+
+			void Machine::GetPossibleMachineTorques(double powertrainOutputTorque) {...}
+
+			double Machine::GetMachineEfficiency(double machineSpeed, double machineTorque) {...}
+
+			void Machine::ClearMachineValues() {...}
+
+			Machine::~Machine() {...}
+			\end{verbatim}
+
+		\subsection{CombustionEngine.cpp}\label{sec:appendixcombustionengine}
+			\begin{verbatim}
+
+			#include "CombustionEngine.h"
+			#include "MechanicalGearbox.h"
+
+			CombustionEngine::CombustionEngine(int currentUnitIndex,
+				 Genes machineGenes, std::shared_ptr<Buffer> bufferInUnit, int axleIndex) 
+							: Machine(currentUnitIndex, machineGenes, bufferInUnit, axleIndex) {...}
+
+			void CombustionEngine::SetEngineOptimumOperatingPoint() {...}
+			\end{verbatim}
+
+		\subsection{ElectricMotor.cpp}\label{sec:appendixelectricmotor}
+			\begin{verbatim}
+			#include "ElectricMotor.h"
+			#include "MotorTransmission.h"
+
+			ElectricMotor::ElectricMotor(int currentUnitIndex, 
+				Genes machineGenes, std::shared_ptr<Buffer> bufferInUnit, int axleIndex) 
+							: Machine(currentUnitIndex, machineGenes, bufferInUnit, axleIndex) {...}
+
+			ElectricMotor::~ElectricMotor() {}
+			\end{verbatim}
+
+		\subsection{Transmission.cpp}\label{sec:appendixtransmission}
+			\begin{verbatim}
+			#include "Transmission.h"
+
+			typedef std::vector<int> Genes;
+
+			Transmission::Transmission(int currentUnitIndex) {...}
+
+			void Transmission::GetTransmissionFileName() {...}
+
+			void Transmission::LoadTransmission() {...}
+
+			void Transmission::PrintTransmissionData(std::vector<double>& transmissionDataEntry) {...}
+
+			double Transmission::GetOutputTorque(double transmissionInputTorque, int gearNumber) {...}
+
+			Transmission::~Transmission() {}
+			\end{verbatim}
+
+		\subsection{MotorTransmission.cpp}\label{sec:appendixmotortransmission}
+			\begin{verbatim}
+			#include "MotorTransmission.h"
+
+			MotorTransmission::MotorTransmission(int currentUnitIndex) 
+							: Transmission(currentUnitIndex) {...}
+
+			MotorTransmission::~MotorTransmission() {}
+			\end{verbatim}
+
+		\subsection{MechanicalGearbox.cpp}\label{sec:appendixmechanicalgearbox}
+			\begin{verbatim}
+			#include "MechanicalGearbox.h"
+
+			MechanicalGearbox::MechanicalGearbox(int currentUnitIndex) 
+							: Transmission(currentUnitIndex) {...}
+
+			MechanicalGearbox::~MechanicalGearbox() {...}
+			\end{verbatim}
+
+		\subsection{Buffer.cpp}\label{sec:appendixbuffer}
+			\begin{verbatim}
+			#include "Buffer.h"
+			#include "E:\Softwares\Matlab\extern\include\mat.h"
+
+			typedef std::vector<int> Genes;
+
+			Buffer::Buffer(int currentUnitIndex, std::vector<int> currentBufferGenes) {...}
+
+			void Buffer::GetBufferIndex() {...}
+
+			void Buffer::GetBufferFileName() {...}
+
+			void Buffer::LoadBuffer() {...}
+
+			std::string Buffer::ReturnBufferName() {...}
+
+			double Buffer::GetBufferAvailabilityRatio() {...}
+
+			void Buffer::UpdateBufferAvailabilityRatio() {...}
+
+			void Buffer::GetStateOfBuffer() {...}
+
+			void Buffer::RunBuffer(double powerDemand, double operatingEfficiency) {...}
+
+			Buffer::~Buffer() {}
+			\end{verbatim}
+
+		\subsection{FuelTank.cpp}\label{sec:appendixfueltank}
+			\begin{verbatim}
+			#include "FuelTank.h"
+
+			FuelTank::FuelTank(int currentUnitIndex, Genes bufferGenes) : 
+													Buffer(currentUnitIndex, bufferGenes) {...}
+
+			void FuelTank::RunBuffer(double powerDemand, double operatingEfficiency) {...}
+
+			FuelTank::~FuelTank() {...}
+			\end{verbatim}
+
+		\subsection{Battery.cpp}\label{sec:appendixbattery}
+		\begin{verbatim}
+		#include "Battery.h"
+
+		Battery::Battery(int currentUnitIndex, Genes bufferGenes) : 
+													Buffer(currentUnitIndex, bufferGenes) {...}
+
+		void Battery::RunBuffer(double powerDemand, double operatingEfficiency) {...}
+
+		Battery::~Battery() {...}
+		\end{verbatim}
+
+		\newpage
+
+\end{document}

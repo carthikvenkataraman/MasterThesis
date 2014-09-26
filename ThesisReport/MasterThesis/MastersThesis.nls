@@ -1,0 +1,110 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\Delta M_{eAxle}$}]\begingroup Total additional propulsion mass (kg)\nomeqref {2.12}
+		\nompageref{11}
+  \item [{$\rho_{payload}$}]\begingroup Payload density kg.m\textsuperscript{-3}\nomeqref {2.13}
+		\nompageref{12}
+  \item [{$C_{driver, hour}$}]\begingroup Driver hourly wages \euro / hour\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{elec}$}]\begingroup Electricity costs (for plugin recharge) per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{fixed,\ conv}$}]\begingroup Fixed cost of conventional combination \euro\nomeqref {2.18}
+		\nompageref{12}
+  \item [{$C_{fixed,\ elec, i}$}]\begingroup Fixed cost of additional propulsion \euro\nomeqref {2.18}
+		\nompageref{12}
+  \item [{$C_{fixed,\ N}$}]\begingroup Fixed costs \euro\nomeqref {2.10}
+		\nompageref{11}
+  \item [{$C_{fuel, litre}$}]\begingroup Fuel price per litre\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{fuel}$}]\begingroup Driver costs per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{fuel}$}]\begingroup Fuel costs per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{mnt}$}]\begingroup Maintenance costs per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{mnt}$}]\begingroup Tolls per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{tyres}$}]\begingroup Tyre maintenance costs per mission \euro\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$C_{variable,\ N}$}]\begingroup Variable costs incurred over $N_{first\ owner}$ years \euro\nomeqref {2.10}
+		\nompageref{11}
+  \item [{$Cost_{fixed}$}]\begingroup Initial investment in tractor \& trailers \euro\nomeqref {2.8}
+		\nompageref{9}
+  \item [{$Cost_{fuel}$}]\begingroup Average annual fuel expense \euro\nomeqref {2.4}
+		\nompageref{8}
+  \item [{$Cost_{maintenance}$}]\begingroup Average annual maintenance cost \euro\nomeqref {2.4}
+		\nompageref{8}
+  \item [{$Cost_{miscellaneous}$}]\begingroup Average annual miscellaneous cost \euro\nomeqref {2.4}
+		\nompageref{8}
+  \item [{$Cost_{operating}$}]\begingroup Average annual operating cost\nomeqref {2.3}
+		\nompageref{8}
+  \item [{$Cost_{personnel}$}]\begingroup Average annual personnel cost \euro\nomeqref {2.4}
+		\nompageref{8}
+  \item [{$Cost_{variable}$}]\begingroup Total operating cost over $N_{first\ owner}$ years \euro\nomeqref {2.8}
+		\nompageref{9}
+  \item [{$D_{annual}$}]\begingroup Average total vehicle distance covered (km)\nomeqref {2.1}
+		\nompageref{7}
+  \item [{$M_{axle, max}$}]\begingroup Payload density kg.m\textsuperscript{-3}\nomeqref {2.13}
+		\nompageref{12}
+  \item [{$M_{axle, max}$}]\begingroup Total axle load limit (kg)\nomeqref {2.13}
+		\nompageref{12}
+  \item [{$M_{battery,i}$}]\begingroup Battery mass, each unit\nomeqref {2.24}
+		\nompageref{12}
+  \item [{$M_{eAxle,i}$}]\begingroup Mass of additional propulsion added, each unit\nomeqref {2.23}
+		\nompageref{12}
+  \item [{$M_{emissions}$}]\begingroup Average annual carbon dioxide emission (mg)\nomeqref {2.7}
+		\nompageref{9}
+  \item [{$M_{payload,\ gross}$}]\begingroup Payload carried by conventional combination (kg)\nomeqref {2.12}
+		\nompageref{11}
+  \item [{$M_{payload}$}]\begingroup Average load carried per mission (kg)\nomeqref {2.1}
+		\nompageref{7}
+  \item [{$N_{eAxle,i}$}]\begingroup Number of propelled axles on specified unit\nomeqref {2.21}
+		\nompageref{12}
+  \item [{$N_{first\ owner}$}]\begingroup Number of years of first ownership\nomeqref {2.8}
+		\nompageref{9}
+  \item [{$N_{mission,\ annual}$}]\begingroup Average annual number of trips\nomeqref {2.13}
+		\nompageref{11}
+  \item [{$N_{trips}$}]\begingroup Average annual number of trips\nomeqref {2.1}
+		\nompageref{7}
+  \item [{$N_{units}$}]\begingroup Number of units in the combination\nomeqref {2.18}
+		\nompageref{12}
+  \item [{$P_{batt,i}$}]\begingroup Buffer price, unit i \euro\nomeqref {2.21}
+		\nompageref{12}
+  \item [{$P_{batt/kWh}$}]\begingroup Battery price per kWh\nomeqref {2.22}
+		\nompageref{12}
+  \item [{$P_{dolly}$}]\begingroup Dolly price \euro\nomeqref {2.19}
+		\nompageref{12}
+  \item [{$P_{eAxle,j}$}]\begingroup Price of electrification of a single axle \euro\nomeqref {2.21}
+		\nompageref{12}
+  \item [{$P_{ST,i}$}]\begingroup Powertrain premium (tractor) \euro\nomeqref {2.19}
+		\nompageref{12}
+  \item [{$P_{ST,i}$}]\begingroup Price of semitrailer $\textit{i}$ \euro\nomeqref {2.19}
+		\nompageref{12}
+  \item [{$P_{tractor,\ base}$}]\begingroup Base tractor price (D11) \euro\nomeqref {2.20}
+		\nompageref{12}
+  \item [{$P_{tractor,\ net}$}]\begingroup Net tractor price \euro\nomeqref {2.19}
+		\nompageref{12}
+  \item [{$R_N$}]\begingroup Revenue earned over $N_{first\ owner}$ years \euro\nomeqref {2.10}
+		\nompageref{11}
+  \item [{$R_{annual,\ corrected}$}]\begingroup Corrected revenues \euro\nomeqref {2.16}
+		\nompageref{12}
+  \item [{$R_{mission}$}]\begingroup Revenue earned per mission \euro\nomeqref {2.11}
+		\nompageref{11}
+  \item [{$R_{unit\ freight}$}]\begingroup Revenue earned per unit freight \euro/tonne-km\nomeqref {2.10}
+		\nompageref{11}
+  \item [{$Revenue_{annual}$}]\begingroup Average annual revenue \euro\nomeqref {2.8}
+		\nompageref{9}
+  \item [{$S_{batt}$}]\begingroup Battery size kWh\nomeqref {2.22}
+		\nompageref{12}
+  \item [{$T_{driver}$}]\begingroup Average annual number of driver hours\nomeqref {2.5}
+		\nompageref{8}
+  \item [{$T_{mission}$}]\begingroup Mission time hours\nomeqref {2.27}
+		\nompageref{13}
+  \item [{$V_{fuel}$}]\begingroup Average annual fuel consumption (l)\nomeqref {2.6}
+		\nompageref{8}
+  \item [{$V_{payload,\ max}$}]\begingroup Payload volume cbm\nomeqref {2.13}
+		\nompageref{12}
+
+\end{thenomenclature}
