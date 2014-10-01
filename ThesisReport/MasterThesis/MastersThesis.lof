@@ -8,118 +8,124 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Productivity trends for different combinations compared over years 2015 - 2030\relax }}{14}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Effect of daily number of missions on mission productivity\relax }}{15}{figure.caption.15}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Effect of daily number of missions on mission productivity\relax }}{16}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Description Flowchart \cite {Wahde}\relax }}{18}{figure.caption.16}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Description Flowchart \cite {Wahde}\relax }}{19}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Sample Combination Chromosome Decoding\relax }}{19}{figure.caption.18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sample Combination Chromosome Decoding\relax }}{21}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Model architecture - Overview\relax }}{21}{figure.caption.19}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Model architecture - Overview\relax }}{23}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Mission Route - Malm\"o - G\"oteborg\relax }}{22}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Mission Route - Malm\"o - G\"oteborg\relax }}{24}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Road elevation profile - Hallands\r as\relax }}{22}{figure.caption.21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Road elevation profile - Hallands\r as\relax }}{24}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Vehicle model - Structure\relax }}{26}{figure.caption.22}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Vehicle model - Structure\relax }}{28}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Combination functionality\relax }}{27}{figure.caption.23}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Combination functionality\relax }}{29}{figure.caption.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Heuristic energy management strategy\relax }}{28}{figure.caption.24}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Heuristic energy management strategy\relax }}{30}{figure.caption.25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Optimal operating point of a D16 engine\relax }}{29}{figure.caption.25}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Optimal operating point of a D16 engine\relax }}{31}{figure.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Road gradient vs longitudinal position\relax }}{31}{figure.caption.27}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Elevation peaks and troughs identified\relax }}{32}{figure.caption.27}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time\relax }}{32}{figure.caption.28}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Reference SoC versus Longitudinal Position Index\relax }}{33}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Effect of engine size and GCW on combination startability\relax }}{32}{figure.caption.29}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Optimal variant compared with the conventional combination\relax }}{37}{figure.caption.37}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{33}{figure.caption.30}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Variation of vehicle productivity with increasing GCW (2015)\relax }}{37}{figure.caption.38}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{34}{figure.caption.31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Variation of fixed and variable costs with increasing GCW (2015)\relax }}{38}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Effect of number of propelled axles \& engine size on fuel consumption and mission time\relax }}{34}{figure.caption.32}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Variation of fixed costs with increasing GCW\relax }}{39}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Normalised elevation and corresponding Buffer SoC vs longitudinal position\relax }}{35}{figure.caption.33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Variation of driver and fuel costs with increasing GCW\relax }}{40}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Effect of engine size and number of propelled axles on combination startability\relax }}{36}{figure.caption.35}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Variation of vehicle productivity for optimal solutions for constant GCW (2015-2030)\relax }}{41}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Effect of engine size and number of propelled axles on charge consumption\relax }}{37}{figure.caption.36}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Goldstein Price Function\relax }}{43}{figure.caption.43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Increased propulsion and its influence on mission speed\relax }}{37}{figure.caption.37}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Progress of population best fitness over generations, Goldstein Price Function\relax }}{43}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Effect of number of propelled axles on mission speed\relax }}{38}{figure.caption.38}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Convergence of populations over generations, Goldstein Price Function\relax }}{44}{figure.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Effect of axle load on fuel consumption and mission time\relax }}{38}{figure.caption.39}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Beale's function\relax }}{45}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Effect of engine size and axle load on charge consumption\relax }}{39}{figure.caption.40}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Progress of population best fitness over generations, Beale's function\relax }}{45}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Effect of engine size and axle load on combination startability\relax }}{40}{figure.caption.43}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of populations over generations, Beale's function\relax }}{46}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Effect of machine power rating on fuel consumption and mission time\relax }}{40}{figure.caption.44}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Booth's function\relax }}{47}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Effect of machine power rating on vehicle speed over mission\relax }}{41}{figure.caption.45}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Progress of population best fitness over generations, Booth's function\relax }}{47}{figure.caption.50}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Effect of engine downsizing on fuel consumption and mission time\relax }}{42}{figure.caption.46}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Convergence of populations over generations, Booth's function\relax }}{48}{figure.caption.51}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Effect of engine downsizing on combination startability\relax }}{42}{figure.caption.47}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Noisy slope signal.\relax }}{49}{figure.caption.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Effect of engine downsizing on vehicle speed over mission\relax }}{43}{figure.caption.48}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Slope signal after rolling average.\relax }}{50}{figure.caption.53}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{44}{figure.caption.49}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Slope signal after splinefit.\relax }}{50}{figure.caption.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Vehicle speed over mission - 011-010-01-010, D13, 70t\relax }}{44}{figure.caption.50}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Road gradient vs longitudinal position\relax }}{57}{figure.caption.56}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Vehicle speed over mission, zoomed in at Hallands\r asen - 011-010-01-010, D13, 70t\relax }}{45}{figure.caption.51}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time\relax }}{58}{figure.caption.57}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{46}{figure.caption.52}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Effect of engine size and GCW on combination startability\relax }}{59}{figure.caption.58}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Reduction in fuel consumption compared to the pure ICE combination 011-000-00-000\relax }}{46}{figure.caption.53}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{59}{figure.caption.59}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Mission speed for combinations with D13 engine, 70t GCW and varying levels of propulsion\relax }}{47}{figure.caption.54}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Effect of engine size and GCW on combination speed along the mission\relax }}{60}{figure.caption.60}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Mission speed at Hallands\r asen, zoomed in - with fully predictive SoC management\relax }}{47}{figure.caption.55}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Effect of number of propelled axles \& engine size on fuel consumption and mission time\relax }}{60}{figure.caption.61}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Effect of buffer size and axle propulsion configuration on fuel consumption and mission time with full predictive SoC control\relax }}{48}{figure.caption.56}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Normalised elevation and corresponding Buffer SoC vs longitudinal position\relax }}{61}{figure.caption.62}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Buffer SoC Lower limit vs longitudinal position\relax }}{48}{figure.caption.57}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Effect of engine size and number of propelled axles on combination startability\relax }}{62}{figure.caption.64}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with full and partial predictive SoC control\relax }}{49}{figure.caption.58}
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Effect of engine size and number of propelled axles on charge consumption\relax }}{63}{figure.caption.65}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Instantaneous electrical energy consumption vs longitudinal position\relax }}{49}{figure.caption.59}
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Increased propulsion and its influence on mission speed\relax }}{63}{figure.caption.66}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Optimal variant compared with the conventional combination\relax }}{54}{figure.caption.68}
+\contentsline {figure}{\numberline {9.11}{\ignorespaces Effect of number of propelled axles on mission speed\relax }}{64}{figure.caption.67}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Variation of vehicle productivity with increasing GCW (2015)\relax }}{54}{figure.caption.69}
+\contentsline {figure}{\numberline {9.12}{\ignorespaces Effect of axle load on fuel consumption and mission time\relax }}{64}{figure.caption.68}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Variation of fixed and variable costs with increasing GCW (2015)\relax }}{55}{figure.caption.70}
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Effect of engine size and axle load on charge consumption\relax }}{65}{figure.caption.69}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Variation of fixed costs with increasing GCW\relax }}{56}{figure.caption.71}
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Effect of engine size and axle load on combination startability\relax }}{66}{figure.caption.72}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Variation of driver and fuel costs with increasing GCW\relax }}{57}{figure.caption.72}
+\contentsline {figure}{\numberline {9.15}{\ignorespaces Effect of machine power rating on fuel consumption and mission time\relax }}{66}{figure.caption.73}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Variation of vehicle productivity for optimal solutions for constant GCW (2015-2030)\relax }}{58}{figure.caption.73}
+\contentsline {figure}{\numberline {9.16}{\ignorespaces Effect of machine power rating on vehicle speed over mission\relax }}{67}{figure.caption.74}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Goldstein Price Function\relax }}{60}{figure.caption.74}
+\contentsline {figure}{\numberline {9.17}{\ignorespaces Effect of engine downsizing on fuel consumption and mission time\relax }}{68}{figure.caption.75}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Progress of population best fitness over generations, Goldstein Price Function\relax }}{60}{figure.caption.75}
+\contentsline {figure}{\numberline {9.18}{\ignorespaces Effect of engine downsizing on combination startability\relax }}{68}{figure.caption.76}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Convergence of populations over generations, Goldstein Price Function\relax }}{61}{figure.caption.76}
+\contentsline {figure}{\numberline {9.19}{\ignorespaces Effect of engine downsizing on vehicle speed over mission\relax }}{69}{figure.caption.77}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Beale's function\relax }}{62}{figure.caption.77}
+\contentsline {figure}{\numberline {9.20}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{70}{figure.caption.78}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Progress of population best fitness over generations, Beale's function\relax }}{62}{figure.caption.78}
+\contentsline {figure}{\numberline {9.21}{\ignorespaces Vehicle speed over mission - 011-010-01-010, D13, 70t\relax }}{71}{figure.caption.79}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Convergence of populations over generations, Beale's function\relax }}{63}{figure.caption.79}
+\contentsline {figure}{\numberline {9.22}{\ignorespaces Vehicle speed over mission, zoomed in at Hallands\r asen - 011-010-01-010, D13, 70t\relax }}{71}{figure.caption.80}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Booth's function\relax }}{64}{figure.caption.80}
+\contentsline {figure}{\numberline {9.23}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with predictive SoC control\relax }}{72}{figure.caption.81}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Progress of population best fitness over generations, Booth's function\relax }}{64}{figure.caption.81}
+\contentsline {figure}{\numberline {9.24}{\ignorespaces Reduction in fuel consumption compared to the pure ICE combination 011-000-00-000\relax }}{72}{figure.caption.82}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Convergence of populations over generations, Booth's function\relax }}{65}{figure.caption.82}
+\contentsline {figure}{\numberline {9.25}{\ignorespaces Mission speed for combinations with D13 engine, 70t GCW and varying levels of propulsion\relax }}{73}{figure.caption.83}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Noisy slope signal.\relax }}{66}{figure.caption.83}
+\contentsline {figure}{\numberline {9.26}{\ignorespaces Mission speed at Hallands\r asen, zoomed in - with fully predictive SoC management\relax }}{73}{figure.caption.84}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Slope signal after rolling average.\relax }}{67}{figure.caption.84}
+\contentsline {figure}{\numberline {9.27}{\ignorespaces Effect of buffer size and axle propulsion configuration on fuel consumption and mission time with full predictive SoC control\relax }}{74}{figure.caption.85}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Slope signal after splinefit.\relax }}{67}{figure.caption.85}
+\contentsline {figure}{\numberline {9.28}{\ignorespaces Buffer SoC Lower limit vs longitudinal position\relax }}{75}{figure.caption.86}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9.29}{\ignorespaces Effect of engine size and GCW on fuel consumption and mission time with full and partial predictive SoC control\relax }}{75}{figure.caption.87}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9.30}{\ignorespaces Instantaneous electrical energy consumption vs longitudinal position\relax }}{76}{figure.caption.88}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Battery life-cycles vs Cycle Depth of Discharge\relax }}{77}{figure.caption.89}

@@ -45,17 +45,65 @@
 			\label{GAFlowchart}
 		\end{figure}
 
-	\section{Problem formulation}
-		The previous chapter discusses how vehicle productivity is affected by the vehicle propulsion configuration. The problem at hand can thus be stated as one of identifying the vehicle propulsion configuration that yields the highest profit maximisation or vehicle productivity. Since the parameters that constitute vehicle productivity vary every 5 years, the optimal propulsion configuration can be re-evaluated once in 5 years. Also, since vehicle GCW in a given year drives revenues earned as well as operating costs, a unique optimal configuration can be arrived at for each GCW carried in a year.\\ 
+	\section{The Optimisation Problem}
+		The previous chapter discusses how vehicle productivity is affected by the vehicle propulsion configuration. The problem at hand can thus be stated in words as\\
+		
+		\centerline{''\textit{Find} the vehicle combination that \textit{maximises} mission productivity over the first ownership duration"}. 
 
-		The problem thus stated, a custom evolutionary algorithm to identify these optimal configurations for the years 2015, 2020, 2025 and 2030 for GCWs of 50t, 60t, 70t and 80t is developed with the problem variables being:
-		\begin{itemize}
-			\item Electric motor size
-			\item Electric buffer capacity
-			\item Number and position of axles Live
-		\end{itemize}
+		Mathematically, the optimisation problem can be written as
+		\begin{gather}
+			\textit{Maximise}\  P\\
+			where,\ P =\ f\Bigg(N_{Axle},\ P_{Axle},\ S_{Engine},\ S_{Buffer,i},\ S_{Motor,i}\Bigg)\\
+			subject\ to,\ S_{Engine} \in {[Volvo\ D11,\ Volvo\ D13,\ Volvo\ D16]},\\
+			S_{Buffer,i} \in {[5\ kWh,\ 50\ kWh,\ 91\ kWh]},\\
+			S_{Motor,i} \in {[125\ kW\ \&\ 230\ Nm,\ 173\ kW\ \&\ 400\ Nm,\ 175\ kW\ \&\ 800\ Nm]},\\
+			N_{Axle} \in {[1,8]},\ and\\
+			P_{Axle} \in {[Axles\ [1,3]\ in\ Trailer\ 1,\ Axles\ [1,2]\ in\ Dolly\ ,\ Axles\ [1,3]\ in\ Trailer\ 2]}
+		\end{gather}
 
-		The base configuration, of course, remains the A-Double with a 3-axle tractor, 3-axle semitrailer, 2-axle dolly and 3-axle semitrailer in order. The engine sizes for the tractor considered are the D11, D13 and D16 variants of the Volvo powertrain family. Battery and electric motor variants are as described in Section 2.5\\
+		\subsection{Objective function}
+			The objective function to be \textit{maximised} is the \textit{N-year mission productivity}. The mission productivity is as defined in Section 2.4. Hence, the vehicle combination that yields the \textit{highest mission productivity} is the output of the optimisation.
+
+		\subsection{Design Variables}
+			The mission productivity for a specific driving cycle and payload depends on the vehicle configuration. The base configuration is the standard A-Double with a 3-axle tractor, 3-axle semitrailer, 2-axle dolly and 3-axle semitrailer in order. The main design variables chosen in this problem are:
+
+			\begin{itemize}
+				\item \textbf{Axle Propulsion Configuration} - Additional electric propulsion may be added on one or more of the trailer axles.
+				\item \textbf{Engine Size} - The size of the conventional powertrain in the tractor unit can be varied.
+				\item \textbf{Buffer Size} - Trailing Units that contain one or more propelled axles are assigned an electric buffer / battery. The sizes of the electric buffers on different trailing units may be different.
+				\item \textbf{Motor Size} - Each propelled axle in the trailing units may be powered by an electric motor of varying power and torque rating. All motors in a trailing unit with more than one propelled axle draw power from a \textit{single} buffer in the unit.
+			\end{itemize}
+
+			\begin{table}[ht]
+				\caption{Design Variables - Ranges}
+				\centering
+				\begin{tabular}{c c c}
+				\hline\hline
+				Design Variable & Range & Range Size \\
+				\hline
+				Axle Propulsion Configuration & $\begin{matrix}
+													3\ axles\ on\ Semi-trailer\ 1\\
+													2\ axles\ on\ Dolly\\
+													3\ axles\ on\ Semi-trailer\ 2\\
+												\end{matrix}$ & $2^8$\\
+				Engine Size & Volvo D11, D13 \& D16 & 3\\
+				Buffer Size & 5 kWh, 50 kWh \& 91 kWh & 3\\
+				Motor Size & 125 kW \& 230 Nm, 173 kW \& 400 Nm, 175 kW \& 800 Nm & 3 \\
+				\hline
+				\end{tabular}
+				\label{table:designParameters}
+			\end{table}
+
+			Since the parameters that constitute vehicle productivity vary every 5 years, the optimal propulsion configuration can be re-evaluated once in 5 years. Also, since vehicle GCW in a given year drives revenues earned as well as operating costs, a unique optimal configuration can be arrived at for each GCW carried in a year.\\ 
+
+			The problem thus stated, a custom evolutionary algorithm to identify these optimal configurations for
+			\begin{itemize}
+			\item Over the years 2015, 2020, 2025 and 2030
+			\item For GCWs 50t, 60t, 70t and 80t
+			\end{itemize}
+
+		\subsection{Problem Constraints}
+			There are no vehicle performance parameter constraints imposed on the problem. Instead, the \textit{depth of discharge of each electric buffer} is pre-determined as a function of longitudinal position as explained in Section 4.6.3.
 
 	\section{Genotype description}
 		
@@ -195,6 +243,17 @@
 			\caption{Sample Combination Chromosome Decoding}
 			\label{genomeDecoding}
 		\end{figure}
+
+		\subsection{Guide to pictorial representation}
+		The combination represented in Figure \ref{genomeDecoding} is the standard mode of representation that will be used in the rest of the thesis. A description of the same is provided below with respect to the design variables listed in Section 3.2.2. (See Table \ref{table:designParameters})\\
+
+		\begin{itemize}
+			\item \textbf{Axle Propulsion Configuration} - All \textbf{propelled axles} in the combination are shown in \textbf{green}. All non-propelled axles are unshaded.
+			\item \textbf{Engine Size} - The \textit{three vertically stacked blocks} in the tractor unit represent the engine size. The three blocks indicate the three sizes of the engines considered. \textbf{One block shaded red implies the D11 engine, two blocks, the D13 engine and all blocks, the D16 engine.}
+			\item \textbf{Buffer Size} - The \textit{three horizontal blocks} in each trailing unit's chassis represent the varying sizes of the buffer. \textbf{One block shaded blue implies the smallest buffer, two blocks, the medium sized buffer and all blocks, the largest buffer.}
+			\item \textbf{Motor size} - The \textit{three concentric circles in each wheel} in the combination represent the three varying sizes of the motors possible. \textbf{Only the smallest circle shaded green implies the smallest motor, two of the inner circles shaded represents the medium sized buffer and the complete wheel shaded represents the largest buffer.}
+		\end{itemize}
+
 
 	\section{Crossover, Mutation and Fitness Evaluation}
 		Gene mutation follows the same protocol as in normal binary mutations with the added restriction that mutations can result in only one kind of machine or buffer being valid for a single unit. Crossovers are programmed in manner such that individual \textit{Gene Sets} are considered as the equivalents of single bits. In this manner, the chromosome described in Section 3.3 can be said to contain 12 such bits, 3 for each Unit. A crossover point is stochastically determined and crossover initiate with a predefined probability.\\

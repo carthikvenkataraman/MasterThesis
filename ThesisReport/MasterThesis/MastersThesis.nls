@@ -44,8 +44,14 @@
 		\nompageref{8}
   \item [{$Cost_{variable}$}]\begingroup Total operating cost over $N_{first\ owner}$ years \euro\nomeqref {2.8}
 		\nompageref{9}
+  \item [{$D$}]\begingroup Actual maximum depth of discharge (\%)\nomeqref {10.1}
+		\nompageref{75}
+  \item [{$D_R$}]\begingroup Depth of Discharge for which rated cycle life is determined (\%)\nomeqref {10.1}
+		\nompageref{75}
   \item [{$D_{annual}$}]\begingroup Average total vehicle distance covered (km)\nomeqref {2.1}
 		\nompageref{7}
+  \item [{$L_{batt, D}$}]\begingroup Battery lifetime in number of charge-discharge cycles (cycles)\nomeqref {10.1}
+		\nompageref{75}
   \item [{$M_{axle, max}$}]\begingroup Payload density kg.m\textsuperscript{-3}\nomeqref {2.13}
 		\nompageref{12}
   \item [{$M_{axle, max}$}]\begingroup Total axle load limit (kg)\nomeqref {2.13}
@@ -60,17 +66,21 @@
 		\nompageref{11}
   \item [{$M_{payload}$}]\begingroup Average load carried per mission (kg)\nomeqref {2.1}
 		\nompageref{7}
+  \item [{$N_{ch/disch}$}]\begingroup Number of charge-discharge cycles to maximum depth of discharge (cycles)\nomeqref {10.3}
+		\nompageref{76}
   \item [{$N_{eAxle,i}$}]\begingroup Number of propelled axles on specified unit\nomeqref {2.21}
 		\nompageref{12}
   \item [{$N_{first\ owner}$}]\begingroup Number of years of first ownership\nomeqref {2.8}
 		\nompageref{9}
+  \item [{$N_{mission, daily}$}]\begingroup Number of daily missions\nomeqref {10.3}
+		\nompageref{76}
   \item [{$N_{mission,\ annual}$}]\begingroup Average annual number of trips\nomeqref {2.13}
 		\nompageref{11}
   \item [{$N_{trips}$}]\begingroup Average annual number of trips\nomeqref {2.1}
 		\nompageref{7}
   \item [{$N_{units}$}]\begingroup Number of units in the combination\nomeqref {2.18}
 		\nompageref{12}
-  \item [{$P_{batt,i}$}]\begingroup Buffer price, unit i \euro\nomeqref {2.21}
+  \item [{$P_{batt,i}$}]\begingroup Buffer price over the first-owner lifetime of the tractor, unit i \euro\nomeqref {2.21}
 		\nompageref{12}
   \item [{$P_{batt/kWh}$}]\begingroup Battery price per kWh\nomeqref {2.22}
 		\nompageref{12}
@@ -102,6 +112,8 @@
 		\nompageref{8}
   \item [{$T_{mission}$}]\begingroup Mission time hours\nomeqref {2.27}
 		\nompageref{13}
+  \item [{$u_i$}]\begingroup Equation constants in battery - DoD relation\nomeqref {10.1}
+		\nompageref{75}
   \item [{$V_{fuel}$}]\begingroup Average annual fuel consumption (l)\nomeqref {2.6}
 		\nompageref{8}
   \item [{$V_{payload,\ max}$}]\begingroup Payload volume cbm\nomeqref {2.13}

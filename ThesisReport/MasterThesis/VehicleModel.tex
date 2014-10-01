@@ -271,6 +271,37 @@ The $BAR$ is defined as in equation (\ref{eq:poweravail}) and its value varies b
 BAR = \frac{SoC_{current}-SoC_{min}}{SoC_{max}-SoC_{min}}
 \end{equation}
 
+\pagebreak
+
 \subsection{Predictive Control} \label{sec:predcontrol}
+Knowledge of forthcoming gradients and descents can be valuable in either conserving energy or liberally discharging the batteries so as to optimise the role of electric propulsion. Non-predictive approaches run the risk of draining batteries before an impending gradient thereby leaving no other option but for the engine to support the combination traction during the ascent.\\
+
+The energy management controller is fed a target minimum allowed battery state of charge (SoC) for all the buffers in the combination as a function of the longitudinal position. The target SoC is assigned to each longitudinal position index using a forward looking approach. Crests and troughs in the elevation of the route to be traversed are firstly identified as shown in Figure \ref{elevationPeaksTroughs}. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth, clip=true, trim=45 185 45 208]{figures/VehicleModel/ElevationPeaksAndTroughs.pdf}
+	\end{center}
+	\caption{Elevation peaks and troughs identified}
+	\label{elevationPeaksTroughs}
+\end{figure}
+
+The target minimum allowed SoC is itself allowed to linearly decrease from 0.3 to 0.15 over the full range of the mission. At each trough beginning from the point of origin, the maximum energy that can be recuperated during the immediate forthcoming descent is calculated using the average vehicle target speed and mean gradient over the descent. Hence, the maximum 'minimum allowed SoC' at the given trough is calculated as a sum of the minimum allowed SoC at the forthcoming peak and the energy of recuperation converted to battery SoC.\\
+
+Thereafter, when the minimum allowed SoCs have thus been calculated at both the current trough and peak, the minimum allowed SoC for all points between the peak and the trough are linearly scaled as a function of the elevation difference between the peak and the trough. This thereby combines the knowledge of the maximum possible recuperated energy in the forthcoming descent and thus allows the vehicle to discharge liberally up the gradient. It also preserves enough battery SoC required for the ascent.\\
+
+Furthermore, the target or reference SoC is modeled as a linear function of the elevation as inspired by \cite{Guzzella}. The reference SoC versus longitudinal position thus derived is shown in Figure \ref{referenceSoCVsPosition}.\\
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width=0.75\textwidth, clip=true, trim=45 185 45 208]{figures/VehicleModel/ReferenceSoCVsPosition.pdf}
+	\end{center}
+	\caption{Reference SoC versus Longitudinal Position Index}
+	\label{referenceSoCVsPosition}
+\end{figure}
+
+The availability of buffer SoC just before the beginning of the steep ascent to Hallands\aa s and the consecutive reduction of buffer reference SoC along the ascent can be clearly seen above. The \verb!MATLAB! code for the reference SoC generation can be viewed in Appendix D.\\
+
+\newpage
 
 \end{document}
