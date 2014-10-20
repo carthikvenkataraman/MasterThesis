@@ -4,8 +4,8 @@ clc
 
 folderLocation = '/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalProductivityOutputs/';
 year = 2015;
-gcwCode = 'A';
-baseFileLocation = strcat(folderLocation,int2str(year), '/', gcwCode,'0D16.mat');
+gcwCode = 'C';
+baseFileLocation = strcat(folderLocation,int2str(year), '/', gcwCode,'0.mat');
 optimalFileLocation = strcat(folderLocation,int2str(year), '/', gcwCode,'1.mat');
 
 resultFolderLocation = '/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OptimalCombinationResults/';
@@ -117,4 +117,4 @@ xticklabel_rotate([1:10],45,{'Mission Revenues', 'Fixed Cost (Conv)', 'Fixed Cos
 % lActual=legend('Base', 'Optimal', 'Location', 'SouthEastOutside');
 % set(lActual, 'FontSize', 8);
 set(gcf, 'Position', get(0,'Screensize')); 
-% saveas(gcf, actualResultLocation);
+saveas(gcf, '/home/karthik/Desktop/A0D16vsA1.pdf');

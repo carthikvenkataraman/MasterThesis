@@ -100,7 +100,6 @@ if(size(peakIndices)~=0)
     text(0.1e5,50,'Gothenburg');
     text(1.6e5,175,'Hallandsas');
     text(2.75e5,50,'Malmo');
-    keyboard;
     saveas(gcf,strcat('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/','ElevationProfile','.pdf'));
     
     figure;

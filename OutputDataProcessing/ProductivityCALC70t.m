@@ -27,11 +27,12 @@ USDtoEUR = 0.76;
 
 %% Simulation outputs
 
-C = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/C.mat');
-B(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U0B.mat');
-B(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U1B.mat');
-B(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U2B.mat');
-B(4) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U3B.mat');
+C = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/3/C.mat');
+B(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithPredictiveControl/3/U0B.mat');
+% B(1) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U0B.mat');
+% B(2) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U1B.mat');
+% B(3) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U2B.mat');
+% B(4) = load('/home/karthik/Documents/GitHubRepos/MasterThesis-PropOpt/OutputDataProcessing/OutputsWithOtherGCWs/70/57/U3B.mat');
 
 dMission = C.positionOverMission(end)/1000;    % km
 tMission = size(C.positionOverMission,2)/3600; % hours
@@ -47,8 +48,8 @@ sizeBattery = [batterySizes(2) batterySizes(2) batterySizes(2)];    % SIZE OF BA
 
 %% ------CHANGE BELOW DATA TO CHANGE CONFIGURATION ----------------------------------------------------------------------
 nUnits = 4;
-nEAxles = [3 2 3]; 
-battIndex = [1 1 1];    % Binary - Battery exists - YES or NO - 1 or 0
+nEAxles = [0 0 0]; 
+battIndex = [0 0 0];    % Binary - Battery exists - YES or NO - 1 or 0
 nEUnits = size(nEAxles,2);
 
 %% ------CHANGE BELOW DATA FOR N_FIRST_OWNER AND TRIPS ------------------------------------------------------------------
