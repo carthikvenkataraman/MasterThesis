@@ -7,66 +7,6 @@
 
 	In this chapter, the results of the optimisation shall be presented in four different sub-sections. The first contains a brief listing of the results derived from successive runs of the genetic algorithm lasting 100 generations each. The following subsections are an analysis of the results in different headings.
 
-
-\begin{tikzpicture}[ scale=0.3]
-				% Tractor
-				\draw (7.5,2) rectangle (10,5);
-				\draw (8.25,2) rectangle (9.25,2.5);
-				\draw (8.25,2.5) rectangle (9.25,3);
-				\draw (8.25,3) rectangle (9.25,3.5);
-				\draw (10,2) rectangle (16,3);
-				\draw (8.75,1) circle (0.8);
-				\draw[fill=green!100] (13,1) circle (0.8);
-				\draw[fill=green!100] (15,1) circle (0.8);
-
-				% Semi-trailer
-				\draw (16.5,2) rectangle (19,3);
-				\draw (19,2) rectangle (21.5,3);
-				\draw (21.5,2) rectangle (24,3);
-				% \draw (17,0.5) rectangle (18,1);
-				% \draw (17,1) rectangle (18,1.5);
-				% \draw (17,1.5) rectangle (18,2);
-				\draw (19,1) circle (0.8);
-				\draw (19,1) circle (0.6);
-				\draw (19,1) circle (0.4);
-				\draw (21,1) circle (0.8);
-				\draw (21,1) circle (0.6);
-				\draw (21,1) circle (0.4);	
-				\draw (23,1) circle (0.8);
-				\draw (23,1) circle (0.6);
-				\draw (23,1) circle (0.4);
-
-				% Dolly
-				\draw (25,2) rectangle (26.8,3);
-				\draw (26.8,2) rectangle (28.6,3);
-				\draw (28.6,2) rectangle (30.5,3);
-				% \draw (25.5,0.5) rectangle (26.5,1);
-				% \draw (25.5,1) rectangle (26.5,1.5);
-				% \draw (25.5,1.5) rectangle (26.5,2);
-				\draw (27.5,1) circle (0.8);
-				\draw (27.5,1) circle (0.6);
-				\draw (27.5,1) circle (0.4);	
-				\draw (29.5,1) circle (0.8);
-				\draw (29.5,1) circle (0.6);
-				\draw (29.5,1) circle (0.4);	
-
-				% Semi-trailer
-				\draw (31.5,2) rectangle (34,3);
-				\draw (34,2) rectangle (36.5,3);
-				\draw (36.5,2) rectangle (39,3);
-				% \draw (32,0.5) rectangle (33,1);
-				% \draw (32,1) rectangle (33,1.5);
-				% \draw (32,1.5) rectangle (33,2);
-				\draw (34,1) circle (0.8);
-				\draw (34,1) circle (0.6);
-				\draw (34,1) circle (0.4);
-				\draw (36,1) circle (0.8);
-				\draw (36,1) circle (0.6);
-				\draw (36,1) circle (0.4);	
-				\draw (38,1) circle (0.8);
-				\draw (38,1) circle (0.6);
-				\draw (38,1) circle (0.4);
-			\end{tikzpicture}
 \section{Overview of the results}
 	Optimal axle propulsion configurations are derived for the years specified above. The following tables list the results for varying gross combination weights of 50t, 60t, 70t and 80t for each of the four years in succession.
 
@@ -1178,12 +1118,419 @@
 		\label{2015AC0vsAC1}
 	\end{figure}
 
+\section{Vehicle productivity as a function of added propulsion}
+	The vehicle productivity for a given mission may be viewed as the bargained advantage resulting from investment in additional propulsion. Observing trends in vehicle productivity with increased propulsion indicates the efficacy of investment and also defines justifiable limits for the same.\\
+
+	In the analysis here, six different combinations are considered as defined below:\\
+
+	\begin{table}[H]
+		\caption{Configurations with increasing propulsion}
+		\centering
+		\begin{tabular}{c c}
+		\hline\hline
+		Configuration name & Configuration Description \\  
+		\hline
+		Combination A & \begin{tikzpicture}[ scale=0.3]
+				% Tractor
+				\draw (7.5,2) rectangle (10,5);
+				\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+				\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+				\draw (8.25,3) rectangle (9.25,3.5);
+				\draw (10,2) rectangle (16,3);
+				\draw (8.75,1) circle (0.8);
+				\draw[fill=green!100] (13,1) circle (0.8);
+				\draw[fill=green!100] (15,1) circle (0.8);
+
+				% Semi-trailer
+				\draw (16.5,2) rectangle (19,3);
+				\draw (19,2) rectangle (21.5,3);
+				\draw (21.5,2) rectangle (24,3);
+				% \draw (17,0.5) rectangle (18,1);
+				% \draw (17,1) rectangle (18,1.5);
+				% \draw (17,1.5) rectangle (18,2);
+				\draw (19,1) circle (0.8);
+				\draw (19,1) circle (0.6);
+				\draw (19,1) circle (0.4);
+				\draw (21,1) circle (0.8);
+				\draw (21,1) circle (0.6);
+				\draw (21,1) circle (0.4);	
+				\draw (23,1) circle (0.8);
+				\draw (23,1) circle (0.6);
+				\draw (23,1) circle (0.4);
+
+				% Dolly
+				\draw (25,2) rectangle (26.8,3);
+				\draw (26.8,2) rectangle (28.6,3);
+				\draw (28.6,2) rectangle (30.5,3);
+				% \draw (25.5,0.5) rectangle (26.5,1);
+				% \draw (25.5,1) rectangle (26.5,1.5);
+				% \draw (25.5,1.5) rectangle (26.5,2);
+				\draw (27.5,1) circle (0.8);
+				\draw (27.5,1) circle (0.6);
+				\draw (27.5,1) circle (0.4);	
+				\draw (29.5,1) circle (0.8);
+				\draw (29.5,1) circle (0.6);
+				\draw (29.5,1) circle (0.4);	
+
+				% Semi-trailer
+				\draw (31.5,2) rectangle (34,3);
+				\draw (34,2) rectangle (36.5,3);
+				\draw (36.5,2) rectangle (39,3);
+				% \draw (32,0.5) rectangle (33,1);
+				% \draw (32,1) rectangle (33,1.5);
+				% \draw (32,1.5) rectangle (33,2);
+				\draw (34,1) circle (0.8);
+				\draw (34,1) circle (0.6);
+				\draw (34,1) circle (0.4);
+				\draw (36,1) circle (0.8);
+				\draw (36,1) circle (0.6);
+				\draw (36,1) circle (0.4);	
+				\draw (38,1) circle (0.8);
+				\draw (38,1) circle (0.6);
+				\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+
+		Combination B & \begin{tikzpicture}[ scale=0.3]
+				% Tractor
+				\draw (7.5,2) rectangle (10,5);
+				\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+				\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+				\draw (8.25,3) rectangle (9.25,3.5);
+				\draw (10,2) rectangle (16,3);
+				\draw (8.75,1) circle (0.8);
+				\draw[fill=green!100] (13,1) circle (0.8);
+				\draw[fill=green!100] (15,1) circle (0.8);
+
+				% Semi-trailer
+				\draw[fill=blue] (16.5,2) rectangle (19,3);
+				\draw (19,2) rectangle (21.5,3);
+				\draw (21.5,2) rectangle (24,3);
+				% \draw (17,0.5) rectangle (18,1);
+				% \draw (17,1) rectangle (18,1.5);
+				% \draw (17,1.5) rectangle (18,2);
+				\draw (19,1) circle (0.8);
+				\draw (19,1) circle (0.6);
+				\draw (19,1) circle (0.4);
+				\draw (21,1) circle (0.8);
+				\draw (21,1) circle (0.6);
+				\draw (21,1) circle (0.4);	
+				\draw[fill=green!100] (23,1) circle (0.8);
+				\draw (23,1) circle (0.6);
+				\draw (23,1) circle (0.4);
+
+				% Dolly
+				\draw (25,2) rectangle (26.8,3);
+				\draw (26.8,2) rectangle (28.6,3);
+				\draw (28.6,2) rectangle (30.5,3);
+				% \draw (25.5,0.5) rectangle (26.5,1);
+				% \draw (25.5,1) rectangle (26.5,1.5);
+				% \draw (25.5,1.5) rectangle (26.5,2);
+				\draw (27.5,1) circle (0.8);
+				\draw (27.5,1) circle (0.6);
+				\draw (27.5,1) circle (0.4);	
+				\draw (29.5,1) circle (0.8);
+				\draw (29.5,1) circle (0.6);
+				\draw (29.5,1) circle (0.4);	
+
+				% Semi-trailer
+				\draw (31.5,2) rectangle (34,3);
+				\draw (34,2) rectangle (36.5,3);
+				\draw (36.5,2) rectangle (39,3);
+				% \draw (32,0.5) rectangle (33,1);
+				% \draw (32,1) rectangle (33,1.5);
+				% \draw (32,1.5) rectangle (33,2);
+				\draw (34,1) circle (0.8);
+				\draw (34,1) circle (0.6);
+				\draw (34,1) circle (0.4);
+				\draw (36,1) circle (0.8);
+				\draw (36,1) circle (0.6);
+				\draw (36,1) circle (0.4);	
+				\draw (38,1) circle (0.8);
+				\draw (38,1) circle (0.6);
+				\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+
+		Combination C & \begin{tikzpicture}[ scale=0.3]
+				% Tractor
+				\draw (7.5,2) rectangle (10,5);
+				\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+				\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+				\draw (8.25,3) rectangle (9.25,3.5);
+				\draw (10,2) rectangle (16,3);
+				\draw (8.75,1) circle (0.8);
+				\draw[fill=green!100] (13,1) circle (0.8);
+				\draw[fill=green!100] (15,1) circle (0.8);
+
+				% Semi-trailer
+				\draw[fill=blue] (16.5,2) rectangle (19,3);
+				\draw (19,2) rectangle (21.5,3);
+				\draw (21.5,2) rectangle (24,3);
+				% \draw (17,0.5) rectangle (18,1);
+				% \draw (17,1) rectangle (18,1.5);
+				% \draw (17,1.5) rectangle (18,2);
+				\draw (19,1) circle (0.8);
+				\draw (19,1) circle (0.6);
+				\draw (19,1) circle (0.4);
+				\draw[fill=green!100] (21,1) circle (0.8);
+				\draw (21,1) circle (0.6);
+				\draw (21,1) circle (0.4);	
+				\draw[fill=green!100] (23,1) circle (0.8);
+				\draw (23,1) circle (0.6);
+				\draw (23,1) circle (0.4);
+
+				% Dolly
+				\draw (25,2) rectangle (26.8,3);
+				\draw (26.8,2) rectangle (28.6,3);
+				\draw (28.6,2) rectangle (30.5,3);
+				% \draw (25.5,0.5) rectangle (26.5,1);
+				% \draw (25.5,1) rectangle (26.5,1.5);
+				% \draw (25.5,1.5) rectangle (26.5,2);
+				\draw (27.5,1) circle (0.8);
+				\draw (27.5,1) circle (0.6);
+				\draw (27.5,1) circle (0.4);	
+				\draw (29.5,1) circle (0.8);
+				\draw (29.5,1) circle (0.6);
+				\draw (29.5,1) circle (0.4);	
+
+				% Semi-trailer
+				\draw (31.5,2) rectangle (34,3);
+				\draw (34,2) rectangle (36.5,3);
+				\draw (36.5,2) rectangle (39,3);
+				% \draw (32,0.5) rectangle (33,1);
+				% \draw (32,1) rectangle (33,1.5);
+				% \draw (32,1.5) rectangle (33,2);
+				\draw (34,1) circle (0.8);
+				\draw (34,1) circle (0.6);
+				\draw (34,1) circle (0.4);
+				\draw (36,1) circle (0.8);
+				\draw (36,1) circle (0.6);
+				\draw (36,1) circle (0.4);	
+				\draw (38,1) circle (0.8);
+				\draw (38,1) circle (0.6);
+				\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+		
+		Combination D & \begin{tikzpicture}[ scale=0.3]
+			% Tractor
+			\draw (7.5,2) rectangle (10,5);
+			\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+			\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+			\draw (8.25,3) rectangle (9.25,3.5);
+			\draw (10,2) rectangle (16,3);
+			\draw (8.75,1) circle (0.8);
+			\draw[fill=green!100] (13,1) circle (0.8);
+			\draw[fill=green!100] (15,1) circle (0.8);
+
+			% Semi-trailer
+			\draw (16.5,2) rectangle (19,3);
+			\draw (19,2) rectangle (21.5,3);
+			\draw (21.5,2) rectangle (24,3);
+			% \draw (17,0.5) rectangle (18,1);
+			% \draw (17,1) rectangle (18,1.5);
+			% \draw (17,1.5) rectangle (18,2);
+			\draw (19,1) circle (0.8);
+			\draw (19,1) circle (0.6);
+			\draw (19,1) circle (0.4);
+			\draw (21,1) circle (0.8);
+			\draw (21,1) circle (0.6);
+			\draw (21,1) circle (0.4);	
+			\draw (23,1) circle (0.8);
+			\draw (23,1) circle (0.6);
+			\draw (23,1) circle (0.4);
+
+			% Dolly
+			\draw[fill=blue] (25,2) rectangle (26.8,3);
+			\draw (26.8,2) rectangle (28.6,3);
+			\draw (28.6,2) rectangle (30.5,3);
+			% \draw (25.5,0.5) rectangle (26.5,1);
+			% \draw (25.5,1) rectangle (26.5,1.5);
+			% \draw (25.5,1.5) rectangle (26.5,2);
+			\draw[fill=green!100] (27.5,1) circle (0.8);
+			\draw (27.5,1) circle (0.6);
+			\draw (27.5,1) circle (0.4);	
+			\draw[fill=green!100] (29.5,1) circle (0.8);
+			\draw (29.5,1) circle (0.6);
+			\draw (29.5,1) circle (0.4);	
+
+			% Semi-trailer
+			\draw (31.5,2) rectangle (34,3);
+			\draw (34,2) rectangle (36.5,3);
+			\draw (36.5,2) rectangle (39,3);
+			% \draw (32,0.5) rectangle (33,1);
+			% \draw (32,1) rectangle (33,1.5);
+			% \draw (32,1.5) rectangle (33,2);
+			\draw (34,1) circle (0.8);
+			\draw (34,1) circle (0.6);
+			\draw (34,1) circle (0.4);
+			\draw (36,1) circle (0.8);
+			\draw (36,1) circle (0.6);
+			\draw (36,1) circle (0.4);	
+			\draw (38,1) circle (0.8);
+			\draw (38,1) circle (0.6);
+			\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+
+		Combination E & \begin{tikzpicture}[ scale=0.3]
+			% Tractor
+			\draw (7.5,2) rectangle (10,5);
+			\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+			\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+			\draw (8.25,3) rectangle (9.25,3.5);
+			\draw (10,2) rectangle (16,3);
+			\draw (8.75,1) circle (0.8);
+			\draw[fill=green!100] (13,1) circle (0.8);
+			\draw[fill=green!100] (15,1) circle (0.8);
+
+			% Semi-trailer
+			\draw[fill=blue] (16.5,2) rectangle (19,3);
+			\draw (19,2) rectangle (21.5,3);
+			\draw (21.5,2) rectangle (24,3);
+			% \draw (17,0.5) rectangle (18,1);
+			% \draw (17,1) rectangle (18,1.5);
+			% \draw (17,1.5) rectangle (18,2);
+			\draw[fill=green!100] (19,1) circle (0.8);
+			\draw (19,1) circle (0.6);
+			\draw (19,1) circle (0.4);
+			\draw[fill=green!100] (21,1) circle (0.8);
+			\draw (21,1) circle (0.6);
+			\draw (21,1) circle (0.4);	
+			\draw[fill=green!100] (23,1) circle (0.8);
+			\draw (23,1) circle (0.6);
+			\draw (23,1) circle (0.4);
+
+			% Dolly
+			\draw (25,2) rectangle (26.8,3);
+			\draw (26.8,2) rectangle (28.6,3);
+			\draw (28.6,2) rectangle (30.5,3);
+			% \draw (25.5,0.5) rectangle (26.5,1);
+			% \draw (25.5,1) rectangle (26.5,1.5);
+			% \draw (25.5,1.5) rectangle (26.5,2);
+			\draw (27.5,1) circle (0.8);
+			\draw (27.5,1) circle (0.6);
+			\draw (27.5,1) circle (0.4);	
+			\draw (29.5,1) circle (0.8);
+			\draw (29.5,1) circle (0.6);
+			\draw (29.5,1) circle (0.4);	
+
+			% Semi-trailer
+			\draw (31.5,2) rectangle (34,3);
+			\draw (34,2) rectangle (36.5,3);
+			\draw (36.5,2) rectangle (39,3);
+			% \draw (32,0.5) rectangle (33,1);
+			% \draw (32,1) rectangle (33,1.5);
+			% \draw (32,1.5) rectangle (33,2);
+			\draw (34,1) circle (0.8);
+			\draw (34,1) circle (0.6);
+			\draw (34,1) circle (0.4);
+			\draw (36,1) circle (0.8);
+			\draw (36,1) circle (0.6);
+			\draw (36,1) circle (0.4);	
+			\draw (38,1) circle (0.8);
+			\draw (38,1) circle (0.6);
+			\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+
+		Combination F & \begin{tikzpicture}[ scale=0.3]
+			% Tractor
+			\draw (7.5,2) rectangle (10,5);
+			\draw[fill=red] (8.25,2) rectangle (9.25,2.5);
+			\draw[fill=red] (8.25,2.5) rectangle (9.25,3);
+			\draw (8.25,3) rectangle (9.25,3.5);
+			\draw (10,2) rectangle (16,3);
+			\draw (8.75,1) circle (0.8);
+			\draw[fill=green!100] (13,1) circle (0.8);
+			\draw[fill=green!100] (15,1) circle (0.8);
+
+			% Semi-trailer
+			\draw[fill=blue] (16.5,2) rectangle (19,3);
+			\draw (19,2) rectangle (21.5,3);
+			\draw (21.5,2) rectangle (24,3);
+			% \draw (17,0.5) rectangle (18,1);
+			% \draw (17,1) rectangle (18,1.5);
+			% \draw (17,1.5) rectangle (18,2);
+			\draw[fill=green!100] (19,1) circle (0.8);
+			\draw (19,1) circle (0.6);
+			\draw (19,1) circle (0.4);
+			\draw[fill=green!100] (21,1) circle (0.8);
+			\draw (21,1) circle (0.6);
+			\draw (21,1) circle (0.4);	
+			\draw[fill=green!100] (23,1) circle (0.8);
+			\draw (23,1) circle (0.6);
+			\draw (23,1) circle (0.4);
+
+			% Dolly
+			\draw[fill=blue] (25,2) rectangle (26.8,3);
+			\draw (26.8,2) rectangle (28.6,3);
+			\draw (28.6,2) rectangle (30.5,3);
+			% \draw (25.5,0.5) rectangle (26.5,1);
+			% \draw (25.5,1) rectangle (26.5,1.5);
+			% \draw (25.5,1.5) rectangle (26.5,2);
+			\draw[fill=green!100] (27.5,1) circle (0.8);
+			\draw (27.5,1) circle (0.6);
+			\draw (27.5,1) circle (0.4);	
+			\draw[fill=green!100] (29.5,1) circle (0.8);
+			\draw (29.5,1) circle (0.6);
+			\draw (29.5,1) circle (0.4);	
+
+			% Semi-trailer
+			\draw[fill=blue] (31.5,2) rectangle (34,3);
+			\draw (34,2) rectangle (36.5,3);
+			\draw (36.5,2) rectangle (39,3);
+			% \draw (32,0.5) rectangle (33,1);
+			% \draw (32,1) rectangle (33,1.5);
+			% \draw (32,1.5) rectangle (33,2);
+			\draw[fill=green!100] (34,1) circle (0.8);
+			\draw (34,1) circle (0.6);
+			\draw (34,1) circle (0.4);
+			\draw[fill=green!100] (36,1) circle (0.8);
+			\draw (36,1) circle (0.6);
+			\draw (36,1) circle (0.4);	
+			\draw[fill=green!100] (38,1) circle (0.8);
+			\draw (38,1) circle (0.6);
+			\draw (38,1) circle (0.4);
+		\end{tikzpicture}\\
+
+		\hline
+		\end{tabular}
+		\label{table:CombIncProp}
+	\end{table}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth, clip=true, trim=45 225 45 260]{figures/Results/GCW50.pdf}
+		\caption{Variation of vehicle productivity with increasing propulsion - GCW 50t}
+		\label{prodPropGCW50}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth, clip=true, trim=45 225 45 260]{figures/Results/GCW60.pdf}
+		\caption{Variation of vehicle productivity with increasing propulsion - GCW 60t}
+		\label{prodPropGCW60}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth, clip=true, trim=45 225 45 260]{figures/Results/GCW70.pdf}
+		\caption{Variation of vehicle productivity with increasing propulsion - GCW 70t}
+		\label{prodPropGCW70}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth, clip=true, trim=45 225 45 260]{figures/Results/GCW80.pdf}
+		\caption{Variation of vehicle productivity with increasing propulsion - GCW 80t}
+		\label{prodPropGCW80}
+	\end{figure}
+
+For combinations of GCW 50t, the standard A-double powered by the 16-litre engine continues to be the most productive solution over the years 2015 to 2030. For higher GCWs, Combination B, with one semitrailer axle propelled by the largest motor and deriving power from the smallest buffer proves to be the consistently best-performing combination. While this may seem anomalous compared to the optimal results listed in the earlier section, it must be borne in mind that all these combinations are powered by the D16 engine perforce. Other trends such as increased productivity with increasing GCW and over the years are as expected. Such an analysis is beneficial in determining the maximum level of propulsion that will continue to reap benefits against the investment involved.\\
+
 \section{Optimal Combinations for increasing GCWs}
 	The productivity performance of optimal configurations derived for varying GCWs in each year are observed and documented below. It can be seen in Figure \ref{prodVaryGCW2015} that optimal configurations for increasing GCWs show increased productivity. This implies that with increasing revenues, these optimal configurations bear the added advantage of reduced costs too.\\
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth, clip=true, trim=45 225 125 208]{figures/OptimalCombinationResults/2015/Productivity.pdf}
+		\includegraphics[width=0.5\textwidth, clip=true, trim=45 205 125 208]{figures/OptimalCombinationResults/2015/Productivity.pdf}
 		\caption{Variation of vehicle productivity with increasing GCW (2015)}
 		\label{prodVaryGCW2015}
 	\end{figure}
@@ -1201,7 +1548,7 @@
 			\includegraphics[width=\linewidth, clip=true, trim=45 185 65 208]{figures/OptimalCombinationResults/2020/Variable.pdf}
 			\caption{Driver \& Fuel costs}
 		\end{subfigure}
-		\caption{Variation of fixed and variable costs with increasing GCW (2015)}
+		\caption{Variation of normalised fixed and variable costs with increasing GCW (2015)}
 		\label{fixedVariableCostVaryGCW2015}
 	\end{figure}
 
@@ -1230,7 +1577,7 @@
 			\includegraphics[width=\linewidth, clip=true, trim=45 185 65 210]{figures/OptimalCombinationResults/2030/Fixed.pdf}
 			\caption{Year 2030}
 		\end{subfigure}
-		\caption{Variation of fixed costs with increasing GCW}
+		\caption{Variation of normalised fixed costs with increasing GCW}
 		\label{fixedCostVsGCWOverYears}
 	\end{figure}
 
@@ -1267,7 +1614,7 @@
 
 	\begin{figure}[ht!]
 		\centering
-		\includegraphics[width=0.5\textwidth, clip=true, trim=45 225 125 208]{figures/OptimalCombinationResults/SingleGCW/A/Productivity.pdf}
+		\includegraphics[width=0.5\textwidth, clip=true, trim=45 205 125 208]{figures/OptimalCombinationResults/SingleGCW/A/Productivity.pdf}
 		\caption{Variation of vehicle productivity for optimal solutions for constant GCW (2015-2030)}
 		\label{prodConstGCWOverYears}
 	\end{figure}
